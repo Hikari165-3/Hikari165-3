@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio | Ingeniería de Sistemas & Cloud</title>
+    <title>Portafolio Profesional & Suite Integrada de Ingeniería de Sistemas</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'JetBrains Mono', 'monospace'],
+                    },
                     colors: {
                         darkBg: '#0b0f19',
                         cardBg: '#111827',
@@ -20,308 +31,321 @@
                         accentPurple: '#818cf8',
                         accentGreen: '#34d399',
                         textMuted: '#9ca3af'
-                    },
-                    fontFamily: {
-                        mono: ['Fira Code', 'monospace'],
-                        sans: ['Inter', 'sans-serif']
                     }
                 }
             }
         }
     </script>
     <style>
-        .glow-accent {
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
-        }
-        .console-scrollbar::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        .console-scrollbar::-webkit-scrollbar-track {
-            background: #0d1117;
-        }
-        .console-scrollbar::-webkit-scrollbar-thumb {
-            background: #21262d;
-            border-radius: 4px;
-        }
+        body { font-family: 'Inter', sans-serif; }
+        .code-font { font-family: 'Fira Code', monospace; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #0d1117; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #21262d; border-radius: 4px; }
+        .glow-accent { box-shadow: 0 0 20px rgba(56, 189, 248, 0.15); }
     </style>
 </head>
-<body class="bg-darkBg text-gray-100 font-sans min-h-screen flex flex-col items-center">
+<body class="bg-darkBg text-slate-100 min-h-screen flex flex-col selection:bg-sky-500 selection:text-slate-950">
 
-    <div class="w-full max-w-4xl px-4 py-8 md:py-12">
-        
-        <!-- Main Portfolio / CV Home Section -->
-        <main id="portfolio-home" class="space-y-10 transition-opacity duration-300">
-            
-            <!-- Terminal Header Banner -->
-            <header class="bg-cardBg border border-gray-800 rounded-xl overflow-hidden shadow-xl">
-                <div class="bg-gray-900 px-4 py-3 flex items-center justify-between border-b border-gray-800">
-                    <div class="flex items-center space-x-2">
-                        <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
-                        <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
-                        <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
-                        <span class="font-mono text-xs text-textMuted ml-2">El Alto / La Paz, 📍BOLIVIA</span>
-                    </div>
-                    <span class="font-mono text-xs text-accentGreen">En Busca de oportunidades de Aprendizaje</span>
+    <!-- HEADER NAVBAR -->
+    <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-sky-500/20">
+                    <i class="fa-solid fa-code"></i>
                 </div>
-                <div class="p-6 md:p-8">
-                    <h1 class="text-3xl md:text-4xl font-bold text-white mb-3">MARILUZ HUANCA MAMANI</h1>
-                    <span class="inline-block font-mono text-xs text-accentBlue bg-accentBlue/10 border border-accentBlue/30 px-3 py-1 rounded-full mb-4">
-                        Egresada de la Carrera Ingeniería de Sistemas
-                    </span>
-                    <span class="inline-block font-mono text-xs text-accentBlue bg-accentBlue/10 border border-accentBlue/30 px-3 py-1 rounded-full mb-4">
-                        Técnico Superior "Analista de Sistemas"
-                    </span>
-                    <h1 class="text-2xl md:text-4xl font-bold text-white mb-3">Analista de Datos & Desarrollador | Ingeniería de Sistemas</h1>
-                    <p class="text-textMuted text-base md:text-lg max-w-2xl mb-6">
-                        Desarrolladora en formación con interés en colaborar en proyectos de desarrollo de software, automatización de tareas, análisis de datos y redes.
-                    </p>
-                    <div class="flex flex-wrap gap-3">
-                        <a href="https://github.com/Hikari165-3" target="_blank" rel="noopener" class="font-mono text-sm bg-accentBlue text-gray-950 font-semibold px-4 py-2.5 rounded-lg hover:bg-sky-300 transition-all flex items-center gap-2">
-                            <span>Ver mi GitHub</span> &rarr;
-                        </a>
-                        <!-- a futuro
-                        <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener" class="font-mono text-sm bg-transparent text-gray-200 font-semibold border border-gray-700 px-4 py-2.5 rounded-lg hover:bg-cardHover transition-all">
-                            Mi LinkedIn
-                        </a>-->
-                    </div>
+                <div>
+                    <h1 class="text-base sm:text-lg font-bold tracking-tight text-white flex items-center gap-2">
+                        Mariluz Huanca <span class="hidden sm:inline-block text-xs bg-sky-500/10 text-sky-400 border border-sky-500/30 px-2 py-0.5 rounded-full font-mono">Portafolio & Suite</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">Ingeniería de Sistemas • Análisis de Datos • Desarrollos</p>
                 </div>
-            </header>
+            </div>
 
-            <!-- Section 01: Sobre mí / Curriculum -->
-            <section class="space-y-4">
-                <div class="flex items-center gap-3">
-                    <h2 class="text-xl font-semibold text-white">Perfil Académico</h2>
-                    <div class="flex-grow h-px bg-gray-800"></div>
-                </div>
-                <p class="text-textMuted leading-relaxed">
-                    Egresada de la carrera de Ingeniería de Sistemas con formación en análisis de datos, administración de bases de datos y Business Intelligence. Experiencia práctica en soporte técnico, mantenimiento de infraestructura tecnológica, auditoría de datos, gestión de servidores y desarrollo de soluciones analíticas. Habilidad en consultas estructuradas (SQL), orientada a transformar datos operativos en información estratégica, digitalización de procesos administrativos y gestión segura de la información. <br> Cuento con interés por la tecnología - herramientas nuevas, actualmente tomando cursos para pulir habilidades profesionales.
-                </p>
-            </section>
-
-            <!-- Section 02: Interactive Projects & Code Samples -->
-            <section class="space-y-6">
-                <div class="flex items-center gap-3">
-                    <h2 class="text-xl font-semibold text-white">Proyectos Desarrollados</h2>
-                    <div class="flex-grow h-px bg-gray-800"></div>
-                </div>
-
-                <div class="grid grid-cols-1 gap-5">
-                    
-                    <!-- Card Project 1: Gestor de Tareas -->
-                    <div class="bg-cardBg border border-gray-800 rounded-xl p-6 transition-all hover:border-accentBlue/50 hover:shadow-lg">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
-                            <h3 class="text-lg font-semibold text-white flex items-center gap-2">
-                                <span>Gestor de Tareas y Horas de Estudio</span>
-                                <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-mono">Aplicación</span>
-                            </h3>
-                            <!--<div class="flex items-center gap-3 font-mono text-xs">
-                                <button onclick="openProject('task-tracker')" class="text-accentBlue hover:underline flex items-center gap-1 font-semibold">
-                                    <span>▶ Probar Aplicación</span>
-                                </button>
-                            </div>-->
-                        </div>
-                        <p class="text-textMuted text-sm mb-4">
-                            Una aplicación para registrar materias, controlar el tiempo dedicado a cada tarea y calcular automáticamente el total de horas de estudio invertidas.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4 font-mono text-xs">
-                            <span class="bg-indigo-950/60 text-accentPurple border border-indigo-800/40 px-2.5 py-1 rounded">JavaScript</span>
-                            <span class="bg-indigo-950/60 text-accentPurple border border-indigo-800/40 px-2.5 py-1 rounded">HTML5 / Tailwind</span>
-                        </div>
-                        <div class="pt-2">
-                            <button onclick="openProject('task-tracker')" class="w-full py-2.5 bg-accentBlue/10 hover:bg-accentBlue/20 text-accentBlue border border-accentBlue/30 rounded-lg text-xs font-mono font-semibold transition-all flex items-center justify-center gap-2">
-                                <span>▶ Probar Aplicación</span> &rarr;
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Card Project 2: Mini-Juego Flappy Bird -->
-                    <div class="bg-cardBg border border-gray-800 rounded-xl p-6 transition-all hover:border-accentBlue/50 hover:shadow-lg">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
-                            <h3 class="text-lg font-semibold text-white flex items-center gap-2">
-                                <span>Flappy Bird</span>
-                                <span class="text-xs bg-purple-500/10 text-purple-400 border border-purple-500/20 px-2 py-0.5 rounded font-mono">Videojuego 2D</span>
-                            </h3>
-                            <!--<div class="flex items-center gap-3 font-mono text-xs">
-                                <button onclick="openProject('flappy-bird')" class="text-accentBlue hover:underline flex items-center gap-1 font-semibold">
-                                    <span>▶ Jugar Ahora</span>
-                                </button> 
-                            </div>-->
-                        </div>
-                        <p class="text-textMuted text-sm mb-4">
-                            Juego interactivo 2D, incluye física de gravedad, aceleración, detección de colisiones y registro de puntuación máxima.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4 font-mono text-xs">
-                            <span class="bg-indigo-950/60 text-accentPurple border border-indigo-800/40 px-2.5 py-1 rounded">HTML5 Canvas</span>
-                            <span class="bg-indigo-950/60 text-accentPurple border border-indigo-800/40 px-2.5 py-1 rounded">JavaScript</span>
-                        </div>
-                        <div class="pt-2">
-                            <button onclick="openProject('flappy-bird')" class="w-full py-2.5 bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 border border-purple-500/30 rounded-lg text-xs font-mono font-semibold transition-all flex items-center justify-center gap-2">
-                                <span>🎮 Jugar Mini-Juego Interactivo</span> &rarr;
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Card Project 3: Tienda Tech MVP -->
-                    <div class="bg-cardBg border border-gray-800 rounded-xl p-6 transition-all hover:border-accentBlue/50 hover:shadow-lg">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
-                            <h3 class="text-lg font-semibold text-white flex items-center gap-2">
-                                <span>Tienda Tech & E-Commerce MVP </span>
-                                <span class="text-xs bg-sky-500/10 text-sky-400 border border-sky-500/20 px-2 py-0.5 rounded font-mono">E-Commerce App</span>
-                            </h3>
-                            <!--<div class="flex items-center gap-3 font-mono text-xs">
-                                <button onclick="openProject('tech-shop')" class="text-accentBlue hover:underline flex items-center gap-1 font-semibold">
-                                    <span>▶ Abrir Tienda</span>
-                                </button>
-                            </div>-->
-                        </div>
-                        <p class="text-textMuted text-sm mb-4">
-                            Prototipo interactivo de tienda online de productos de tecnología. El cuál incluye catálogo dinámico, filtro por categoría, productos adquiridos en el carrito de compras, emisión de Factura digital.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4 font-mono text-xs">
-                            <span class="bg-indigo-950/60 text-accentPurple border border-indigo-800/40 px-2.5 py-1 rounded">UI Responsive</span>
-                            <span class="bg-indigo-950/60 text-accentPurple border border-indigo-800/40 px-2.5 py-1 rounded">JavaScript DOM</span>
-                        </div>
-                        <div class="pt-2">
-                            <button onclick="openProject('tech-shop')" class="w-full py-2.5 bg-sky-500/10 hover:bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-lg text-xs font-mono font-semibold transition-all flex items-center justify-center gap-2">
-                                <span>🛒 Probar Tienda </span> &rarr;
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Card Project 4: Python Script 
-                    <div class="bg-cardBg border border-gray-800 rounded-xl p-6 transition-all hover:border-accentBlue/50 hover:shadow-lg">
-                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
-                            <h3 class="text-lg font-semibold text-white flex items-center gap-2">
-                                <span>Script en Python para Limpieza de Datos CSV</span>
-                                <span class="text-xs bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded font-mono">Scripting Python</span>
-                            </h3>
-                        </div>
-                        <p class="text-textMuted text-sm mb-4">
-                            Script automatizado que lee archivos de texto o CSV con notas universitarias, elimina valores duplicados y genera un reporte resumido.
-                        </p>
-                        <div class="flex flex-wrap gap-2 font-mono text-xs">
-                            <span class="bg-indigo-950/60 text-accentPurple border border-indigo-800/40 px-2.5 py-1 rounded">Python 3</span>
-                            <span class="bg-indigo-950/60 text-accentPurple border border-indigo-800/40 px-2.5 py-1 rounded">Manejo de Archivos</span>
-                        </div>
-                    </div>-->
-
-                </div>
-            </section>
-
-            <!-- Section 03: Tech Stack -->
-            <section class="space-y-4">
-                <div class="flex items-center gap-3">
-                    <h2 class="text-xl font-semibold text-white">Habilidades</h2>
-                    <div class="flex-grow h-px bg-gray-800"></div>
-                </div>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
-                    <div class="bg-cardBg border border-gray-800 p-4 rounded-lg">
-                        <div class="text-accentBlue font-bold mb-1">Lenguajes</div>
-                        <div class="text-textMuted">Python, JavaScript, C++, HTML/CSS, PHP, Java</div>
-                    </div>
-                    <div class="bg-cardBg border border-gray-800 p-4 rounded-lg">
-                        <div class="text-accentBlue font-bold mb-1">Bases de Datos</div>
-                        <div class="text-textMuted">MySQL, SQLite, PostgreSQL, Oracle PL/SQL, SQL Server</div>
-                    </div>
-                    <div class="bg-cardBg border border-gray-800 p-4 rounded-lg">
-                        <div class="text-accentBlue font-bold mb-1">Análisis de Datos</div>
-                        <div class="text-textMuted">Power BI, Excel</div>
-                    </div>
-                    <div class="bg-cardBg border border-gray-800 p-4 rounded-lg">
-                        <div class="text-accentBlue font-bold mb-1">Monitoreo Web</div>
-                        <div class="text-textMuted">Zabbix, Nagios, Site24/7</div>
-                    </div>
-                    <div class="bg-cardBg border border-gray-800 p-4 rounded-lg">
-                        <div class="text-accentBlue font-bold mb-1">Herramientas</div>
-                        <div class="text-textMuted">Git, GitHub, VS Code, Linux, Windows, Bash, Docker, Postman</div>
-                    </div>
-                    <div class="bg-cardBg border border-gray-800 p-4 rounded-lg">
-                        <div class="text-accentBlue font-bold mb-1">Herramientas IA</div>
-                        <div class="text-textMuted">Notebook LM, Gemini</div>
-                    </div>
-                </div>
-            </section>
-
-            <footer class="pt-8 border-t border-gray-800 text-center font-mono text-xs text-textMuted">
-                <p>Portafolio web 001 - 2026</p>
-            </footer>
-
-        </main>
-
-        <!-- Interactive Project Detail View (Con botón claro para volver al CV) -->
-        <div id="project-detail" class="hidden space-y-6">
-            
-            <!-- Navigation Back Bar (Botón principal para volver al CV) -->
-            <nav class="bg-cardBg border border-gray-800 rounded-xl p-4 flex items-center justify-between shadow-lg sticky top-4 z-50 backdrop-blur-md bg-opacity-90">
-                <button onclick="closeProject()" class="font-mono text-xs font-semibold text-accentBlue hover:text-white bg-gray-900 border border-accentBlue/40 hover:bg-accentBlue px-4 py-2.5 rounded-lg transition-all flex items-center gap-2">
-                    <span>&larr; Volver al Portafolio Principal</span>
+            <!-- DESKTOP NAVIGATION TABS -->
+            <nav class="hidden md:flex space-x-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-mono">
+                <button onclick="switchMainTab('profile')" id="nav-profile" class="nav-btn px-3.5 py-2 rounded-lg transition-all text-sky-400 bg-slate-800 shadow">
+                    <i class="fa-solid fa-user-astronaut mr-1.5"></i>Perfil & CV
                 </button>
-                <!--
-                <div class="font-mono text-xs text-textMuted flex items-center gap-3">
-                    <button onclick="openGithubCode()" class="hidden sm:inline-flex items-center gap-1.5 text-xs bg-gray-800 hover:bg-gray-700 text-gray-200 px-3 py-1.5 rounded-lg border border-gray-700 transition-all">
-                        <span>📂 Ver Código Repo</span>
-                    </button>
-                    <span id="active-filename" class="text-accentGreen">gestor_tareas.js</span>
-                </div>-->
-
+                <button onclick="switchMainTab('apps')" id="nav-apps" class="nav-btn px-3.5 py-2 rounded-lg transition-all text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-cubes mr-1.5"></i>Apps & Juegos
+                </button>
+                <button onclick="switchMainTab('networks')" id="nav-networks" class="nav-btn px-3.5 py-2 rounded-lg transition-all text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-network-wired mr-1.5"></i>Redes
+                </button>
+                <button onclick="switchMainTab('cybersec')" id="nav-cybersec" class="nav-btn px-3.5 py-2 rounded-lg transition-all text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-shield-halved mr-1.5"></i>Seguridad
+                </button>
+                <button onclick="switchMainTab('datascience')" id="nav-datascience" class="nav-btn px-3.5 py-2 rounded-lg transition-all text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-chart-scatter mr-1.5"></i>Datos & ML
+                </button>
             </nav>
 
-            <!-- Project 1: Task Tracker View -->
-            <div id="view-task-tracker" class="space-y-6 hidden">
-                <div class="bg-cardBg border border-gray-800 rounded-xl p-6 space-y-6 shadow-xl">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-gray-800 pb-4">
-                        <div>
-                            <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-                                <span>Gestor de Tareas & Horas de Estudio</span>
-                                <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-mono">Aplicación</span>
-                            </h2>
-                            <p class="text-textMuted text-xs mt-1">Registra materias, asigna las horas y analiza tu productividad total acumulada.</p>
-                        </div>
-                        <!--
-                        <button onclick="openGithubCode('task-tracker')" class="font-mono text-xs bg-gray-900 text-accentBlue border border-accentBlue/30 hover:bg-accentBlue/10 px-3 py-2 rounded-lg transition-all flex items-center gap-2">
-                            <span>💻 Ver Código en GitHub</span>
-                        </button>-->
+            <div class="flex items-center gap-2">
+                <a href="https://github.com/Hikari165-3" target="_blank" rel="noopener" class="text-xs font-mono bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+
+        <!-- MOBILE NAVIGATION TABS -->
+        <div class="md:hidden flex border-t border-slate-800 bg-slate-950 px-2 py-2 overflow-x-auto space-x-1.5 text-xs font-mono">
+            <button onclick="switchMainTab('profile')" id="m-nav-profile" class="m-nav-btn flex-1 min-w-[90px] px-2.5 py-1.5 rounded-lg text-sky-400 bg-slate-800 text-center whitespace-nowrap">Perfil</button>
+            <button onclick="switchMainTab('apps')" id="m-nav-apps" class="m-nav-btn flex-1 min-w-[90px] px-2.5 py-1.5 rounded-lg text-slate-400 text-center whitespace-nowrap">Apps/Juegos</button>
+            <button onclick="switchMainTab('networks')" id="m-nav-networks" class="m-nav-btn flex-1 min-w-[80px] px-2.5 py-1.5 rounded-lg text-slate-400 text-center whitespace-nowrap">Redes</button>
+            <button onclick="switchMainTab('cybersec')" id="m-nav-cybersec" class="m-nav-btn flex-1 min-w-[90px] px-2.5 py-1.5 rounded-lg text-slate-400 text-center whitespace-nowrap">Seguridad</button>
+            <button onclick="switchMainTab('datascience')" id="m-nav-datascience" class="m-nav-btn flex-1 min-w-[80px] px-2.5 py-1.5 rounded-lg text-slate-400 text-center whitespace-nowrap">Datos</button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-8">
+
+        <!-- ========================================== -->
+        <!-- SECTION 1: PROFILE & CV HOME               -->
+        <!-- ========================================== -->
+        <section id="tab-profile" class="space-y-8">
+            <!-- Terminal Header Banner -->
+            <div class="bg-cardBg border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
+                <div class="bg-slate-900 px-4 py-3 flex items-center justify-between border-b border-slate-800">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+                        <span class="font-mono text-xs text-textMuted ml-2">El Alto / La Paz, 📍 BOLIVIA</span>
+                    </div>
+                    <span class="font-mono text-xs text-accentGreen flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Buscando Oportunidades
+                    </span>
+                </div>
+                <div class="p-6 md:p-8 space-y-4">
+                    <div>
+                        <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">MARILUZ HUANCA MAMANI</h1>
+                        <p class="text-sky-400 font-mono text-sm mt-1">Egresada de Ingeniería de Sistemas • Técnico Superior "Analista de Sistemas"</p>
                     </div>
 
-                    <!-- Metrics Dashboard Summary -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
-                        <div class="bg-gray-900/80 border border-gray-800 p-4 rounded-xl flex flex-col justify-between">
-                            <span class="text-textMuted">Horas Invertidas</span>
-                            <span id="total-hours-badge" class="text-2xl font-bold text-accentBlue mt-1">0 hrs</span>
+                    <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
+                        <span class="bg-sky-500/10 text-sky-400 border border-sky-500/30 px-3 py-1 rounded-full">Analista de Datos</span>
+                        <span class="bg-indigo-500/10 text-indigo-400 border border-indigo-500/30 px-3 py-1 rounded-full">Desarrolladora Software</span>
+                        <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full">Administración DB</span>
+                    </div>
+
+                    <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-3xl">
+                        Desarrolladora en formación con interés en colaborar en proyectos de desarrollo de software, automatización de tareas, análisis de datos y administración de redes. Experiencia práctica en mantenimiento de infraestructura tecnológica, auditoría de datos, gestión de servidores y soluciones analíticas.
+                    </p>
+
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <a href="https://github.com/Hikari165-3" target="_blank" rel="noopener" class="font-mono text-xs bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-2 shadow-lg shadow-sky-500/20">
+                            <span><i class="fa-brands fa-github text-sm"></i> Explorar mi GitHub</span> &rarr;
+                        </a>
+                        <button onclick="switchMainTab('apps')" class="font-mono text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-4 py-2.5 rounded-xl transition flex items-center gap-2">
+                            <span><i class="fa-solid fa-gamepad"></i> Probar Proyectos Interactivos</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Summary & Skills Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Academic Profile -->
+                <div class="lg:col-span-6 bg-cardBg border border-slate-800 rounded-2xl p-6 space-y-4">
+                    <h2 class="text-lg font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
+                        <i class="fa-solid fa-graduation-cap text-sky-400"></i> Perfil Académico & Enfoque
+                    </h2>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                        Formación integral orientada al análisis de datos, Business Intelligence y desarrollo de sistemas. Hábil en la formulación de consultas estructuradas en SQL para transformar datos operativos en información estratégica. Cuento con especial interés por el aprendizaje continuo de nuevas herramientas tecnológicas, cloud y ciberseguridad.
+                    </p>
+                    <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-2 text-xs font-mono">
+                        <div class="flex justify-between text-slate-400 border-b border-slate-800/80 pb-1.5">
+                            <span>Carrera:</span> <span class="text-white">Ingeniería de Sistemas</span>
                         </div>
-                        <div class="bg-gray-900/80 border border-gray-800 p-4 rounded-xl flex flex-col justify-between">
-                            <span class="text-textMuted">Tareas Registradas</span>
+                        <div class="flex justify-between text-slate-400 border-b border-slate-800/80 pb-1.5">
+                            <span>Título Técnico:</span> <span class="text-white">Analista de Sistemas</span>
+                        </div>
+                        <div class="flex justify-between text-slate-400">
+                            <span>Áreas de Interés:</span> <span class="text-sky-400">Data Science, Redes, Cloud & Web</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Matrix -->
+                <div class="lg:col-span-6 bg-cardBg border border-slate-800 rounded-2xl p-6 space-y-4">
+                    <h2 class="text-lg font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
+                        <i class="fa-solid fa-layer-group text-sky-400"></i> Habilidades Técnicas
+                    </h2>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono text-xs">
+                        <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
+                            <div class="text-sky-400 font-bold mb-1">Sistemas Operativos</div>
+                            <div class="text-slate-400 text-[11px]">Windows Server, Linux (Kali, Ubuntu, Red Hat, CentOS, Debian)</div>
+                        </div>
+                        <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
+                            <div class="text-sky-400 font-bold mb-1">Herramientas de Seguridad cibernetica</div>
+                            <div class="text-slate-400 text-[11px]">Metasploit, Nmap, Nikto, Zabbix, Nuclei, Wireshark.</div>
+                        </div>
+                        <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
+                            <div class="text-sky-400 font-bold mb-1">Herramientas</div>
+                            <div class="text-slate-400 text-[11px]">Bash/Shell Scripting, SSH, VS Code, Docker, Git, GitHub, Postman, Nitro pdf, Sistema de Información Geográfica (SIG), PostGIS.</div>
+                        </div>
+                        <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
+                            <div class="text-sky-400 font-bold mb-1">Monitoreo</div>
+                            <div class="text-slate-400 text-[11px]">Zabbix, Nagios, Site24/7</div>
+                        </div>
+                        <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
+                            <div class="text-sky-400 font-bold mb-1">Lenguajes</div>
+                            <div class="text-slate-400 text-[11px]">Java, JavaScript, C++, Python, PHP, Goot(videojuegos).</div>
+                        </div>
+                        <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
+                            <div class="text-sky-400 font-bold mb-1">Lenguajes de Marcado y Estilo</div>
+                            <div class="text-slate-400 text-[11px]">HTML, CSS, Markdown, XML, SVG (Scalable Vector Graphics).</div>
+                        </div>
+                        <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
+                            <div class="text-sky-400 font-bold mb-1">Framework</div>
+                            <div class="text-slate-400 text-[11px]">Django, Laravel, Bootstrap.</div>
+                        </div>
+                        <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
+                            <div class="text-sky-400 font-bold mb-1">Bases de Datos</div>
+                            <div class="text-slate-400 text-[11px]">PostgreSQL, MySQL, MariaDB, SQLite, Oracle (PL/SQL), SQL Server.</div>
+                        </div>
+                        <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
+                            <div class="text-sky-400 font-bold mb-1">Análisis de Datos</div>
+                            <div class="text-slate-400 text-[11px]">Power BI, Excel Avanzado, Scikit-Learn</div>
+                        </div>                       
+                        <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
+                            <div class="text-sky-400 font-bold mb-1">Herramientas IA</div>
+                            <div class="text-slate-400 text-[11px]">NotebookLM, Gemini, Prompting</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECTION 2: INTERACTIVE APPS & GAMES        -->
+        <!-- ========================================== -->
+        <section id="tab-apps" class="space-y-6 hidden">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900 p-6 rounded-2xl border border-slate-800">
+                <div>
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-laptop-code text-sky-400"></i> Aplicaciones Web & Videojuegos Interactivos
+                    </h2>
+                    <p class="text-sm text-slate-400 mt-1">Selecciona una de las aplicaciones desarrolladas para probar su funcionalidad directamente en pantalla.</p>
+                </div>
+                <div class="flex gap-2">
+                    <span class="text-xs font-mono bg-sky-500/10 text-sky-400 border border-sky-500/30 px-3 py-1.5 rounded-lg">Vanilla JS & DOM Apps</span>
+                </div>
+            </div>
+
+            <!-- Apps Selector Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Task Tracker Card -->
+                <div class="bg-cardBg border border-slate-800 rounded-2xl p-6 flex flex-col justify-between space-y-4 hover:border-sky-500/50 transition-all shadow-xl">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-0.5 rounded-md">Productividad</span>
+                            <i class="fa-solid fa-list-check text-emerald-400 text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Gestor de Tareas & Estudio</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Registra materias, controla tiempos dedicados y calcula dinámicamente las horas totales acumuladas.
+                        </p>
+                    </div>
+                    <button onclick="openAppSubView('task-tracker')" class="w-full py-2.5 bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 border border-sky-500/30 rounded-xl font-mono text-xs font-semibold transition flex items-center justify-center gap-2">
+                        <span>▶ Abrir Aplicación</span> &rarr;
+                    </button>
+                </div>
+
+                <!-- Tech Store MVP Card -->
+                <div class="bg-cardBg border border-slate-800 rounded-2xl p-6 flex flex-col justify-between space-y-4 hover:border-sky-500/50 transition-all shadow-xl">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono bg-sky-500/10 text-sky-400 border border-sky-500/20 px-2.5 py-0.5 rounded-md">E-Commerce</span>
+                            <i class="fa-solid fa-cart-shopping text-sky-400 text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Tienda Tech MVP</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Catálogo interactivo con carrito de compras dinámico y generación de Factura Electrónica en tiempo real.
+                        </p>
+                    </div>
+                    <button onclick="openAppSubView('tech-shop')" class="w-full py-2.5 bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 border border-sky-500/30 rounded-xl font-mono text-xs font-semibold transition flex items-center justify-center gap-2">
+                        <span>🛒 Probar Tienda</span> &rarr;
+                    </button>
+                </div>
+
+                <!-- Flappy Bird Game Card -->
+                <div class="bg-cardBg border border-slate-800 rounded-2xl p-6 flex flex-col justify-between space-y-4 hover:border-sky-500/50 transition-all shadow-xl">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono bg-purple-500/10 text-purple-400 border border-purple-500/20 px-2.5 py-0.5 rounded-md">Juego Canvas 2D</span>
+                            <i class="fa-solid fa-gamepad text-purple-400 text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Flappy Bird Arcade</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Física de física de gravedad 2D, aceleración, contador de récords y optimización táctil/teclado.
+                        </p>
+                    </div>
+                    <button onclick="openAppSubView('flappy-bird')" class="w-full py-2.5 bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 border border-purple-500/30 rounded-xl font-mono text-xs font-semibold transition flex items-center justify-center gap-2">
+                        <span>🎮 Jugar Ahora</span> &rarr;
+                    </button>
+                </div>
+            </div>
+
+            <!-- APP SUB-VIEWS CONTAINER -->
+            <div id="apps-subview-container" class="space-y-6 pt-2">
+                
+                <!-- SUB-VIEW 1: TASK TRACKER -->
+                <div id="subview-task-tracker" class="bg-cardBg border border-slate-800 rounded-2xl p-6 space-y-6 shadow-xl">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-clipboard-list text-sky-400"></i> Gestor de Tareas & Horas de Estudio
+                            </h3>
+                            <p class="text-slate-400 text-xs mt-1">Registra materias, asigna horas dedicadas y analiza tu productividad acumulada.</p>
+                        </div>
+                        <button onclick="closeAppSubViews()" class="font-mono text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700 transition">
+                            ✕ Cerrar Vista
+                        </button>
+                    </div>
+
+                    <!-- Dashboard Metrics -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
+                        <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl flex flex-col justify-between">
+                            <span class="text-slate-400">Horas Invertidas Totales</span>
+                            <span id="total-hours-badge" class="text-2xl font-bold text-sky-400 mt-1">0 hrs</span>
+                        </div>
+                        <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl flex flex-col justify-between">
+                            <span class="text-slate-400">Tareas Registradas</span>
                             <span id="total-tasks-badge" class="text-2xl font-bold text-emerald-400 mt-1">0</span>
                         </div>
-                        <div class="bg-gray-900/80 border border-gray-800 p-4 rounded-xl flex flex-col justify-between">
-                            <span class="text-textMuted">Materia Principal</span>
+                        <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl flex flex-col justify-between">
+                            <span class="text-slate-400">Materia Con Mayor Dedicación</span>
                             <span id="top-subject-badge" class="text-lg font-bold text-purple-400 mt-1">Ninguna</span>
                         </div>
                     </div>
 
-                    <!-- Task Input Form -->
-                    <div class="bg-gray-900 border border-gray-800 p-4 md:p-5 rounded-xl space-y-4">
-                        <h3 class="text-sm font-semibold text-white font-mono flex items-center gap-2">
+                    <!-- Input Form -->
+                    <div class="bg-slate-950 border border-slate-800 p-4 sm:p-5 rounded-xl space-y-4">
+                        <h4 class="text-xs font-semibold text-white font-mono flex items-center gap-2">
                             <span>➕ Agregar Nueva Tarea / Sesión de Estudio</span>
-                        </h3>
+                        </h4>
                         <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
                             <div class="md:col-span-5">
-                                <label class="block text-xs font-mono text-textMuted mb-1">Nombre de la Tarea</label>
-                                <input type="text" id="task-title" placeholder="Ej: Resolver guía de ejercicios de Álgebra" class="w-full bg-cardBg border border-gray-700 focus:border-accentBlue focus:outline-none rounded-lg px-3 py-2 text-xs text-white">
+                                <label class="block text-xs font-mono text-slate-400 mb-1">Nombre de la Tarea</label>
+                                <input type="text" id="task-title" placeholder="Ej. Resolver ejercicios de Álgebra Lineal" class="w-full bg-slate-900 border border-slate-700 focus:border-sky-500 focus:outline-none rounded-xl px-3 py-2 text-xs text-white">
                             </div>
                             <div class="md:col-span-4">
-                                <label class="block text-xs font-mono text-textMuted mb-1">Materia / Asignatura</label>
-                                <input type="text" id="task-subject" placeholder="Ej: Sistemas Operativos" class="w-full bg-cardBg border border-gray-700 focus:border-accentBlue focus:outline-none rounded-lg px-3 py-2 text-xs text-white">
+                                <label class="block text-xs font-mono text-slate-400 mb-1">Materia / Asignatura</label>
+                                <input type="text" id="task-subject" placeholder="Ej. Sistemas Operativos" class="w-full bg-slate-900 border border-slate-700 focus:border-sky-500 focus:outline-none rounded-xl px-3 py-2 text-xs text-white">
                             </div>
                             <div class="md:col-span-3">
-                                <label class="block text-xs font-mono text-textMuted mb-1">Horas Dedicadas</label>
-                                <input type="number" step="0.5" min="0.5" id="task-hours" placeholder="2.5" class="w-full bg-cardBg border border-gray-700 focus:border-accentBlue focus:outline-none rounded-lg px-3 py-2 text-xs text-white">
+                                <label class="block text-xs font-mono text-slate-400 mb-1">Horas Dedicadas</label>
+                                <input type="number" step="0.5" min="0.5" id="task-hours" placeholder="2.5" class="w-full bg-slate-900 border border-slate-700 focus:border-sky-500 focus:outline-none rounded-xl px-3 py-2 text-xs text-white">
                             </div>
                         </div>
                         <div class="flex justify-end pt-1">
-                            <button onclick="addTask()" class="bg-accentBlue text-gray-950 font-mono text-xs font-bold px-5 py-2.5 rounded-lg hover:bg-sky-300 transition-all flex items-center gap-2 shadow-md">
-                                <span>+ Registrar Tarea</span>
+                            <button onclick="addTask()" class="bg-sky-500 text-slate-950 font-mono text-xs font-bold px-5 py-2.5 rounded-xl hover:bg-sky-400 transition shadow-md">
+                                + Registrar Tarea
                             </button>
                         </div>
                     </div>
@@ -329,168 +353,499 @@
                     <!-- Tasks List Area -->
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
-                            <h3 class="text-sm font-semibold text-white font-mono">Lista de Tareas Registradas</h3>
-                            <button onclick="clearTasks()" class="text-xs font-mono text-red-400 hover:text-red-300 hover:underline">Limpiar Todo</button>
+                            <h4 class="text-xs font-semibold text-white font-mono">Lista de Tareas Registradas</h4>
+                            <button onclick="clearTasks()" class="text-xs font-mono text-rose-400 hover:underline">Limpiar Todo</button>
                         </div>
-                        <div id="tasks-container" class="space-y-2 max-h-80 overflow-y-auto console-scrollbar">
-                            <!-- Loaded dynamically by JS -->
+                        <div id="tasks-container" class="space-y-2 max-h-80 overflow-y-auto custom-scrollbar">
+                            <!-- JS loaded dynamically -->
                         </div>
                     </div>
                 </div>
 
-                <div class="pt-2 text-center">
-                    <button onclick="closeProject()" class="font-mono text-xs text-gray-300 hover:text-white bg-cardBg border border-gray-700 hover:border-accentBlue px-6 py-3 rounded-lg transition-all inline-flex items-center gap-2">
-                        <span>&larr; Volver Portafolio Principal</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Project 2: Flappy Bird Game View -->
-            <div id="view-flappy-bird" class="space-y-6 hidden">
-                <div class="bg-cardBg border border-gray-800 rounded-xl p-6 space-y-4 shadow-xl">
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-gray-800 pb-3">
+                <!-- SUB-VIEW 2: TECH STORE MVP -->
+                <div id="subview-tech-shop" class="bg-cardBg border border-slate-800 rounded-2xl p-6 space-y-6 shadow-xl hidden">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
                         <div>
-                            <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-                                <span>Flappy Bird</span>
-                                <span class="text-xs bg-purple-500/10 text-purple-400 border border-purple-500/20 px-2 py-0.5 rounded font-mono">Mini-Juego</span>
-                            </h2>
-                            <p class="text-textMuted text-xs mt-1">Juego para distraerte en tus tiempos de ocio. Toca el botón 🚀 SALTAR, presiona ESPACIO, Flecha Arriba o haz clic sobre la pantalla.</p>
-                        </div>
-                        <div class="flex items-center gap-3 font-mono text-xs">
-                            <!--<button onclick="openGithubCode('flappy-bird')" class="font-mono text-xs bg-gray-900 text-purple-300 border border-purple-500/30 hover:bg-purple-500/10 px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5">
-                                <span>💻 Ver Repo</span>
-                            </button>-->
-                            <span class="bg-gray-900 border border-gray-700 px-3 py-1.5 rounded-lg text-emerald-400 font-bold">Récord: <span id="game-highscore">0</span></span>
-                        </div>
-                    </div>
-
-                    <!-- Canvas Container with Responsive Touch Controls -->
-                    <div class="flex flex-col items-center justify-center bg-gray-950 rounded-xl p-4 border border-gray-800 select-none">
-                        <canvas id="flappy-canvas" width="360" height="460" class="border border-gray-800 rounded-lg shadow-2xl bg-slate-900 cursor-pointer max-w-full touch-none"></canvas>
-                        
-                        <!-- Control Buttons (Designed for Touch & Easy Desktop Play) -->
-                        <div class="flex flex-wrap items-center justify-center gap-3 mt-4 w-full max-w-xs">
-                            <button id="game-jump-btn" onclick="triggerFlappyJump()" class="flex-1 font-mono text-sm bg-accentBlue hover:bg-sky-300 text-gray-950 font-bold py-3.5 px-4 rounded-xl shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2">
-                                <span>🚀 SALTAR</span>
-                            </button>
-                            <button id="game-start-btn" onclick="startFlappyGame()" class="font-mono text-xs bg-emerald-500 text-gray-950 font-bold px-4 py-3.5 rounded-xl hover:bg-emerald-400 transition-all">
-                                🔄 Reiniciar
-                            </button>
-                        </div>
-                        <p class="text-textMuted text-xs font-mono mt-3 text-center">💡 Truco: La velocidad y los obstáculos han sido optimizados para una jugabilidad fluida.</p>
-                    </div>
-                </div>
-
-                <div class="pt-2 text-center">
-                    <button onclick="closeProject()" class="font-mono text-xs text-gray-300 hover:text-white bg-cardBg border border-gray-700 hover:border-accentBlue px-6 py-3 rounded-lg transition-all inline-flex items-center gap-2">
-                        <span>&larr; Volver al Portafolio Principal</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Project 3: Tech Shop View -->
-            <div id="view-tech-shop" class="space-y-6 hidden">
-                <div class="bg-cardBg border border-gray-800 rounded-xl p-6 space-y-6 shadow-xl">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-800 pb-4">
-                        <div>
-                            <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-                                <span>Tech Store</span>
-                                <span class="text-xs bg-sky-500/10 text-sky-400 border border-sky-500/20 px-2 py-0.5 rounded font-mono">E-Commerce</span>
-                            </h2>
-                            <p class="text-textMuted text-xs mt-1">Tienda online de productos Tecnologicos con emisión de factura digital.</p>
+                            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-store text-sky-400"></i> Tienda Tech Store MVP
+                            </h3>
+                            <p class="text-slate-400 text-xs mt-1">Simulación completa de catálogo e-commerce, carrito interactivo y facturación digital en la nube.</p>
                         </div>
                         <div class="flex items-center gap-3">
-                            <!--<button onclick="openGithubCode('tech-shop')" class="font-mono text-xs bg-gray-900 text-sky-300 border border-sky-500/30 hover:bg-sky-500/10 px-3 py-2 rounded-lg transition-all flex items-center gap-1.5">
-                                <span>💻 Ver Repo</span>
-                            </button>-->
-                            <button onclick="toggleCartModal()" class="bg-accentBlue/10 border border-accentBlue/30 hover:bg-accentBlue/20 text-accentBlue px-4 py-2 rounded-lg text-xs font-mono font-bold flex items-center gap-2">
-                                <span>🛒 Carrito</span>
-                                <span id="cart-count-badge" class="bg-accentBlue text-gray-950 px-2 py-0.5 rounded-full text-xs font-bold">0</span>
+                            <button onclick="toggleCartModal()" class="bg-sky-500/10 border border-sky-500/30 hover:bg-sky-500/20 text-sky-400 px-4 py-2 rounded-xl text-xs font-mono font-bold flex items-center gap-2">
+                                <i class="fa-solid fa-cart-shopping"></i> Carrito
+                                <span id="cart-count-badge" class="bg-sky-500 text-slate-950 px-2 py-0.5 rounded-full text-xs font-bold">0</span>
+                            </button>
+                            <button onclick="closeAppSubViews()" class="font-mono text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-2 rounded-lg border border-slate-700 transition">
+                                ✕ Cerrar
                             </button>
                         </div>
                     </div>
 
-                    <!-- Filter Categories -->
-                    <div class="flex gap-2 overflow-x-auto pb-2 font-mono text-xs">
-                        <button onclick="filterProducts('all', this)" class="shop-filter-btn bg-accentBlue text-gray-950 px-3.5 py-1.5 rounded-lg font-bold">Todos</button>
-                        <button onclick="filterProducts('hardware', this)" class="shop-filter-btn bg-gray-900 text-gray-300 border border-gray-700 hover:border-accentBlue px-3.5 py-1.5 rounded-lg">Hardware</button>
-                        <button onclick="filterProducts('accesorios', this)" class="shop-filter-btn bg-gray-900 text-gray-300 border border-gray-700 hover:border-accentBlue px-3.5 py-1.5 rounded-lg">Accesorios</button>
+                    <!-- Filter Buttons -->
+                    <div class="flex gap-2 overflow-x-auto pb-1 font-mono text-xs">
+                        <button onclick="filterProducts('all', this)" class="shop-filter-btn bg-sky-500 text-slate-950 px-3.5 py-1.5 rounded-lg font-bold">Todos</button>
+                        <button onclick="filterProducts('hardware', this)" class="shop-filter-btn bg-slate-900 text-slate-300 border border-slate-700 hover:border-sky-500 px-3.5 py-1.5 rounded-lg">Hardware</button>
+                        <button onclick="filterProducts('accesorios', this)" class="shop-filter-btn bg-slate-900 text-slate-300 border border-slate-700 hover:border-sky-500 px-3.5 py-1.5 rounded-lg">Accesorios</button>
                     </div>
 
                     <!-- Products Grid -->
                     <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                        <!-- Dynamic content loaded via JS -->
+                        <!-- Loaded dynamically via JS -->
                     </div>
 
-                    <!-- Cart Drawer / Modal Area -->
-                    <div id="cart-modal" class="hidden bg-gray-900 border border-gray-800 rounded-xl p-5 space-y-4">
-                        <h3 class="text-base font-bold text-white flex items-center justify-between border-b border-gray-800 pb-3 font-mono">
-                            <span>🛒 Carrito de Compras</span>
-                            <button onclick="toggleCartModal()" class="text-xs text-textMuted hover:text-white">✕ Cerrar</button>
-                        </h3>
-                        <div id="cart-items-list" class="space-y-2 text-xs">
+                    <!-- Cart Modal Drawer -->
+                    <div id="cart-modal" class="hidden bg-slate-950 border border-slate-800 rounded-2xl p-5 space-y-4">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-3 font-mono">
+                            <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-cart-shopping text-sky-400"></i> Carrito de Compras
+                            </h4>
+                            <button onclick="toggleCartModal()" class="text-xs text-slate-400 hover:text-white">✕ Cerrar</button>
+                        </div>
+                        <div id="cart-items-list" class="space-y-2 text-xs font-mono">
                             <!-- Items loaded dynamically -->
                         </div>
-                        <div class="border-t border-gray-800 pt-3 flex items-center justify-between font-mono text-sm">
-                            <span class="text-gray-300">Subtotal estimado:</span>
+                        <div class="border-t border-slate-800 pt-3 flex items-center justify-between font-mono text-sm">
+                            <span class="text-slate-300">Subtotal estimado:</span>
                             <span id="cart-total-price" class="text-emerald-400 font-bold">$0.00</span>
                         </div>
                         <div class="flex gap-3">
-                            <button onclick="clearCart()" class="w-1/3 py-2.5 bg-gray-800 hover:bg-gray-700 text-gray-300 font-mono text-xs font-bold rounded-lg transition-all">
+                            <button onclick="clearCart()" class="w-1/3 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-mono text-xs font-bold rounded-xl transition">
                                 Vaciar
                             </button>
-                            <button onclick="processCheckout()" class="w-2/3 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-mono text-xs font-bold rounded-lg transition-all shadow-md flex items-center justify-center gap-2">
+                            <button onclick="processCheckout()" class="w-2/3 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-xs font-bold rounded-xl transition shadow-md flex items-center justify-center gap-2">
                                 <span>🧾 Procesar y Generar Factura</span>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="pt-2 text-center">
-                    <button onclick="closeProject()" class="font-mono text-xs text-gray-300 hover:text-white bg-cardBg border border-gray-700 hover:border-accentBlue px-6 py-3 rounded-lg transition-all inline-flex items-center gap-2">
-                        <span>&larr; Volver al Portafolio Principal</span>
-                    </button>
+                <!-- SUB-VIEW 3: FLAPPY BIRD GAME -->
+                <div id="subview-flappy-bird" class="bg-cardBg border border-slate-800 rounded-2xl p-6 space-y-4 shadow-xl hidden">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                        <div>
+                            <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-gamepad text-purple-400"></i> Flappy Bird Arcade 2D
+                            </h3>
+                            <p class="text-slate-400 text-xs mt-1">Presiona ESPACIO, Flecha Arriba o haz clic en "🚀 SALTAR" para controlar el ave.</p>
+                        </div>
+                        <div class="flex items-center gap-3 font-mono text-xs">
+                            <span class="bg-slate-950 border border-slate-800 px-3 py-1.5 rounded-lg text-emerald-400 font-bold">Récord: <span id="game-highscore">0</span></span>
+                            <button onclick="closeAppSubViews()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700 transition">
+                                ✕ Cerrar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Canvas Area -->
+                    <div class="flex flex-col items-center justify-center bg-slate-950 rounded-2xl p-4 border border-slate-800 select-none">
+                        <canvas id="flappy-canvas" width="360" height="460" class="border border-slate-800 rounded-xl shadow-2xl bg-slate-900 cursor-pointer max-w-full touch-none"></canvas>
+                        
+                        <div class="flex flex-wrap items-center justify-center gap-3 mt-4 w-full max-w-xs">
+                            <button id="game-jump-btn" onclick="triggerFlappyJump()" class="flex-1 font-mono text-sm bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold py-3 px-4 rounded-xl shadow-lg transition active:scale-95 flex items-center justify-center gap-2">
+                                🚀 SALTAR
+                            </button>
+                            <button id="game-start-btn" onclick="startFlappyGame()" class="font-mono text-xs bg-emerald-500 text-slate-950 font-bold px-4 py-3 rounded-xl hover:bg-emerald-400 transition">
+                                🔄 Reiniciar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECTION 3: NETWORKS LABORATORY             -->
+        <!-- ========================================== -->
+        <section id="tab-networks" class="space-y-6 hidden">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900 p-6 rounded-2xl border border-slate-800">
+                <div>
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-network-wired text-sky-400"></i> Laboratorio de Redes & Protocolos
+                    </h2>
+                    <p class="text-sm text-slate-400 mt-1">Calculadora de Subredes CIDR/VLSM y simulador dinámico de envío de paquetes TCP/IP.</p>
+                </div>
+                <div>
+                    <span class="text-xs font-mono bg-slate-800 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700">Protocolo: IPv4 / TCP / HTTP</span>
                 </div>
             </div>
 
-        </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Subnet Calculator Widget -->
+                <div class="lg:col-span-5 bg-cardBg rounded-2xl p-6 border border-slate-800 space-y-4">
+                    <h3 class="text-base font-semibold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-calculator text-sky-400"></i> Calculadora CIDR Subnetting
+                    </h3>
+                    
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-1">Dirección IP con Máscara CIDR</label>
+                            <div class="flex gap-2">
+                                <input type="text" id="net-ip-input" value="192.168.1.0/24" class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white code-font focus:outline-none focus:border-sky-500">
+                                <button onclick="calculateSubnet()" class="bg-sky-600 hover:bg-sky-500 text-white font-medium text-sm px-4 py-2 rounded-xl transition">
+                                    Calcular
+                                </button>
+                            </div>
+                        </div>
 
-    </div>
+                        <!-- Results Card -->
+                        <div class="bg-slate-950 rounded-xl p-4 border border-slate-800/80 space-y-2 text-xs code-font">
+                            <div class="flex justify-between border-b border-slate-800 pb-1.5">
+                                <span class="text-slate-400">Dirección de Red:</span>
+                                <span id="res-net-ip" class="text-sky-400 font-bold">192.168.1.0</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800 pb-1.5">
+                                <span class="text-slate-400">Máscara de Red:</span>
+                                <span id="res-mask" class="text-slate-200">255.255.255.0</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800 pb-1.5">
+                                <span class="text-slate-400">Broadcast IP:</span>
+                                <span id="res-broadcast" class="text-slate-200">192.168.1.255</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800 pb-1.5">
+                                <span class="text-slate-400">Primera IP Útil:</span>
+                                <span id="res-first-ip" class="text-emerald-400">192.168.1.1</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800 pb-1.5">
+                                <span class="text-slate-400">Última IP Útil:</span>
+                                <span id="res-last-ip" class="text-emerald-400">192.168.1.254</span>
+                            </div>
+                            <div class="flex justify-between pt-0.5">
+                                <span class="text-slate-400">Hosts Utilizables:</span>
+                                <span id="res-hosts" class="text-amber-400 font-bold">254</span>
+                            </div>
+                        </div>
 
-    <!-- REALISTIC ELECTRONIC INVOICE MODAL -->
+                        <!-- Binary Representation -->
+                        <div>
+                            <span class="block text-xs font-medium text-slate-400 mb-1">Máscara en Binario:</span>
+                            <div id="res-binary" class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 code-font text-[11px] text-sky-300 break-all leading-relaxed">
+                                11111111.11111111.11111111.00000000
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Packet Traffic Visualizer -->
+                <div class="lg:col-span-7 bg-cardBg rounded-2xl p-6 border border-slate-800 flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-base font-semibold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-route text-sky-400"></i> Simulador de Tráfico y Enrutamiento
+                            </h3>
+                            <span id="sim-status" class="text-xs font-medium text-slate-400 bg-slate-800 px-2.5 py-1 rounded-lg">Listo para enviar</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-4">Selecciona un tipo de paquete y observa la propagación visual por la topología de red.</p>
+                        
+                        <!-- Topology Container -->
+                        <div class="relative w-full h-56 bg-slate-950 rounded-xl border border-slate-800 overflow-hidden p-4 flex items-center justify-between">
+                            <svg class="absolute inset-0 w-full h-full pointer-events-none" id="network-svg-lines">
+                                <line x1="15%" y1="50%" x2="50%" y2="50%" stroke="#334155" stroke-width="3" stroke-dasharray="6"/>
+                                <line x1="50%" y1="50%" x2="85%" y2="50%" stroke="#334155" stroke-width="3" stroke-dasharray="6"/>
+                            </svg>
+
+                            <!-- Node 1: Client -->
+                            <div class="relative z-10 text-center flex flex-col items-center">
+                                <div class="w-14 h-14 rounded-2xl bg-slate-800 border-2 border-sky-500 flex items-center justify-center text-sky-400 text-xl shadow-lg shadow-sky-500/10">
+                                    <i class="fa-solid fa-laptop"></i>
+                                </div>
+                                <span class="text-xs font-semibold text-white mt-2">Cliente PC</span>
+                                <span class="text-[10px] code-font text-slate-400">192.168.1.5</span>
+                            </div>
+
+                            <!-- Animated Packet -->
+                            <div id="packet-element" class="absolute left-[15%] top-[50%] -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-sky-500 text-slate-950 flex items-center justify-center text-xs font-bold shadow-lg shadow-sky-500/50 transition-all duration-1000 opacity-0 z-20">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+
+                            <!-- Node 2: Router/Firewall -->
+                            <div class="relative z-10 text-center flex flex-col items-center">
+                                <div id="router-node" class="w-14 h-14 rounded-2xl bg-slate-800 border-2 border-slate-600 flex items-center justify-center text-slate-300 text-xl transition-colors">
+                                    <i class="fa-solid fa-server"></i>
+                                </div>
+                                <span class="text-xs font-semibold text-white mt-2">Router / FW</span>
+                                <span class="text-[10px] code-font text-slate-400">10.0.0.1</span>
+                            </div>
+
+                            <!-- Node 3: Server -->
+                            <div class="relative z-10 text-center flex flex-col items-center">
+                                <div class="w-14 h-14 rounded-2xl bg-slate-800 border-2 border-indigo-500 flex items-center justify-center text-indigo-400 text-xl shadow-lg shadow-indigo-500/10">
+                                    <i class="fa-solid fa-database"></i>
+                                </div>
+                                <span class="text-xs font-semibold text-white mt-2">Servidor Web</span>
+                                <span class="text-[10px] code-font text-slate-400">203.0.113.10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Controls -->
+                    <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-800">
+                        <button onclick="simulateTraffic('PING')" class="bg-slate-800 hover:bg-slate-700 text-sky-400 border border-slate-700 text-xs font-medium px-3.5 py-2 rounded-xl transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-bolt"></i> Enviar ICMP Ping
+                        </button>
+                        <button onclick="simulateTraffic('HTTP')" class="bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 text-xs font-medium px-3.5 py-2 rounded-xl transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-globe"></i> Petición HTTP GET
+                        </button>
+                        <button onclick="simulateTraffic('DROP')" class="bg-slate-800 hover:bg-slate-700 text-rose-400 border border-slate-700 text-xs font-medium px-3.5 py-2 rounded-xl transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-ban"></i> Simular Bloqueo FW
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECTION 4: CYBERSECURITY LABORATORY        -->
+        <!-- ========================================== -->
+        <section id="tab-cybersec" class="space-y-6 hidden">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900 p-6 rounded-2xl border border-slate-800">
+                <div>
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-emerald-400"></i> Centro de Ciberseguridad & Pentesting
+                    </h2>
+                    <p class="text-sm text-slate-400 mt-1">Análisis de entropía de credenciales, hashes de cifrado y escáner de puertos interactivo.</p>
+                </div>
+                <div>
+                    <span class="text-xs font-mono bg-emerald-500/10 text-emerald-400 px-3 py-1.5 rounded-lg border border-emerald-500/20">Modo: Auditoría Defensiva</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Password & Hashing Auditor -->
+                <div class="lg:col-span-6 bg-cardBg rounded-2xl p-6 border border-slate-800 space-y-4">
+                    <h3 class="text-base font-semibold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-key text-emerald-400"></i> Auditor de Claves y Hashing
+                    </h3>
+
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-1">Ingresa una contraseña para evaluar entropía</label>
+                            <input type="text" id="pwd-input" oninput="auditPassword()" value="Admin123!" placeholder="Escribe tu clave..." class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white code-font focus:outline-none focus:border-emerald-500">
+                        </div>
+
+                        <!-- Strength Meter -->
+                        <div class="space-y-1">
+                            <div class="flex justify-between text-xs">
+                                <span class="text-slate-400">Fortaleza estimada:</span>
+                                <span id="pwd-score-text" class="font-bold text-amber-400">Media</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                                <div id="pwd-score-bar" class="h-full bg-amber-500 w-2/4 transition-all duration-300"></div>
+                            </div>
+                        </div>
+
+                        <!-- Entropy Info -->
+                        <div class="grid grid-cols-2 gap-2 text-xs code-font pt-2">
+                            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                                <span class="text-slate-500 block text-[10px]">Entropía</span>
+                                <span id="pwd-entropy" class="text-emerald-400 font-bold text-sm">42.5 bits</span>
+                            </div>
+                            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                                <span class="text-slate-500 block text-[10px]">Tiempo Fuerza Bruta</span>
+                                <span id="pwd-crack-time" class="text-slate-200 font-bold text-sm">~ 3 minutos</span>
+                            </div>
+                        </div>
+
+                        <!-- Realtime Hash Generator -->
+                        <div class="pt-2 border-t border-slate-800 space-y-2">
+                            <span class="block text-xs font-medium text-slate-400">Hash SHA-256 (Simulado en vivo):</span>
+                            <div id="pwd-hash" class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 code-font text-[11px] text-slate-300 break-all">
+                                8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Port Scanner & Firewall -->
+                <div class="lg:col-span-6 bg-cardBg rounded-2xl p-6 border border-slate-800 flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-base font-semibold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-terminal text-emerald-400"></i> Escáner Nmap & Firewall UFW
+                            </h3>
+                            <button onclick="runPortScan()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs px-3 py-1.5 rounded-lg transition flex items-center gap-1">
+                                <i class="fa-solid fa-play text-[10px]"></i> Escanear Objetivo
+                            </button>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-3">Audita puertos abiertos e interactúa cambiando reglas de Firewall.</p>
+
+                        <!-- Ports Matrix -->
+                        <div class="grid grid-cols-3 gap-2 mb-4">
+                            <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between">
+                                <div>
+                                    <span class="block text-xs font-bold text-white">Port 22</span>
+                                    <span class="text-[10px] text-slate-400">SSH</span>
+                                </div>
+                                <span id="port-22-badge" class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">OPEN</span>
+                            </div>
+                            <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between">
+                                <div>
+                                    <span class="block text-xs font-bold text-white">Port 80</span>
+                                    <span class="text-[10px] text-slate-400">HTTP</span>
+                                </div>
+                                <span id="port-80-badge" class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">OPEN</span>
+                            </div>
+                            <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between">
+                                <div>
+                                    <span class="block text-xs font-bold text-white">Port 443</span>
+                                    <span class="text-[10px] text-slate-400">HTTPS</span>
+                                </div>
+                                <span id="port-443-badge" class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">OPEN</span>
+                            </div>
+                        </div>
+
+                        <!-- Terminal Output -->
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 h-36 overflow-y-auto code-font text-xs custom-scrollbar space-y-1" id="scan-terminal">
+                            <div class="text-slate-500">$ nmap -sV -T4 10.0.0.15</div>
+                            <div class="text-slate-400">Starting Nmap 7.94...</div>
+                            <div class="text-emerald-400">Nmap scan report for target (10.0.0.15)</div>
+                            <div class="text-slate-300">PORT   STATE SERVICE VERSION</div>
+                            <div class="text-slate-300">22/tcp open  ssh     OpenSSH 8.9p1</div>
+                            <div class="text-slate-300">80/tcp open  http    nginx 1.18.0</div>
+                        </div>
+                    </div>
+
+                    <!-- Firewall Control Toggle -->
+                    <div class="flex items-center justify-between pt-2 border-t border-slate-800">
+                        <span class="text-xs text-slate-400">Regla Firewall (Port 22 SSH):</span>
+                        <button id="toggle-ssh-fw" onclick="toggleFirewallSSH()" class="bg-rose-500/10 text-rose-400 hover:bg-rose-500/20 border border-rose-500/30 text-xs px-3 py-1.5 rounded-xl font-medium transition">
+                            <i class="fa-solid fa-lock mr-1"></i> Bloquear SSH
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECTION 5: DATA SCIENCE LABORATORY         -->
+        <!-- ========================================== -->
+        <section id="tab-datascience" class="space-y-6 hidden">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900 p-6 rounded-2xl border border-slate-800">
+                <div>
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-chart-scatter text-indigo-400"></i> Laboratorio Interactivo de Machine Learning
+                    </h2>
+                    <p class="text-sm text-slate-400 mt-1">Haz clic en el plano cartesiano para crear datos y entrena modelos de Regresión Lineal y K-Means en tiempo real.</p>
+                </div>
+                <div>
+                    <span class="text-xs font-mono bg-indigo-500/10 text-indigo-400 px-3 py-1.5 rounded-lg border border-indigo-500/20">Modelo: JS In-Browser Training</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Canvas Dataset Plotter -->
+                <div class="lg:col-span-7 bg-cardBg rounded-2xl p-6 border border-slate-800 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-base font-semibold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-arrow-pointer text-indigo-400"></i> Dibujar Datos (Haz Clic en el Gráfico)
+                        </h3>
+                        <button onclick="clearDsCanvas()" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-2.5 py-1.5 rounded-lg transition">
+                            <i class="fa-solid fa-trash mr-1"></i>Limpiar
+                        </button>
+                    </div>
+
+                    <!-- Canvas Element -->
+                    <div class="relative bg-slate-950 rounded-xl border border-slate-800 overflow-hidden cursor-crosshair">
+                        <canvas id="ml-canvas" width="600" height="320" class="w-full h-64 sm:h-80 block"></canvas>
+                        <div class="absolute bottom-2 right-2 text-[10px] text-slate-500 code-font pointer-events-none">
+                            Eje X: Característica 1 | Eje Y: Objetivo
+                        </div>
+                    </div>
+
+                    <!-- Algorithm Controls -->
+                    <div class="flex flex-wrap gap-2 pt-1">
+                        <button onclick="fitLinearRegression()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs px-4 py-2 rounded-xl transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-chart-line"></i> Ajustar Regresión Lineal
+                        </button>
+                        <button onclick="clusterKMeans()" class="bg-purple-600 hover:bg-purple-500 text-white font-medium text-xs px-4 py-2 rounded-xl transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-circle-nodes"></i> Aplicar K-Means (K=2)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Model Metrics -->
+                <div class="lg:col-span-5 bg-cardBg rounded-2xl p-6 border border-slate-800 flex flex-col justify-between space-y-4">
+                    <div>
+                        <h3 class="text-base font-semibold text-white flex items-center gap-2 mb-3">
+                            <i class="fa-solid fa-square-poll-vertical text-indigo-400"></i> Métricas del Modelo
+                        </h3>
+
+                        <div class="space-y-3">
+                            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                                <div class="flex justify-between items-center text-xs border-b border-slate-800 pb-2">
+                                    <span class="text-slate-400">Total de Puntos de Datos:</span>
+                                    <span id="ds-point-count" class="font-bold text-white code-font">0</span>
+                                </div>
+                                <div class="flex justify-between items-center text-xs border-b border-slate-800 pb-2">
+                                    <span class="text-slate-400">Pendiente (m):</span>
+                                    <span id="ds-slope" class="font-bold text-indigo-400 code-font">N/A</span>
+                                </div>
+                                <div class="flex justify-between items-center text-xs border-b border-slate-800 pb-2">
+                                    <span class="text-slate-400">Intersección (b):</span>
+                                    <span id="ds-intercept" class="font-bold text-indigo-400 code-font">N/A</span>
+                                </div>
+                                <div class="flex justify-between items-center text-xs pt-1">
+                                    <span class="text-slate-400">Error Cuadrático Medio (MSE):</span>
+                                    <span id="ds-mse" class="font-bold text-amber-400 code-font">N/A</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-indigo-950/30 p-3.5 rounded-xl border border-indigo-500/20 text-xs text-indigo-200/80 leading-relaxed">
+                                <i class="fa-solid fa-lightbulb text-indigo-400 mr-1"></i>
+                                <strong>Guía:</strong> Agrega al menos 3 puntos en el plano para calcular la recta de mejor ajuste $y = mx + b$ o clasificar grupos de datos.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Python Code Snippet -->
+                    <div class="pt-2 border-t border-slate-800">
+                        <span class="block text-xs font-medium text-slate-400 mb-1">Código Python equivalente:</span>
+                        <pre class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 code-font text-[10px] text-slate-300 overflow-x-auto custom-scrollbar"><code>from sklearn.linear_model import LinearRegression
+model = LinearRegression()
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ELECTRONIC INVOICE MODAL -->
     <div id="invoice-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-gray-900 border border-gray-800 rounded-2xl w-full max-w-xl p-6 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto console-scrollbar">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-xl p-6 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto custom-scrollbar">
             <!-- Header Invoice -->
-            <div class="flex items-start justify-between border-b border-gray-800 pb-4">
+            <div class="flex items-start justify-between border-b border-slate-800 pb-4">
                 <div>
                     <div class="inline-block px-2.5 py-0.5 rounded text-xs font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-2">
                         ✓ FACTURA ELECTRÓNICA DE COMPRA
                     </div>
                     <h3 class="text-xl font-bold text-white">TECH STORE MVP S.A.</h3>
-                    <p class="text-textMuted text-xs">NIT/RUC: 1029384756 • Sistema Integrado de Ventas</p>
+                    <p class="text-slate-400 text-xs">NIT/RUC: 1029384756 • Sistema Integrado de Ventas</p>
                 </div>
                 <div class="text-right font-mono text-xs">
-                    <div class="text-accentBlue font-bold" id="inv-number">FAC-2026-0001</div>
-                    <div class="text-textMuted" id="inv-date">--/--/----</div>
+                    <div class="text-sky-400 font-bold" id="inv-number">FAC-2026-0001</div>
+                    <div class="text-slate-400" id="inv-date">--/--/----</div>
                 </div>
             </div>
 
             <!-- Customer Details -->
-            <div class="bg-gray-950 p-3 rounded-lg border border-gray-800 text-xs grid grid-cols-2 gap-2 font-mono">
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs grid grid-cols-2 gap-2 font-mono">
                 <div>
-                    <span class="text-textMuted block">Cliente:</span>
-                    <span class="text-white font-semibold">Anonimo tech</span>
+                    <span class="text-slate-400 block">Cliente:</span>
+                    <span class="text-white font-semibold">Usuario Anonimo Tech</span>
                 </div>
                 <div>
-                    <span class="text-textMuted block">Método de Pago:</span>
-                    <span class="text-emerald-400 font-semibold">Tarjeta de Débito (Simulación)</span>
+                    <span class="text-slate-400 block">Método de Pago:</span>
+                    <span class="text-emerald-400 font-semibold">Tarjeta / QR (Simulado)</span>
                 </div>
             </div>
 
             <!-- Invoice Item Table -->
             <div class="space-y-2">
                 <table class="w-full text-left text-xs font-mono">
-                    <thead class="bg-gray-800/60 text-textMuted border-b border-gray-700">
+                    <thead class="bg-slate-800/60 text-slate-400 border-b border-slate-700">
                         <tr>
                             <th class="p-2">Producto</th>
                             <th class="p-2 text-center">Cant.</th>
@@ -498,23 +853,23 @@
                             <th class="p-2 text-right">Total</th>
                         </tr>
                     </thead>
-                    <tbody id="invoice-items-body" class="divide-y divide-gray-800 text-gray-200">
+                    <tbody id="invoice-items-body" class="divide-y divide-slate-800 text-slate-200">
                         <!-- Loaded by JS -->
                     </tbody>
                 </table>
             </div>
 
             <!-- Invoice Totals -->
-            <div class="border-t border-gray-800 pt-3 space-y-1 font-mono text-xs text-right">
-                <div class="flex justify-between text-textMuted">
+            <div class="border-t border-slate-800 pt-3 space-y-1 font-mono text-xs text-right">
+                <div class="flex justify-between text-slate-400">
                     <span>Subtotal:</span>
                     <span id="inv-subtotal">$0.00</span>
                 </div>
-                <div class="flex justify-between text-textMuted">
+                <div class="flex justify-between text-slate-400">
                     <span>Impuestos (IVA 13% Incluido):</span>
                     <span id="inv-tax">$0.00</span>
                 </div>
-                <div class="flex justify-between text-sm font-bold text-emerald-400 pt-2 border-t border-gray-800">
+                <div class="flex justify-between text-sm font-bold text-emerald-400 pt-2 border-t border-slate-800">
                     <span>TOTAL PAGADO:</span>
                     <span id="inv-total">$0.00</span>
                 </div>
@@ -522,43 +877,95 @@
 
             <!-- Modal Action Footer -->
             <div class="flex gap-3 font-mono text-xs pt-2">
-                <button onclick="printSimulatedInvoice()" class="w-1/2 py-2.5 bg-gray-800 hover:bg-gray-700 text-gray-200 font-bold rounded-lg transition-all flex items-center justify-center gap-2">
+                <button onclick="printSimulatedInvoice()" class="w-1/2 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold rounded-xl transition flex items-center justify-center gap-2">
                     <span>🖨️ Imprimir Factura</span>
                 </button>
-                <button onclick="closeInvoiceModal()" class="w-1/2 py-2.5 bg-accentBlue hover:bg-sky-300 text-gray-950 font-bold rounded-lg transition-all">
+                <button onclick="closeInvoiceModal()" class="w-1/2 py-2.5 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold rounded-xl transition">
                     Entendido / Cerrar
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- GITHUB SOURCE CODE VIEWER MODAL -->
-    <div id="github-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-gray-900 border border-gray-800 rounded-2xl w-full max-w-2xl p-6 shadow-2xl space-y-4">
-            <div class="flex items-center justify-between border-b border-gray-800 pb-3">
-                <div class="flex items-center gap-2">
-                    <span class="text-accentGreen font-mono font-bold text-sm">github.com/tu-usuario/</span>
-                    <span id="gh-repo-title" class="text-white font-mono font-bold text-sm">proyecto</span>
-                </div>
-                <button onclick="closeGithubModal()" class="text-textMuted hover:text-white font-mono text-sm">✕</button>
-            </div>
-            <p id="gh-repo-desc" class="text-xs text-textMuted font-mono">Código fuente estructurado en JavaScript Vanilla sin dependencias externas pesadas.</p>
-            
-            <div class="bg-gray-950 p-4 rounded-xl border border-gray-800 overflow-x-auto console-scrollbar">
-                <pre><code id="gh-code-snippet" class="font-mono text-xs text-emerald-400 whitespace-pre"></code></pre>
-            </div>
-
-            <div class="flex justify-end pt-2">
-                <button onclick="closeGithubModal()" class="px-5 py-2 bg-gray-800 hover:bg-gray-700 text-white font-mono text-xs font-semibold rounded-lg transition-all">
-                    Cerrar Vista Previa
-                </button>
-            </div>
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-6 text-center text-xs text-slate-500 font-mono">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>Mariluz Huanca Mamani • Portafolio Web & Suite Integrada de Ingeniería de Sistemas © 2026</p>
         </div>
-    </div>
+    </footer>
 
+    <!-- JAVASCRIPT LOGIC -->
     <script>
         // ==========================================
-        // 01. GESTOR DE TAREAS & HORAS (FIXED & FULLY FUNCTIONAL)
+        // 0. NAVIGATION & TAB SWITCHER LOGIC
+        // ==========================================
+        const MAIN_TABS = ['profile', 'apps', 'networks', 'cybersec', 'datascience'];
+
+        function switchMainTab(tabName) {
+            MAIN_TABS.forEach(t => {
+                const section = document.getElementById(`tab-${t}`);
+                if (section) section.classList.add('hidden');
+
+                // Desktop Nav Style
+                const btn = document.getElementById(`nav-${t}`);
+                if (btn) {
+                    btn.classList.remove('text-sky-400', 'bg-slate-800', 'shadow');
+                    btn.classList.add('text-slate-400');
+                }
+
+                // Mobile Nav Style
+                const mBtn = document.getElementById(`m-nav-${t}`);
+                if (mBtn) {
+                    mBtn.classList.remove('text-sky-400', 'bg-slate-800');
+                    mBtn.classList.add('text-slate-400');
+                }
+            });
+
+            // Show selected tab
+            const activeSection = document.getElementById(`tab-${tabName}`);
+            if (activeSection) activeSection.classList.remove('hidden');
+
+            const activeBtn = document.getElementById(`nav-${tabName}`);
+            if (activeBtn) {
+                activeBtn.classList.add('text-sky-400', 'bg-slate-800', 'shadow');
+                activeBtn.classList.remove('text-slate-400');
+            }
+
+            const activeMBtn = document.getElementById(`m-nav-${tabName}`);
+            if (activeMBtn) {
+                activeMBtn.classList.add('text-sky-400', 'bg-slate-800');
+                activeMBtn.classList.remove('text-slate-400');
+            }
+
+            // Draw Data Science canvas if selected
+            if (tabName === 'datascience') {
+                setTimeout(drawDataCanvas, 50);
+            }
+        }
+
+        function openAppSubView(appName) {
+            closeAppSubViews();
+            const target = document.getElementById(`subview-${appName}`);
+            if (target) {
+                target.classList.remove('hidden');
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            if (appName === 'flappy-bird') {
+                startFlappyGame();
+            }
+        }
+
+        function closeAppSubViews() {
+            ['task-tracker', 'tech-shop', 'flappy-bird'].forEach(app => {
+                const sv = document.getElementById(`subview-${app}`);
+                if (sv) sv.classList.add('hidden');
+            });
+            stopFlappyGame();
+        }
+
+        // ==========================================
+        // 1. TASK TRACKER LOGIC
         // ==========================================
         let userTasks = [
             { id: 1, title: 'Estudiar para examen de Bases de Datos', subject: 'Sistemas', hours: 3 },
@@ -576,8 +983,8 @@
 
             if (userTasks.length === 0) {
                 container.innerHTML = `
-                    <div class="p-6 bg-gray-900/60 border border-gray-800 rounded-xl text-xs text-textMuted italic text-center font-mono">
-                        No hay tareas en la lista. ¡Agrega una nueva arriba para comenzar a medir tu tiempo!
+                    <div class="p-6 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-500 italic text-center font-mono">
+                        No hay tareas en la lista. ¡Agrega una nueva arriba!
                     </div>`;
                 hoursBadge.innerText = '0.0 hrs';
                 tasksBadge.innerText = '0';
@@ -595,39 +1002,38 @@
                 subjectCounts[t.subject] = (subjectCounts[t.subject] || 0) + hrs;
 
                 html += `
-                    <div class="flex items-center justify-between p-3.5 bg-gray-900 border border-gray-800 hover:border-accentBlue/40 rounded-xl text-xs transition-all">
+                    <div class="flex items-center justify-between p-3.5 bg-slate-900 border border-slate-800 hover:border-sky-500/40 rounded-xl text-xs transition">
                         <div class="space-y-0.5">
                             <div class="font-semibold text-white flex items-center gap-2">
                                 <span>${t.title}</span>
                             </div>
-                            <div class="text-textMuted font-mono text-[11px] flex items-center gap-2">
-                                <span class="text-accentPurple bg-indigo-950/60 border border-indigo-800/40 px-2 py-0.5 rounded">${t.subject}</span>
+                            <div class="text-slate-400 font-mono text-[11px] flex items-center gap-2">
+                                <span class="text-indigo-400 bg-indigo-950/60 border border-indigo-800/40 px-2 py-0.5 rounded">${t.subject}</span>
                             </div>
                         </div>
                         <div class="flex items-center gap-4 font-mono">
-                            <span class="text-accentBlue font-bold bg-accentBlue/10 border border-accentBlue/20 px-2.5 py-1 rounded-lg">${hrs} hrs</span>
-                            <button onclick="deleteTask(${index})" class="text-red-400 hover:text-red-300 hover:bg-red-500/10 p-1.5 rounded-lg transition-all" title="Eliminar tarea">
-                                ✕
+                            <span class="text-sky-400 font-bold bg-sky-500/10 border border-sky-500/20 px-2.5 py-1 rounded">${hrs} hrs</span>
+                            <button onclick="removeTask(${index})" class="text-slate-500 hover:text-rose-400 p-1">
+                                <i class="fa-solid fa-trash-can"></i>
                             </button>
                         </div>
-                    </div>
-                `;
+                    </div>`;
             });
-
-            // Find top subject
-            let topSub = 'Varias';
-            let maxHrs = 0;
-            for (const [sub, hrs] of Object.entries(subjectCounts)) {
-                if (hrs > maxHrs) {
-                    maxHrs = hrs;
-                    topSub = sub;
-                }
-            }
 
             container.innerHTML = html;
             hoursBadge.innerText = `${totalHours.toFixed(1)} hrs`;
             tasksBadge.innerText = userTasks.length.toString();
-            topSubjectBadge.innerText = topSub;
+
+            // Find top subject
+            let topSubject = 'Ninguna';
+            let maxHours = 0;
+            for (const [subj, hrs] of Object.entries(subjectCounts)) {
+                if (hrs > maxHours) {
+                    maxHours = hrs;
+                    topSubject = subj;
+                }
+            }
+            topSubjectBadge.innerText = topSubject;
         }
 
         function addTask() {
@@ -636,28 +1042,23 @@
             const hoursInput = document.getElementById('task-hours');
 
             const title = titleInput.value.trim();
-            const subject = subjectInput.value.trim();
-            const hours = parseFloat(hoursInput.value);
+            const subject = subjectInput.value.trim() || 'General';
+            const hours = parseFloat(hoursInput.value) || 1;
 
-            if (!title || !subject || isNaN(hours) || hours <= 0) {
+            if (!title) {
+                titleInput.focus();
+                titleInput.classList.add('border-rose-500');
+                setTimeout(() => titleInput.classList.remove('border-rose-500'), 1500);
                 return;
             }
 
-            userTasks.push({
-                id: Date.now(),
-                title,
-                subject,
-                hours
-            });
-
+            userTasks.push({ id: Date.now(), title, subject, hours });
             titleInput.value = '';
-            subjectInput.value = '';
             hoursInput.value = '';
-
             renderTasks();
         }
 
-        function deleteTask(index) {
+        function removeTask(index) {
             userTasks.splice(index, 1);
             renderTasks();
         }
@@ -668,285 +1069,103 @@
         }
 
         // ==========================================
-        // 02. FLAPPY BIRD GAME ENGINE (EASY & SMOOTH)
+        // 2. TECH STORE E-COMMERCE LOGIC
         // ==========================================
-        let canvas, ctx;
-        // Adjusted gravity and bird jump parameters for easy control
-        let bird = { x: 50, y: 150, radius: 12, velocity: 0, gravity: 0.26, jump: -5.8 };
-        let pipes = [];
-        let score = 0;
-        let highscore = 0;
-        let gameLoopId = null;
-        let isGameOver = false;
-        let isGameStarted = false;
-
-        function initFlappyCanvas() {
-            canvas = document.getElementById('flappy-canvas');
-            if (!canvas) return;
-            ctx = canvas.getContext('2d');
-            
-            // Mouse/Touch tap on Canvas
-            canvas.onclick = function(e) {
-                e.preventDefault();
-                triggerFlappyJump();
-            };
-
-            window.onkeydown = function(e) {
-                if ((e.code === 'Space' || e.code === 'ArrowUp') && !document.getElementById('view-flappy-bird').classList.contains('hidden')) {
-                    e.preventDefault();
-                    triggerFlappyJump();
-                }
-            };
-
-            resetFlappyGame();
-            drawFlappyWelcomeScreen();
-        }
-
-        function triggerFlappyJump() {
-            if (!isGameStarted || isGameOver) {
-                startFlappyGame();
-            } else {
-                bird.velocity = bird.jump;
-            }
-        }
-
-        function resetFlappyGame() {
-            bird.y = canvas ? canvas.height / 2 : 200;
-            bird.velocity = 0;
-            pipes = [];
-            score = 0;
-            isGameOver = false;
-        }
-
-        function drawFlappyWelcomeScreen() {
-            if (!ctx) return;
-            ctx.fillStyle = '#0f172a';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = '#38bdf8';
-            ctx.font = 'bold 20px Fira Code, monospace';
-            ctx.textAlign = 'center';
-            ctx.fillText('FLAPPY BIRD 2D', canvas.width / 2, canvas.height / 2 - 30);
-
-            ctx.fillStyle = '#34d399';
-            ctx.font = '12px Inter, sans-serif';
-            ctx.fillText('Presiona 🚀 SALTAR o ESPACIO', canvas.width / 2, canvas.height / 2 + 10);
-            ctx.fillText('¡Física ajustada para jugar fácil!', canvas.width / 2, canvas.height / 2 + 32);
-        }
-
-        function startFlappyGame() {
-            resetFlappyGame();
-            isGameStarted = true;
-            if (gameLoopId) cancelAnimationFrame(gameLoopId);
-            flappyGameLoop();
-        }
-
-        function flappyGameLoop() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Background
-            ctx.fillStyle = '#0f172a';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            // Grid background pattern
-            ctx.strokeStyle = '#1e293b';
-            ctx.lineWidth = 1;
-            for (let x = 0; x < canvas.width; x += 20) {
-                ctx.beginPath();
-                ctx.moveTo(x, 0);
-                ctx.lineTo(x, canvas.height);
-                ctx.stroke();
-            }
-
-            // Bird physics
-            bird.velocity += bird.gravity;
-            bird.y += bird.velocity;
-
-            // Draw Bird
-            ctx.beginPath();
-            ctx.arc(bird.x, bird.y, bird.radius, 0, Math.PI * 2);
-            ctx.fillStyle = '#38bdf8';
-            ctx.fill();
-            ctx.lineWidth = 2;
-            ctx.strokeStyle = '#ffffff';
-            ctx.stroke();
-            ctx.closePath();
-
-            // Bird eye detail
-            ctx.beginPath();
-            ctx.arc(bird.x + 4, bird.y - 3, 3, 0, Math.PI * 2);
-            ctx.fillStyle = '#ffffff';
-            ctx.fill();
-            ctx.closePath();
-
-            // Spawn Pipes (Easier gap of 145px, wider frequency)
-            if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 180) {
-                let gap = 145; 
-                let minPipeHeight = 50;
-                let topHeight = Math.floor(Math.random() * (canvas.height - gap - minPipeHeight * 2)) + minPipeHeight;
-                pipes.push({
-                    x: canvas.width,
-                    top: topHeight,
-                    bottom: canvas.height - topHeight - gap,
-                    passed: false
-                });
-            }
-
-            // Move and draw Pipes
-            for (let i = 0; i < pipes.length; i++) {
-                let p = pipes[i];
-                p.x -= 1.8; // Smooth, manageable speed
-
-                // Draw Top Pipe
-                ctx.fillStyle = '#34d399';
-                ctx.fillRect(p.x, 0, 48, p.top);
-                ctx.fillStyle = '#059669';
-                ctx.fillRect(p.x - 3, p.top - 12, 54, 12);
-
-                // Draw Bottom Pipe
-                ctx.fillStyle = '#34d399';
-                ctx.fillRect(p.x, canvas.height - p.bottom, 48, p.bottom);
-                ctx.fillStyle = '#059669';
-                ctx.fillRect(p.x - 3, canvas.height - p.bottom, 54, 12);
-
-                // Check Collisions
-                if (
-                    bird.x + bird.radius > p.x && 
-                    bird.x - bird.radius < p.x + 48 && 
-                    (bird.y - bird.radius < p.top || bird.y + bird.radius > canvas.height - p.bottom)
-                ) {
-                    isGameOver = true;
-                }
-
-                // Increase Score
-                if (p.x + 48 < bird.x && !p.passed) {
-                    score++;
-                    p.passed = true;
-                    if (score > highscore) {
-                        highscore = score;
-                        document.getElementById('game-highscore').innerText = highscore;
-                    }
-                }
-            }
-
-            // Remove offscreen pipes
-            pipes = pipes.filter(p => p.x > -60);
-
-            // Floor/Ceiling collisions
-            if (bird.y + bird.radius >= canvas.height || bird.y - bird.radius <= 0) {
-                isGameOver = true;
-            }
-
-            // Draw Score HUD
-            ctx.fillStyle = '#ffffff';
-            ctx.font = 'bold 20px Fira Code, monospace';
-            ctx.textAlign = 'left';
-            ctx.fillText(`Puntos: ${score}`, 15, 32);
-
-            if (!isGameOver) {
-                gameLoopId = requestAnimationFrame(flappyGameLoop);
-            } else {
-                ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-                ctx.fillStyle = '#ef4444';
-                ctx.font = 'bold 24px Fira Code, monospace';
-                ctx.textAlign = 'center';
-                ctx.fillText('¡JUEGO TERMINADO!', canvas.width / 2, canvas.height / 2 - 25);
-
-                ctx.fillStyle = '#ffffff';
-                ctx.font = '14px Inter, sans-serif';
-                ctx.fillText(`Puntuación Obtenida: ${score}`, canvas.width / 2, canvas.height / 2 + 10);
-
-                ctx.fillStyle = '#38bdf8';
-                ctx.font = '12px Inter, sans-serif';
-                ctx.fillText('Toca 🚀 SALTAR o clic para reintentar', canvas.width / 2, canvas.height / 2 + 40);
-            }
-        }
-
-        // ==========================================
-        // 03. TECH SHOP MVP & QUANTITY ACCUMULATION
-        // ==========================================
-        const productsList = [
-            { id: 1, name: 'Teclado Mecánico RGB', category: 'accesorios', price: 45.00, desc: 'Switches táctiles y conectividad USB-C' },
-            { id: 2, name: 'Mouse Inalámbrico Ergonómico', category: 'accesorios', price: 25.00, desc: 'Sensor óptico de alta precisión' },
-            { id: 3, name: 'Soporte Ajustable Laptop', category: 'hardware', price: 30.00, desc: 'Aluminio resistente para ventilación' },
-            { id: 4, name: 'Monitor 24" Full HD 75Hz', category: 'hardware', price: 120.00, desc: 'Panel IPS con protección de vista' },
-            { id: 5, name: 'Audífonos Bluetooth Noise Cancelling', category: 'accesorios', price: 55.00, desc: 'Batería de larga duración (20h)' },
-            { id: 6, name: 'SSD NVMe M.2 1TB High-Speed', category: 'hardware', price: 85.00, desc: 'Velocidades de lectura hasta 3500 MB/s' }
+        const shopProducts = [
+            { id: 1, name: 'Mouse Gamer RGB Optical 12000 DPI', price: 29.99, category: 'accesorios', icon: 'fa-mouse' },
+            { id: 2, name: 'Teclado Mecánico Switch Blue Tactile', price: 65.50, category: 'accesorios', icon: 'fa-keyboard' },
+            { id: 3, name: 'Memoria RAM DDR4 16GB 3200MHz', price: 48.00, category: 'hardware', icon: 'fa-memory' },
+            { id: 4, name: 'Disco Sólido SSD NVMe M.2 1TB', price: 85.00, category: 'hardware', icon: 'fa-hard-drive' },
+            { id: 5, name: 'Audífonos Surround 7.1 Noise Cancelling', price: 45.00, category: 'accesorios', icon: 'fa-headphones' },
+            { id: 6, name: 'Procesador 8-Core 16-Threads 4.5GHz', price: 220.00, category: 'hardware', icon: 'fa-microchip' }
         ];
 
-        // Cart stores items with quantity: { id, name, category, price, qty }
         let cart = [];
 
-        function renderProducts(categoryFilter = 'all') {
-            const container = document.getElementById('products-grid');
-            if (!container) return;
+        function renderProducts(filter = 'all') {
+            const grid = document.getElementById('products-grid');
+            if (!grid) return;
 
-            let filtered = categoryFilter === 'all' ? productsList : productsList.filter(p => p.category === categoryFilter);
+            const filtered = filter === 'all' ? shopProducts : shopProducts.filter(p => p.category === filter);
 
-            let html = '';
-            filtered.forEach(p => {
-                html += `
-                    <div class="bg-gray-900 border border-gray-800 p-4 rounded-xl flex flex-col justify-between hover:border-sky-500/40 transition-all">
-                        <div>
-                            <span class="text-[10px] font-mono text-accentBlue bg-accentBlue/10 border border-accentBlue/20 px-2 py-0.5 rounded capitalize">${p.category}</span>
-                            <h4 class="text-sm font-semibold text-white mt-2">${p.name}</h4>
-                            <p class="text-textMuted text-xs mt-1 mb-3 leading-relaxed">${p.desc}</p>
+            grid.innerHTML = filtered.map(p => `
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between space-y-3 hover:border-sky-500/30 transition">
+                    <div class="space-y-2">
+                        <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-sky-400 text-lg">
+                            <i class="fa-solid ${p.icon}"></i>
                         </div>
-                        <div class="flex items-center justify-between mt-2 pt-3 border-t border-gray-800 font-mono">
-                            <span class="text-emerald-400 font-bold text-sm">$${p.price.toFixed(2)}</span>
-                            <button onclick="addToCart(${p.id})" class="bg-accentBlue text-gray-950 text-xs font-bold px-3 py-1.5 rounded-lg hover:bg-sky-300 transition-all shadow-md">
-                                + Agregar
-                            </button>
-                        </div>
+                        <h4 class="font-semibold text-white text-xs leading-snug">${p.name}</h4>
+                        <span class="inline-block text-[10px] font-mono bg-slate-900 text-slate-400 px-2 py-0.5 rounded border border-slate-800">${p.category}</span>
                     </div>
-                `;
-            });
-            container.innerHTML = html;
+                    <div class="flex items-center justify-between pt-2 border-t border-slate-800">
+                        <span class="font-mono font-bold text-emerald-400 text-sm">$${p.price.toFixed(2)}</span>
+                        <button onclick="addToCart(${p.id})" class="bg-sky-500 hover:bg-sky-400 text-slate-950 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition">
+                            + Agregar
+                        </button>
+                    </div>
+                </div>
+            `).join('');
         }
 
-        function filterProducts(cat, btnElement) {
-            document.querySelectorAll('.shop-filter-btn').forEach(btn => {
-                btn.className = 'shop-filter-btn bg-gray-900 text-gray-300 border border-gray-700 hover:border-accentBlue px-3.5 py-1.5 rounded-lg';
+        function filterProducts(category, btnElement) {
+            document.querySelectorAll('.shop-filter-btn').forEach(b => {
+                b.className = 'shop-filter-btn bg-slate-900 text-slate-300 border border-slate-700 hover:border-sky-500 px-3.5 py-1.5 rounded-lg font-mono text-xs';
             });
-            btnElement.className = 'shop-filter-btn bg-accentBlue text-gray-950 px-3.5 py-1.5 rounded-lg font-bold';
-            renderProducts(cat);
+            btnElement.className = 'shop-filter-btn bg-sky-500 text-slate-950 px-3.5 py-1.5 rounded-lg font-bold font-mono text-xs';
+            renderProducts(category);
         }
 
-        // Add to cart with QUANTITY INCREMENT logic
         function addToCart(productId) {
-            const product = productsList.find(p => p.id === productId);
-            if (!product) return;
+            const prod = shopProducts.find(p => p.id === productId);
+            if (!prod) return;
 
-            const existingIndex = cart.findIndex(item => item.id === productId);
-            if (existingIndex > -1) {
-                cart[existingIndex].qty += 1;
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.qty++;
             } else {
-                cart.push({
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    qty: 1
-                });
+                cart.push({ ...prod, qty: 1 });
             }
-
             updateCartUI();
         }
 
-        function updateCartQty(index, delta) {
-            if (!cart[index]) return;
-            cart[index].qty += delta;
+        function updateCartUI() {
+            const badge = document.getElementById('cart-count-badge');
+            const totalCount = cart.reduce((acc, item) => acc + item.qty, 0);
+            if (badge) badge.innerText = totalCount;
 
-            if (cart[index].qty <= 0) {
-                cart.splice(index, 1);
+            const cartList = document.getElementById('cart-items-list');
+            const cartTotalPrice = document.getElementById('cart-total-price');
+
+            if (!cartList) return;
+
+            if (cart.length === 0) {
+                cartList.innerHTML = '<div class="text-slate-500 italic p-3 text-center">El carrito está vacío</div>';
+                if (cartTotalPrice) cartTotalPrice.innerText = '$0.00';
+                return;
             }
 
-            updateCartUI();
+            let grandTotal = 0;
+            cartList.innerHTML = cart.map(item => {
+                const itemTotal = item.price * item.qty;
+                grandTotal += itemTotal;
+                return `
+                    <div class="flex items-center justify-between p-2 bg-slate-900 rounded-lg border border-slate-800">
+                        <div>
+                            <span class="text-white font-semibold">${item.name}</span>
+                            <div class="text-slate-400 text-[10px]">$${item.price.toFixed(2)} x ${item.qty}</div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-emerald-400 font-bold">$${itemTotal.toFixed(2)}</span>
+                            <button onclick="removeFromCart(${item.id})" class="text-rose-400 hover:text-rose-300 px-1">✕</button>
+                        </div>
+                    </div>`;
+            }).join('');
+
+            if (cartTotalPrice) cartTotalPrice.innerText = `$${grandTotal.toFixed(2)}`;
         }
 
-        function removeFromCart(index) {
-            cart.splice(index, 1);
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
             updateCartUI();
         }
 
@@ -955,193 +1174,530 @@
             updateCartUI();
         }
 
-        function updateCartUI() {
-            const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
-            document.getElementById('cart-count-badge').innerText = totalCount;
-
-            const itemsContainer = document.getElementById('cart-items-list');
-            const totalPrice = document.getElementById('cart-total-price');
-
-            if (cart.length === 0) {
-                itemsContainer.innerHTML = '<div class="text-textMuted italic text-center py-4 font-mono">Tu carrito está vacío. Elige productos arriba.</div>';
-                totalPrice.innerText = '$0.00';
-                return;
-            }
-
-            let html = '';
-            let total = 0;
-            cart.forEach((item, index) => {
-                const itemTotal = item.price * item.qty;
-                total += itemTotal;
-                html += `
-                    <div class="flex items-center justify-between bg-cardBg p-3 rounded-lg border border-gray-800">
-                        <div class="space-y-0.5">
-                            <span class="text-white font-medium block">${item.name}</span>
-                            <span class="text-textMuted font-mono text-[11px]">$${item.price.toFixed(2)} c/u</span>
-                        </div>
-                        <div class="flex items-center gap-3 font-mono">
-                            <div class="flex items-center bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
-                                <button onclick="updateCartQty(${index}, -1)" class="px-2 py-0.5 text-textMuted hover:text-white hover:bg-gray-800 font-bold">-</button>
-                                <span class="px-2 text-emerald-400 font-bold">${item.qty}</span>
-                                <button onclick="updateCartQty(${index}, 1)" class="px-2 py-0.5 text-textMuted hover:text-white hover:bg-gray-800 font-bold">+</button>
-                            </div>
-                            <span class="text-emerald-400 font-bold w-16 text-right">$${itemTotal.toFixed(2)}</span>
-                            <button onclick="removeFromCart(${index})" class="text-red-400 hover:text-red-300 ml-1">✕</button>
-                        </div>
-                    </div>
-                `;
-            });
-
-            itemsContainer.innerHTML = html;
-            totalPrice.innerText = `$${total.toFixed(2)}`;
-        }
-
         function toggleCartModal() {
             const modal = document.getElementById('cart-modal');
-            modal.classList.toggle('hidden');
+            if (modal) modal.classList.toggle('hidden');
         }
 
-        // ==========================================
-        // 04. REALISTIC INVOICE GENERATOR & GITHUB MODAL
-        // ==========================================
         function processCheckout() {
             if (cart.length === 0) return;
 
-            const invoiceBody = document.getElementById('invoice-items-body');
-            let subtotal = 0;
-            let html = '';
+            const modal = document.getElementById('invoice-modal');
+            const itemsBody = document.getElementById('invoice-items-body');
+            const subtotalEl = document.getElementById('inv-subtotal');
+            const taxEl = document.getElementById('inv-tax');
+            const totalEl = document.getElementById('inv-total');
+            const invNum = document.getElementById('inv-number');
+            const invDate = document.getElementById('inv-date');
 
-            cart.forEach(item => {
-                const lineTotal = item.price * item.qty;
-                subtotal += lineTotal;
-                html += `
+            let total = 0;
+            itemsBody.innerHTML = cart.map(item => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                return `
                     <tr>
-                        <td class="p-2 font-medium text-white">${item.name}</td>
-                        <td class="p-2 text-center font-bold text-accentBlue">${item.qty}</td>
-                        <td class="p-2 text-right text-textMuted">$${item.price.toFixed(2)}</td>
-                        <td class="p-2 text-right font-bold text-emerald-400">$${lineTotal.toFixed(2)}</td>
-                    </tr>
-                `;
-            });
+                        <td class="p-2 text-white">${item.name}</td>
+                        <td class="p-2 text-center">${item.qty}</td>
+                        <td class="p-2 text-right">$${item.price.toFixed(2)}</td>
+                        <td class="p-2 text-right text-emerald-400">$${itemTotal.toFixed(2)}</td>
+                    </tr>`;
+            }).join('');
 
-            const tax = subtotal * 0.13; // 13% IVA
-            const grandTotal = subtotal + tax;
+            const tax = total * 0.13;
+            subtotalEl.innerText = `$${total.toFixed(2)}`;
+            taxEl.innerText = `$${tax.toFixed(2)}`;
+            totalEl.innerText = `$${total.toFixed(2)}`;
 
-            invoiceBody.innerHTML = html;
-            document.getElementById('inv-subtotal').innerText = `$${subtotal.toFixed(2)}`;
-            document.getElementById('inv-tax').innerText = `$${tax.toFixed(2)}`;
-            document.getElementById('inv-total').innerText = `$${grandTotal.toFixed(2)}`;
+            invNum.innerText = `FAC-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+            invDate.innerText = new Date().toLocaleDateString();
 
-            // Date & invoice ID
-            const now = new Date();
-            document.getElementById('inv-number').innerText = `FAC-2026-${Math.floor(1000 + Math.random() * 9000)}`;
-            document.getElementById('inv-date').innerText = now.toLocaleDateString() + ' ' + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
-            // Hide cart drawer and show invoice modal
-            document.getElementById('cart-modal').classList.add('hidden');
-            document.getElementById('invoice-modal').classList.remove('hidden');
-            
-            // Reset cart memory
-            cart = [];
-            updateCartUI();
+            modal.classList.remove('hidden');
         }
 
         function closeInvoiceModal() {
             document.getElementById('invoice-modal').classList.add('hidden');
+            clearCart();
+            toggleCartModal();
         }
 
         function printSimulatedInvoice() {
             window.print();
         }
 
-        // GitHub Repository Code Viewer
-        const githubSnippets = {
-            'task-tracker': {
-                repo: 'gestor-tareas-estudio-js',
-                desc: 'Aplicación de registro de tiempo con acumulación por materia y resumen analítico.',
-                code: `// gestor_tareas.js - Módulo Principal ETL Tareas
-function renderTasks() {
-    let totalHours = 0;
-    userTasks.forEach(task => {
-        totalHours += task.hours;
-        console.log(\`[LOG] Materia: \${task.subject} | \${task.hours} hrs\`);
-    });
-    document.getElementById('badge').innerText = totalHours + ' hrs';
-}`
-            },
-            'flappy-bird': {
-                repo: 'flappy-bird-accessible-2d',
-                desc: 'Motor de juego 2D optimizado con HTML5 Canvas y respuesta táctil.',
-                code: `// flappy_bird_engine.js - Game Loop
-function flappyGameLoop() {
-    bird.velocity += bird.gravity;
-    bird.y += bird.velocity;
-    ctx.arc(bird.x, bird.y, bird.radius, 0, Math.PI * 2);
-    requestAnimationFrame(flappyGameLoop);
-}`
-            },
-            'tech-shop': {
-                repo: 'tech-store-invoice-mvp',
-                desc: 'Catálogo e-commerce con carrito acumulativo por cantidad y emisión de facturas.',
-                code: `// tech_shop_app.js - Aggregation Logic
-function addToCart(id) {
-    const existing = cart.find(i => i.id === id);
-    if (existing) existing.qty += 1;
-    else cart.push({ id, qty: 1 });
-}`
+        // ==========================================
+        // 3. FLAPPY BIRD ARCADE GAME LOGIC
+        // ==========================================
+        let fCanvas, fCtx;
+        let fAnimId = null;
+        let bird = { x: 50, y: 150, radius: 12, velocity: 0, gravity: 0.35, jump: -6.5 };
+        let pipes = [];
+        let score = 0;
+        let highScore = 0;
+        let gameRunning = false;
+
+        function initFlappyCanvas() {
+            fCanvas = document.getElementById('flappy-canvas');
+            if (!fCanvas) return;
+            fCtx = fCanvas.getContext('2d');
+
+            fCanvas.removeEventListener('click', triggerFlappyJump);
+            fCanvas.addEventListener('click', triggerFlappyJump);
+        }
+
+        function startFlappyGame() {
+            initFlappyCanvas();
+            bird.y = 150;
+            bird.velocity = 0;
+            pipes = [];
+            score = 0;
+            gameRunning = true;
+
+            if (fAnimId) cancelAnimationFrame(fAnimId);
+            flappyLoop();
+        }
+
+        function stopFlappyGame() {
+            gameRunning = false;
+            if (fAnimId) cancelAnimationFrame(fAnimId);
+        }
+
+        function triggerFlappyJump() {
+            if (!gameRunning) {
+                startFlappyGame();
+                return;
             }
+            bird.velocity = bird.jump;
+        }
+
+        function flappyLoop() {
+            if (!gameRunning) return;
+
+            // Update Physics
+            bird.velocity += bird.gravity;
+            bird.y += bird.velocity;
+
+            // Spawn Pipes
+            if (pipes.length === 0 || pipes[pipes.length - 1].x < fCanvas.width - 160) {
+                const gap = 110;
+                const minTop = 40;
+                const maxTop = fCanvas.height - gap - 60;
+                const topHeight = Math.floor(Math.random() * (maxTop - minTop + 1)) + minTop;
+
+                pipes.push({
+                    x: fCanvas.width,
+                    top: topHeight,
+                    bottom: fCanvas.height - topHeight - gap,
+                    passed: false
+                });
+            }
+
+            // Move Pipes
+            pipes.forEach(p => p.x -= 2);
+
+            // Check Score
+            pipes.forEach(p => {
+                if (!p.passed && p.x + 30 < bird.x) {
+                    p.passed = true;
+                    score++;
+                    if (score > highScore) {
+                        highScore = score;
+                        document.getElementById('game-highscore').innerText = highScore;
+                    }
+                }
+            });
+
+            // Remove offscreen
+            if (pipes.length > 0 && pipes[0].x < -40) pipes.shift();
+
+            // Collision Check
+            let collision = false;
+            if (bird.y - bird.radius <= 0 || bird.y + bird.radius >= fCanvas.height) {
+                collision = true;
+            }
+
+            pipes.forEach(p => {
+                if (bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + 40) {
+                    if (bird.y - bird.radius < p.top || bird.y + bird.radius > fCanvas.height - p.bottom) {
+                        collision = true;
+                    }
+                }
+            });
+
+            // Draw Scene
+            fCtx.fillStyle = '#0f172a';
+            fCtx.fillRect(0, 0, fCanvas.width, fCanvas.height);
+
+            // Draw Pipes
+            fCtx.fillStyle = '#10b981';
+            pipes.forEach(p => {
+                fCtx.fillRect(p.x, 0, 40, p.top);
+                fCtx.fillRect(p.x, fCanvas.height - p.bottom, 40, p.bottom);
+            });
+
+            // Draw Bird
+            fCtx.fillStyle = '#f59e0b';
+            fCtx.beginPath();
+            fCtx.arc(bird.x, bird.y, bird.radius, 0, Math.PI * 2);
+            fCtx.fill();
+
+            // Draw Score
+            fCtx.fillStyle = '#ffffff';
+            fCtx.font = 'bold 20px Fira Code';
+            fCtx.fillText(`Puntos: ${score}`, 15, 30);
+
+            if (collision) {
+                gameRunning = false;
+                fCtx.fillStyle = 'rgba(0,0,0,0.7)';
+                fCtx.fillRect(0, 0, fCanvas.width, fCanvas.height);
+                fCtx.fillStyle = '#ef4444';
+                fCtx.font = 'bold 22px Fira Code';
+                fCtx.textAlign = 'center';
+                fCtx.fillText('¡JUEGO TERMINADO!', fCanvas.width / 2, fCanvas.height / 2 - 10);
+                fCtx.fillStyle = '#ffffff';
+                fCtx.font = '14px Fira Code';
+                fCtx.fillText('Haz clic para reiniciar', fCanvas.width / 2, fCanvas.height / 2 + 25);
+                fCtx.textAlign = 'start';
+                return;
+            }
+
+            fAnimId = requestAnimationFrame(flappyLoop);
+        }
+
+        window.addEventListener('keydown', e => {
+            if (e.code === 'Space' || e.code === 'ArrowUp') {
+                if (document.getElementById('subview-flappy-bird') && !document.getElementById('subview-flappy-bird').classList.contains('hidden')) {
+                    e.preventDefault();
+                    triggerFlappyJump();
+                }
+            }
+        });
+
+        // ==========================================
+        // 4. NETWORKS MODULE LOGIC
+        // ==========================================
+        function calculateSubnet() {
+            const input = document.getElementById('net-ip-input').value.trim();
+            const parts = input.split('/');
+            
+            if (parts.length !== 2) {
+                return;
+            }
+
+            const ipStr = parts[0];
+            const cidr = parseInt(parts[1], 10);
+
+            if (isNaN(cidr) || cidr < 0 || cidr > 32) return;
+
+            const maskInt = ~(Math.pow(2, 32 - cidr) - 1) >>> 0;
+            const ipInt = ipToLong(ipStr);
+            const netInt = (ipInt & maskInt) >>> 0;
+            const broadcastInt = (netInt | ~maskInt) >>> 0;
+            const totalHosts = Math.pow(2, 32 - cidr) - 2;
+
+            document.getElementById('res-net-ip').innerText = longToIp(netInt);
+            document.getElementById('res-mask').innerText = longToIp(maskInt);
+            document.getElementById('res-broadcast').innerText = longToIp(broadcastInt);
+            document.getElementById('res-first-ip').innerText = totalHosts > 0 ? longToIp(netInt + 1) : 'N/A';
+            document.getElementById('res-last-ip').innerText = totalHosts > 0 ? longToIp(broadcastInt - 1) : 'N/A';
+            document.getElementById('res-hosts').innerText = totalHosts > 0 ? totalHosts.toLocaleString() : 0;
+
+            let binaryStr = maskInt.toString(2).padStart(32, '0');
+            let formattedBinary = `${binaryStr.slice(0,8)}.${binaryStr.slice(8,16)}.${binaryStr.slice(16,24)}.${binaryStr.slice(24,32)}`;
+            document.getElementById('res-binary').innerText = formattedBinary;
+        }
+
+        function ipToLong(ip) {
+            return ip.split('.').reduce((acc, octet) => (acc << 8) + parseInt(octet, 10), 0) >>> 0;
+        }
+
+        function longToIp(long) {
+            return [(long >>> 24) & 255, (long >>> 16) & 255, (long >>> 8) & 255, long & 255].join('.');
+        }
+
+        function simulateTraffic(type) {
+            const packet = document.getElementById('packet-element');
+            const status = document.getElementById('sim-status');
+            const router = document.getElementById('router-node');
+
+            packet.style.transition = 'none';
+            packet.style.left = '15%';
+            packet.style.opacity = '1';
+            
+            if (type === 'DROP') {
+                status.innerText = 'Enviando paquete a Firewall...';
+                status.className = 'text-xs font-medium text-amber-400 bg-amber-900/30 px-2.5 py-1 rounded-lg';
+                
+                setTimeout(() => {
+                    packet.style.transition = 'all 0.8s ease-in-out';
+                    packet.style.left = '50%';
+                }, 50);
+
+                setTimeout(() => {
+                    router.classList.add('border-rose-500', 'bg-rose-950/50');
+                    packet.style.opacity = '0';
+                    status.innerText = '¡Paquete Bloqueado por Firewall!';
+                    status.className = 'text-xs font-medium text-rose-400 bg-rose-900/30 px-2.5 py-1 rounded-lg';
+                    setTimeout(() => router.classList.remove('border-rose-500', 'bg-rose-950/50'), 1500);
+                }, 900);
+
+            } else {
+                status.innerText = `Enviando paquete ${type}...`;
+                status.className = 'text-xs font-medium text-sky-400 bg-sky-900/30 px-2.5 py-1 rounded-lg';
+
+                setTimeout(() => {
+                    packet.style.transition = 'all 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
+                    packet.style.left = '85%';
+                }, 50);
+
+                setTimeout(() => {
+                    status.innerText = `Respuesta 200 OK (${type})`;
+                    status.className = 'text-xs font-medium text-emerald-400 bg-emerald-900/30 px-2.5 py-1 rounded-lg';
+                    setTimeout(() => {
+                        packet.style.opacity = '0';
+                    }, 500);
+                }, 1300);
+            }
+        }
+
+        // ==========================================
+        // 5. CYBERSECURITY MODULE LOGIC
+        // ==========================================
+        function auditPassword() {
+            const pwd = document.getElementById('pwd-input').value;
+            const scoreText = document.getElementById('pwd-score-text');
+            const scoreBar = document.getElementById('pwd-score-bar');
+            const entropySpan = document.getElementById('pwd-entropy');
+            const crackTimeSpan = document.getElementById('pwd-crack-time');
+            const hashDiv = document.getElementById('pwd-hash');
+
+            if (!pwd) {
+                scoreBar.style.width = '0%';
+                entropySpan.innerText = '0 bits';
+                crackTimeSpan.innerText = '0 segundos';
+                hashDiv.innerText = 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855';
+                return;
+            }
+
+            let poolSize = 0;
+            if (/[a-z]/.test(pwd)) poolSize += 26;
+            if (/[A-Z]/.test(pwd)) poolSize += 26;
+            if (/[0-9]/.test(pwd)) poolSize += 10;
+            if (/[^a-zA-Z0-9]/.test(pwd)) poolSize += 32;
+
+            const entropy = Math.round(pwd.length * (Math.log2(poolSize || 1)));
+            entropySpan.innerText = `${entropy} bits`;
+
+            const combinations = Math.pow(poolSize || 1, pwd.length);
+            const seconds = combinations / 10000000000;
+            crackTimeSpan.innerText = formatTime(seconds);
+
+            if (entropy < 30) {
+                scoreText.innerText = 'Muy Débil';
+                scoreText.className = 'font-bold text-rose-400';
+                scoreBar.className = 'h-full bg-rose-500 w-1/4 transition-all duration-300';
+            } else if (entropy < 50) {
+                scoreText.innerText = 'Media';
+                scoreText.className = 'font-bold text-amber-400';
+                scoreBar.className = 'h-full bg-amber-500 w-2/4 transition-all duration-300';
+            } else if (entropy < 70) {
+                scoreText.innerText = 'Fuerte';
+                scoreText.className = 'font-bold text-emerald-400';
+                scoreBar.className = 'h-full bg-emerald-500 w-3/4 transition-all duration-300';
+            } else {
+                scoreText.innerText = 'Excelente';
+                scoreText.className = 'font-bold text-sky-400';
+                scoreBar.className = 'h-full bg-sky-500 w-full transition-all duration-300';
+            }
+
+            hashDiv.innerText = pseudoHash(pwd);
+        }
+
+        function formatTime(seconds) {
+            if (seconds < 1) return '< 1 segundo';
+            if (seconds < 60) return `~ ${Math.round(seconds)} segundos`;
+            if (seconds < 3600) return `~ ${Math.round(seconds / 60)} minutos`;
+            if (seconds < 86400) return `~ ${Math.round(seconds / 3600)} horas`;
+            if (seconds < 31536000) return `~ ${Math.round(seconds / 86400)} días`;
+            return `~ ${Math.round(seconds / 31536000)} años`;
+        }
+
+        function pseudoHash(str) {
+            let h1 = 0xdeadbeef, h2 = 0x41c6ce57;
+            for (let i = 0, ch; i < str.length; i++) {
+                ch = str.charCodeAt(i);
+                h1 = Math.imul(h1 ^ ch, 2654435761);
+                h2 = Math.imul(h2 ^ ch, 1597334677);
+            }
+            let res = (Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909)).toString(16);
+            return (res + res + res + res + res).slice(0, 64);
+        }
+
+        let sshBlocked = false;
+        function toggleFirewallSSH() {
+            sshBlocked = !sshBlocked;
+            const btn = document.getElementById('toggle-ssh-fw');
+            const badge = document.getElementById('port-22-badge');
+
+            if (sshBlocked) {
+                btn.innerHTML = '<i class="fa-solid fa-unlock mr-1"></i> Permitir SSH';
+                btn.className = 'bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 border border-emerald-500/30 text-xs px-3 py-1.5 rounded-xl font-medium transition';
+                badge.innerText = 'FILTERED';
+                badge.className = 'text-[10px] font-bold px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20';
+            } else {
+                btn.innerHTML = '<i class="fa-solid fa-lock mr-1"></i> Bloquear SSH';
+                btn.className = 'bg-rose-500/10 text-rose-400 hover:bg-rose-500/20 border border-rose-500/30 text-xs px-3 py-1.5 rounded-xl font-medium transition';
+                badge.innerText = 'OPEN';
+                badge.className = 'text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20';
+            }
+        }
+
+        function runPortScan() {
+            const terminal = document.getElementById('scan-terminal');
+            terminal.innerHTML = `<div class="text-slate-500">$ nmap -sV 10.0.0.15</div><div class="text-slate-400">Escaneando objetivo...</div>`;
+
+            setTimeout(() => {
+                terminal.innerHTML += `<div class="text-emerald-400">Nmap scan report for target (10.0.0.15)</div>`;
+                terminal.innerHTML += `<div class="text-slate-300">PORT   STATE    SERVICE</div>`;
+                
+                if (sshBlocked) {
+                    terminal.innerHTML += `<div class="text-rose-400">22/tcp filtered ssh</div>`;
+                } else {
+                    terminal.innerHTML += `<div class="text-emerald-400">22/tcp open     ssh</div>`;
+                }
+                
+                terminal.innerHTML += `<div class="text-emerald-400">80/tcp open     http</div>`;
+                terminal.innerHTML += `<div class="text-emerald-400">443/tcp open    https</div>`;
+                terminal.scrollTop = terminal.scrollHeight;
+            }, 600);
+        }
+
+        // ==========================================
+        // 6. DATA SCIENCE CANVAS LOGIC
+        // ==========================================
+        let dataPoints = [];
+        let mlCanvas, mlCtx;
+
+        function initMlCanvas() {
+            mlCanvas = document.getElementById('ml-canvas');
+            if (!mlCanvas) return;
+            mlCtx = mlCanvas.getContext('2d');
+
+            mlCanvas.removeEventListener('click', handleMlCanvasClick);
+            mlCanvas.addEventListener('click', handleMlCanvasClick);
+        }
+
+        function handleMlCanvasClick(e) {
+            const rect = mlCanvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            dataPoints.push({ x: x, y: y });
+            drawDataCanvas();
+            document.getElementById('ds-point-count').innerText = dataPoints.length;
+        }
+
+        function drawDataCanvas(fittedLine = null) {
+            if (!mlCanvas || !mlCtx) initMlCanvas();
+            if (!mlCtx) return;
+
+            mlCtx.clearRect(0, 0, mlCanvas.width, mlCanvas.height);
+
+            // Draw grid
+            mlCtx.strokeStyle = '#1e293b';
+            mlCtx.lineWidth = 1;
+            for (let x = 0; x < mlCanvas.width; x += 40) {
+                mlCtx.beginPath();
+                mlCtx.moveTo(x, 0);
+                mlCtx.lineTo(x, mlCanvas.height);
+                mlCtx.stroke();
+            }
+            for (let y = 0; y < mlCanvas.height; y += 40) {
+                mlCtx.beginPath();
+                mlCtx.moveTo(0, y);
+                mlCtx.lineTo(mlCanvas.width, y);
+                mlCtx.stroke();
+            }
+
+            // Draw data points
+            dataPoints.forEach((pt) => {
+                mlCtx.beginPath();
+                mlCtx.arc(pt.x, pt.y, 6, 0, Math.PI * 2);
+                mlCtx.fillStyle = pt.cluster === 1 ? '#a855f7' : (pt.cluster === 0 ? '#06b6d4' : '#818cf8');
+                mlCtx.fill();
+                mlCtx.strokeStyle = '#ffffff';
+                mlCtx.lineWidth = 1.5;
+                mlCtx.stroke();
+            });
+
+            // Draw Fitted Line
+            if (fittedLine) {
+                mlCtx.beginPath();
+                mlCtx.moveTo(0, fittedLine.slope * 0 + fittedLine.intercept);
+                mlCtx.lineTo(mlCanvas.width, fittedLine.slope * mlCanvas.width + fittedLine.intercept);
+                mlCtx.strokeStyle = '#f59e0b';
+                mlCtx.lineWidth = 3;
+                mlCtx.stroke();
+            }
+        }
+
+        function clearDsCanvas() {
+            dataPoints = [];
+            drawDataCanvas();
+            document.getElementById('ds-point-count').innerText = '0';
+            document.getElementById('ds-slope').innerText = 'N/A';
+            document.getElementById('ds-intercept').innerText = 'N/A';
+            document.getElementById('ds-mse').innerText = 'N/A';
+        }
+
+        function fitLinearRegression() {
+            if (dataPoints.length < 2) return;
+
+            const n = dataPoints.length;
+            let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
+
+            dataPoints.forEach(p => {
+                sumX += p.x;
+                sumY += p.y;
+                sumXY += p.x * p.y;
+                sumXX += p.x * p.x;
+            });
+
+            const slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+            const intercept = (sumY - slope * sumX) / n;
+
+            let mse = 0;
+            dataPoints.forEach(p => {
+                let predY = slope * p.x + intercept;
+                mse += Math.pow(p.y - predY, 2);
+            });
+            mse = (mse / n).toFixed(2);
+
+            document.getElementById('ds-slope').innerText = slope.toFixed(4);
+            document.getElementById('ds-intercept').innerText = intercept.toFixed(2);
+            document.getElementById('ds-mse').innerText = mse;
+
+            drawDataCanvas({ slope, intercept });
+        }
+
+        function clusterKMeans() {
+            if (dataPoints.length < 2) return;
+
+            dataPoints.forEach((pt) => {
+                pt.cluster = (pt.x > mlCanvas.width / 2) ? 1 : 0;
+            });
+
+            drawDataCanvas();
+        }
+
+        // Window Init
+        window.onload = function() {
+            renderTasks();
+            renderProducts();
+            calculateSubnet();
+            auditPassword();
+            initMlCanvas();
+            drawDataCanvas();
         };
-
-        function openGithubCode(projectId) {
-            const currentProj = projectId || (document.getElementById('view-task-tracker').classList.contains('hidden') ? 
-                (document.getElementById('view-flappy-bird').classList.contains('hidden') ? 'tech-shop' : 'flappy-bird') : 'task-tracker');
-            
-            const data = githubSnippets[currentProj];
-            if (data) {
-                document.getElementById('gh-repo-title').innerText = data.repo;
-                document.getElementById('gh-repo-desc').innerText = data.desc;
-                document.getElementById('gh-code-snippet').innerText = data.code;
-                document.getElementById('github-modal').classList.remove('hidden');
-            }
-        }
-
-        function closeGithubModal() {
-            document.getElementById('github-modal').classList.add('hidden');
-        }
-
-        // Navigation Handler
-        function openProject(projectId) {
-            document.getElementById('portfolio-home').classList.add('hidden');
-            document.getElementById('project-detail').classList.remove('hidden');
-            
-            // Hide all sub views
-            document.getElementById('view-task-tracker').classList.add('hidden');
-            document.getElementById('view-flappy-bird').classList.add('hidden');
-            document.getElementById('view-tech-shop').classList.add('hidden');
-
-            if (projectId === 'task-tracker') {
-                document.getElementById('view-task-tracker').classList.remove('hidden');
-                document.getElementById('active-filename').innerText = 'gestor_tareas.js';
-                renderTasks();
-            } else if (projectId === 'flappy-bird') {
-                document.getElementById('view-flappy-bird').classList.remove('hidden');
-                document.getElementById('active-filename').innerText = 'flappy_bird_engine.js';
-                setTimeout(initFlappyCanvas, 100);
-            } else if (projectId === 'tech-shop') {
-                document.getElementById('view-tech-shop').classList.remove('hidden');
-                document.getElementById('active-filename').innerText = 'tech_shop_app.js';
-                renderProducts('all');
-                updateCartUI();
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function closeProject() {
-            if (gameLoopId) cancelAnimationFrame(gameLoopId);
-            document.getElementById('project-detail').classList.add('hidden');
-            document.getElementById('portfolio-home').classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
     </script>
 </body>
 </html>
