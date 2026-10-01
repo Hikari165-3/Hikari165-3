@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Profesional - Ingeniería de Sistemas</title>
+    <title>Portafolio de Proyectos Interactivos</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,29 +43,79 @@
         .custom-scrollbar::-webkit-scrollbar-track { background: #0d1117; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #21262d; border-radius: 4px; }
         .glow-accent { box-shadow: 0 0 20px rgba(56, 189, 248, 0.15); }
+                
+                /* Animación Gelatina */
+        @keyframes jellyAnim {
+            0%, 100% { transform: scale(1, 1); }
+            25% { transform: scale(1.25, 0.75); }
+            40% { transform: scale(0.75, 1.25); }
+            50% { transform: scale(1.15, 0.85); }
+            65% { transform: scale(0.95, 1.05); }
+            75% { transform: scale(1.05, 0.95); }
+        }
+
+        .anim-gelatina {
+            animation: jellyAnim 1.4s ease-in-out infinite;
+            transform-origin: center bottom;
+        }
+
+        .ghost-glow-sm {
+            filter: drop-shadow(0px 0px 6px rgba(147, 197, 253, 0.9));
+        }
+        /*prueba 2*/
+        #custom-ghost-cursor {
+       position: fixed;
+       top: 0;
+       left: 0;
+       pointer-events: none;
+       z-index: 9999;
+       transform: translate(-50%, -50%);
+       transition: transform 0.15s ease-out;
+   }
     </style>
 </head>
 <body class="bg-darkBg text-slate-100 min-h-screen flex flex-col selection:bg-sky-500 selection:text-slate-950">
 
     <!-- HEADER NAVBAR -->
     <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-sky-500/20">
-                    <i class="fa-solid fa-code"></i>
+                    <!-- AHORA: Reemplazar por este SVG con la clase anim-gelatina -->
+                    <svg id="header-ghost" class="w-6 h-6 fill-white ghost-glow-sm anim-gelatina ghost-header-icon" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 50 10 C 20 10 15 35 15 65 L 15 105 Q 27 92 38 102 T 62 102 Q 73 92 85 105 L 85 65 C 85 35 80 10 50 10 Z" />
+                        <circle cx="38" cy="48" r="7" class="fill-indigo-950" />
+                        <circle cx="62" cy="48" r="7" class="fill-indigo-950" />
+                    </svg>
+                    <!--cursor-->
+                    <div id="custom-ghost-cursor" class="w-8 h-8">
+                        <svg viewBox="0 0 100 120" class="w-full h-full fill-[#93c5fd]">
+                            <path d="M 50 10 C 25 10 15 35 15 60 L 15 100 C 15 100 25 90 35 100 C 45 110 50 95 50 95 C 50 95 55 110 65 100 C 75 90 85 100 85 100 L 85 60 C 85 35 75 10 50 10 Z" />
+                            <circle cx="38" cy="45" r="6" fill="#0b132b" />
+                            <circle cx="62" cy="45" r="6" fill="#0b132b" />
+                        </svg>
+                    </div>
                 </div>
                 <div>
                     <h1 class="text-base sm:text-lg font-bold tracking-tight text-white flex items-center gap-2">
-                        Mariluz Huanca <span class="hidden sm:inline-block text-xs bg-sky-500/10 text-sky-400 border border-sky-500/30 px-2 py-0.5 rounded-full font-mono">Portafolio & Suite</span>
+                        <span class="hidden sm:inline-block text-xs bg-sky-500/10 text-sky-400 border border-sky-500/30 px-2 py-0.5 rounded-full font-mono">Portafolio Digital</span> Mariluz HM
                     </h1>
-                    <p class="text-xs text-slate-400">Ingeniería de Sistemas • Análisis de Datos • Desarrollos</p>
+                    <p>
+                        <span class="hidden sm:inline-block text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full font-mono">Ingeniería de Sistemas</span>
+                        <span class="hidden sm:inline-block text-xs bg-sky-500/10 text-sky-400 border border-sky-500/30 px-2 py-0.5 rounded-full font-mono">Analista de Datos & Administración DB</span>
+                        <span class="hidden sm:inline-block text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/30 px-2 py-0.5 rounded-full font-mono">Desarrolladora de Software</span>
+                    </p>
                 </div>
             </div>
-
+            <div class="flex items-center gap-2">
+                <a href="https://github.com/Hikari165-3" target="_blank" rel="noopener" class="text-xs font-mono bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </div>
             <!-- DESKTOP NAVIGATION TABS -->
             <nav class="hidden md:flex space-x-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-mono">
                 <button onclick="switchMainTab('profile')" id="nav-profile" class="nav-btn px-3.5 py-2 rounded-lg transition-all text-sky-400 bg-slate-800 shadow">
-                    <i class="fa-solid fa-user-astronaut mr-1.5"></i>Perfil & CV
+                    <i class="fa-solid fa-user-astronaut mr-1.5"></i>Perfil
                 </button>
                 <button onclick="switchMainTab('apps')" id="nav-apps" class="nav-btn px-3.5 py-2 rounded-lg transition-all text-slate-400 hover:text-white">
                     <i class="fa-solid fa-cubes mr-1.5"></i>Apps & Juegos
@@ -80,12 +130,6 @@
                     <i class="fa-solid fa-chart-scatter mr-1.5"></i>Datos & ML
                 </button>
             </nav>
-
-            <div class="flex items-center gap-2">
-                <a href="https://github.com/Hikari165-3" target="_blank" rel="noopener" class="text-xs font-mono bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
-                    <i class="fa-brands fa-github"></i> GitHub
-                </a>
-            </div>
         </div>
 
         <!-- MOBILE NAVIGATION TABS -->
@@ -116,13 +160,13 @@
                     </div>
                     <span class="font-mono text-xs text-accentGreen flex items-center gap-1.5">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        Buscando Oportunidades
+                        Buscando Oportunidades Laborales
                     </span>
                 </div>
                 <div class="p-6 md:p-8 space-y-4">
                     <div>
                         <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">MARILUZ HUANCA MAMANI</h1>
-                        <p class="text-sky-400 font-mono text-sm mt-1">Egresada de Ingeniería de Sistemas • Técnico Superior "Analista de Sistemas"</p>
+                        <p class="text-sky-400 font-mono text-sm mt-1">Ingeniera de Sistemas</p>
                     </div>
 
                     <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
@@ -151,20 +195,33 @@
                 <!-- Academic Profile -->
                 <div class="lg:col-span-6 bg-cardBg border border-slate-800 rounded-2xl p-6 space-y-4">
                     <h2 class="text-lg font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
-                        <i class="fa-solid fa-graduation-cap text-sky-400"></i> Perfil Académico & Enfoque
+                        <i class="fa-solid fa-graduation-cap text-sky-400"></i> Perfil Profesional
                     </h2>
                     <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                        Formación integral orientada al análisis de datos, Business Intelligence y desarrollo de sistemas. Hábil en la formulación de consultas estructuradas en SQL para transformar datos operativos en información estratégica. Cuento con especial interés por el aprendizaje continuo de nuevas herramientas tecnológicas, cloud y ciberseguridad.
+                        Formación orientada al análisis de datos, Business Intelligence y desarrollo de sistemas. Hábil en la formulación de consultas estructuradas en SQL para transformar datos operativos en información estratégica. Interés por las nuevas herramientas tecnológicas, cloud y ciberseguridad.
                     </p>
                     <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-2 text-xs font-mono">
                         <div class="flex justify-between text-slate-400 border-b border-slate-800/80 pb-1.5">
                             <span>Carrera:</span> <span class="text-white">Ingeniería de Sistemas</span>
+                            <span class="font-mono text-xs text-accentPurple flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
+                                Egresada
+                            </span>
                         </div>
                         <div class="flex justify-between text-slate-400 border-b border-slate-800/80 pb-1.5">
-                            <span>Título Técnico:</span> <span class="text-white">Analista de Sistemas</span>
+                            <span>Técnico Superior:</span> <span class="text-white">Ingeniería de Sistemas en "Analista de Sistemas"</span>
                         </div>
                         <div class="flex justify-between text-slate-400">
-                            <span>Áreas de Interés:</span> <span class="text-sky-400">Data Science, Redes, Cloud & Web</span>
+                            <span>Experiencia Práctica:</span>
+                            <span class="text-sky-400">Tester del Área de Tester y Seguridad de Software <b>(UTIC)</b> & Técnico de soporte de la Unidad de Sistemas <b>(GAMEA)</b> & Analista de Gestión de Información y Sistemas <b>(HCU)</b></span>
+                        </div>
+                        <div class="flex justify-between text-slate-400">
+                            <span>Competencias Técnicas:</span>
+                            <span class="text-white"> Networking, Análisis de Vulnerabilidades, Elaboración de Informes Técnicos</span>
+                        </div>
+                        <div class="flex justify-between text-slate-400">
+                            <span>Competencias Personales:</span>
+                            <span class="text-white"> Comunicación efectiva, Trabajo en equipo, Confidencialidad profesional</span>
                         </div>
                     </div>
                 </div>
@@ -181,8 +238,8 @@
                             <div class="text-slate-400 text-[11px]">Windows Server, Linux (Kali, Ubuntu, Red Hat, CentOS, Debian)</div>
                         </div>
                         <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
-                            <div class="text-sky-400 font-bold mb-1">Herramientas de Seguridad cibernetica</div>
-                            <div class="text-slate-400 text-[11px]">Metasploit, Nmap, Nikto, Zabbix, Nuclei, Wireshark.</div>
+                            <div class="text-sky-400 font-bold mb-1">Herramientas de Seguridad</div>
+                            <div class="text-slate-400 text-[11px]">Metasploit, Nmap, Nikto, Zabbix, Nuclei, Wireshark, Burp Suite, OWASP ZAP.</div>
                         </div>
                         <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
                             <div class="text-sky-400 font-bold mb-1">Herramientas</div>
@@ -230,10 +287,10 @@
                     <h2 class="text-xl font-bold text-white flex items-center gap-2">
                         <i class="fa-solid fa-laptop-code text-sky-400"></i> Aplicaciones Web & Videojuegos Interactivos
                     </h2>
-                    <p class="text-sm text-slate-400 mt-1">Selecciona una de las aplicaciones desarrolladas para probar su funcionalidad directamente en pantalla.</p>
+                    <p class="text-sm text-slate-400 mt-1">Selecciona una de las aplicaciones desarrolladas para probar su funcionalidad en pantalla.</p>
                 </div>
                 <div class="flex gap-2">
-                    <span class="text-xs font-mono bg-sky-500/10 text-sky-400 border border-sky-500/30 px-3 py-1.5 rounded-lg">Vanilla JS & DOM Apps</span>
+                    <span class="text-xs font-mono bg-sky-500/10 text-sky-400 border border-sky-500/30 px-3 py-1.5 rounded-lg">Proyectos Desarrallos </span>
                 </div>
             </div>
 
@@ -246,13 +303,17 @@
                             <span class="text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-0.5 rounded-md">Productividad</span>
                             <i class="fa-solid fa-list-check text-emerald-400 text-lg"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-white">Gestor de Tareas & Estudio</h3>
+                        <h3 class="text-lg font-bold text-white">Gestor de Tareas y Estudio</h3>
                         <p class="text-xs text-slate-400 leading-relaxed">
-                            Registra materias, controla tiempos dedicados y calcula dinámicamente las horas totales acumuladas.
+                            Una aplicación para registrar materias, controlar el tiempo dedicado a cada tarea y calcular automáticamente el total de horas de estudio invertidas.
                         </p>
+                        <div class="flex flex-wrap gap-2 mb-4 font-mono text-xs">
+                            <span class="bg-indigo-950/60 text-accentPurple border border-indigo-800/40 px-2.5 py-1 rounded">JavaScript</span>
+                            <span class="bg-indigo-950/60 text-accentPurple border border-indigo-800/40 px-2.5 py-1 rounded">HTML5 / Tailwind</span>
+                        </div>
                     </div>
                     <button onclick="openAppSubView('task-tracker')" class="w-full py-2.5 bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 border border-sky-500/30 rounded-xl font-mono text-xs font-semibold transition flex items-center justify-center gap-2">
-                        <span>▶ Abrir Aplicación</span> &rarr;
+                        <span>▶ Probar Aplicación</span>
                     </button>
                 </div>
 
@@ -265,11 +326,15 @@
                         </div>
                         <h3 class="text-lg font-bold text-white">Tienda Tech MVP</h3>
                         <p class="text-xs text-slate-400 leading-relaxed">
-                            Catálogo interactivo con carrito de compras dinámico y generación de Factura Electrónica en tiempo real.
+                            Prototipo de tienda online de productos tecnologícos. El cuál incluye catálogo dinámico, filtro por categoría, productos adquiridos en el carrito de compras y cuenta con la emisión de Factura en digital.
                         </p>
+                        <div class="flex flex-wrap gap-2 mb-4 font-mono text-xs">
+                            <span class="bg-indigo-950/60 text-accentPurple border border-indigo-800/40 px-2.5 py-1 rounded">UI Responsive</span>
+                            <span class="bg-indigo-950/60 text-accentPurple border border-indigo-800/40 px-2.5 py-1 rounded">JavaScript DOM</span>
+                        </div>
                     </div>
                     <button onclick="openAppSubView('tech-shop')" class="w-full py-2.5 bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 border border-sky-500/30 rounded-xl font-mono text-xs font-semibold transition flex items-center justify-center gap-2">
-                        <span>🛒 Probar Tienda</span> &rarr;
+                        <span>🛒 Probar Tienda</span>
                     </button>
                 </div>
 
@@ -277,16 +342,20 @@
                 <div class="bg-cardBg border border-slate-800 rounded-2xl p-6 flex flex-col justify-between space-y-4 hover:border-sky-500/50 transition-all shadow-xl">
                     <div class="space-y-2">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs font-mono bg-purple-500/10 text-purple-400 border border-purple-500/20 px-2.5 py-0.5 rounded-md">Juego Canvas 2D</span>
+                            <span class="text-xs font-mono bg-purple-500/10 text-purple-400 border border-purple-500/20 px-2.5 py-0.5 rounded-md">Videojuego 2D</span>
                             <i class="fa-solid fa-gamepad text-purple-400 text-lg"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-white">Flappy Bird Arcade</h3>
+                        <h3 class="text-lg font-bold text-white">Flappy Bird</h3>
                         <p class="text-xs text-slate-400 leading-relaxed">
-                            Física de física de gravedad 2D, aceleración, contador de récords y optimización táctil/teclado.
+                            Juego interactivo 2D, incluye física de gravedad, aceleración, detección de colisiones y registro de puntuación máxima.
                         </p>
+                        <div class="flex flex-wrap gap-2 mb-4 font-mono text-xs">
+                            <span class="bg-indigo-950/60 text-accentPurple border border-indigo-800/40 px-2.5 py-1 rounded">HTML5 Canvas</span>
+                            <span class="bg-indigo-950/60 text-accentPurple border border-indigo-800/40 px-2.5 py-1 rounded">JavaScript</span>
+                        </div>
                     </div>
                     <button onclick="openAppSubView('flappy-bird')" class="w-full py-2.5 bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 border border-purple-500/30 rounded-xl font-mono text-xs font-semibold transition flex items-center justify-center gap-2">
-                        <span>🎮 Jugar Ahora</span> &rarr;
+                        <span>🎮 Jugar Ahora</span>
                     </button>
                 </div>
             </div>
@@ -406,7 +475,7 @@
                             <!-- Items loaded dynamically -->
                         </div>
                         <div class="border-t border-slate-800 pt-3 flex items-center justify-between font-mono text-sm">
-                            <span class="text-slate-300">Subtotal estimado:</span>
+                            <span class="text-slate-300">Total a Pagar:</span>
                             <span id="cart-total-price" class="text-emerald-400 font-bold">$0.00</span>
                         </div>
                         <div class="flex gap-3">
@@ -498,6 +567,10 @@
                             <div class="flex justify-between border-b border-slate-800 pb-1.5">
                                 <span class="text-slate-400">Máscara de Red:</span>
                                 <span id="res-mask" class="text-slate-200">255.255.255.0</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800 pb-1.5">
+                                <span class="text-slate-400">Wildcard:</span>
+                                <span id="res-wildcard" class="text-slate-200">0.0.0.255</span>
                             </div>
                             <div class="flex justify-between border-b border-slate-800 pb-1.5">
                                 <span class="text-slate-400">Broadcast IP:</span>
@@ -822,7 +895,7 @@ y_pred = model.predict(X_test)</code></pre>
                         ✓ FACTURA ELECTRÓNICA DE COMPRA
                     </div>
                     <h3 class="text-xl font-bold text-white">TECH STORE MVP S.A.</h3>
-                    <p class="text-slate-400 text-xs">NIT/RUC: 1029384756 • Sistema Integrado de Ventas</p>
+                    <p class="text-slate-400 text-xs">NIT/RUC: 1029384756 • Sistema de Ventas</p>
                 </div>
                 <div class="text-right font-mono text-xs">
                     <div class="text-sky-400 font-bold" id="inv-number">FAC-2026-0001</div>
@@ -834,11 +907,11 @@ y_pred = model.predict(X_test)</code></pre>
             <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs grid grid-cols-2 gap-2 font-mono">
                 <div>
                     <span class="text-slate-400 block">Cliente:</span>
-                    <span class="text-white font-semibold">Usuario Anonimo Tech</span>
+                    <span class="text-white font-semibold">Usuario01</span>
                 </div>
                 <div>
                     <span class="text-slate-400 block">Método de Pago:</span>
-                    <span class="text-emerald-400 font-semibold">Tarjeta / QR (Simulado)</span>
+                    <span class="text-emerald-400 font-semibold">Tarjeta / QR (Prueba)</span>
                 </div>
             </div>
 
@@ -862,7 +935,7 @@ y_pred = model.predict(X_test)</code></pre>
             <!-- Invoice Totals -->
             <div class="border-t border-slate-800 pt-3 space-y-1 font-mono text-xs text-right">
                 <div class="flex justify-between text-slate-400">
-                    <span>Subtotal:</span>
+                    <span>Total:</span>
                     <span id="inv-subtotal">$0.00</span>
                 </div>
                 <div class="flex justify-between text-slate-400">
@@ -890,7 +963,7 @@ y_pred = model.predict(X_test)</code></pre>
     <!-- FOOTER -->
     <footer class="border-t border-slate-800 bg-slate-950 py-6 text-center text-xs text-slate-500 font-mono">
         <div class="max-w-7xl mx-auto px-4">
-            <p>Mariluz Huanca Mamani • Portafolio Web & Suite Integrada de Ingeniería de Sistemas © 2026</p>
+            <p>Portafolio Web de Ingeniería de Sistemas © 2026 • (Actualizado)</p>
         </div>
     </footer>
 
@@ -1204,9 +1277,10 @@ y_pred = model.predict(X_test)</code></pre>
             }).join('');
 
             const tax = total * 0.13;
+            const finaltotal = total+tax;
             subtotalEl.innerText = `$${total.toFixed(2)}`;
             taxEl.innerText = `$${tax.toFixed(2)}`;
-            totalEl.innerText = `$${total.toFixed(2)}`;
+            totalEl.innerText = `$${finaltotal.toFixed(2)}`;
 
             invNum.innerText = `FAC-2026-${Math.floor(1000 + Math.random() * 9000)}`;
             invDate.innerText = new Date().toLocaleDateString();
@@ -1229,7 +1303,7 @@ y_pred = model.predict(X_test)</code></pre>
         // ==========================================
         let fCanvas, fCtx;
         let fAnimId = null;
-        let bird = { x: 50, y: 150, radius: 12, velocity: 0, gravity: 0.35, jump: -6.5 };
+        let bird = { x: 50, y: 150, radius: 10, velocity: 0, gravity: 0.08, jump: -2 };
         let pipes = [];
         let score = 0;
         let highScore = 0;
@@ -1246,8 +1320,9 @@ y_pred = model.predict(X_test)</code></pre>
 
         function startFlappyGame() {
             initFlappyCanvas();
-            bird.y = 150;
-            bird.velocity = 0;
+            if (!fCanvas) return;
+            bird.y = fCanvas.height / 2;
+            bird.velocity = bird.jump; //salto al iniciar
             pipes = [];
             score = 0;
             gameRunning = true;
@@ -1278,7 +1353,7 @@ y_pred = model.predict(X_test)</code></pre>
 
             // Spawn Pipes
             if (pipes.length === 0 || pipes[pipes.length - 1].x < fCanvas.width - 160) {
-                const gap = 110;
+                const gap = 128;
                 const minTop = 40;
                 const maxTop = fCanvas.height - gap - 60;
                 const topHeight = Math.floor(Math.random() * (maxTop - minTop + 1)) + minTop;
@@ -1292,7 +1367,7 @@ y_pred = model.predict(X_test)</code></pre>
             }
 
             // Move Pipes
-            pipes.forEach(p => p.x -= 2);
+            pipes.forEach(p => p.x -= 0.6);
 
             // Check Score
             pipes.forEach(p => {
@@ -1391,11 +1466,13 @@ y_pred = model.predict(X_test)</code></pre>
             const maskInt = ~(Math.pow(2, 32 - cidr) - 1) >>> 0;
             const ipInt = ipToLong(ipStr);
             const netInt = (ipInt & maskInt) >>> 0;
+            const wildcardInt = (~maskInt) >>> 0;
             const broadcastInt = (netInt | ~maskInt) >>> 0;
             const totalHosts = Math.pow(2, 32 - cidr) - 2;
 
             document.getElementById('res-net-ip').innerText = longToIp(netInt);
             document.getElementById('res-mask').innerText = longToIp(maskInt);
+            document.getElementById('res-wildcard').innerText = longToIp(wildcardInt);
             document.getElementById('res-broadcast').innerText = longToIp(broadcastInt);
             document.getElementById('res-first-ip').innerText = totalHosts > 0 ? longToIp(netInt + 1) : 'N/A';
             document.getElementById('res-last-ip').innerText = totalHosts > 0 ? longToIp(broadcastInt - 1) : 'N/A';
@@ -1698,6 +1775,43 @@ y_pred = model.predict(X_test)</code></pre>
             initMlCanvas();
             drawDataCanvas();
         };
+                //prueba 2
+        // 1. Seleccionamos el fantasma flotante del HTML
+    const cursorGhost = document.getElementById('custom-ghost-cursor');
+    let mouseX = 0, mouseY = 0;
+    let ghostX = 0, ghostY = 0;
+
+    // 2. Guardamos las coordenadas del mouse
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    // 3. Animación fluida de seguimiento (Lerp)
+    function animateCursor() {
+        if (cursorGhost) {
+            ghostX += (mouseX - ghostX) * 0.2; // Velocidad de persecución
+            ghostY += (mouseY - ghostY) * 0.2;
+            cursorGhost.style.left = `${ghostX}px`;
+            cursorGhost.style.top = `${ghostY}px`;
+        }
+        requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // 4. Efecto de Gelatina en el Fantasma al hacer Clic
+    document.addEventListener('mousedown', () => {
+        if (cursorGhost) {
+            cursorGhost.style.transform = 'translate(-50%, -50%) scale(1.4, 0.6)';
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (cursorGhost) {
+            cursorGhost.style.transform = 'translate(-50%, -50%) scale(1, 1)';
+        }
+    });
+
     </script>
 </body>
 </html>
