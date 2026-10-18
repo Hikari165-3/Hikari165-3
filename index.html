@@ -64,14 +64,21 @@
         }
         /*prueba 2*/
         #custom-ghost-cursor {
-       position: fixed;
-       top: 0;
-       left: 0;
-       pointer-events: none;
-       z-index: 9999;
-       transform: translate(-50%, -50%);
-       transition: transform 0.15s ease-out;
-   }
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.15s ease-out;
+        }
+
+        @media print {
+            body * { visibility: hidden; }
+            #printable-invoice-content, #printable-invoice-content * { visibility: visible; }
+            #printable-invoice-content { position: absolute; left: 0; top: 0; width: 100%; border: none !important; }
+            .no-print { display: none !important; }
+        }
     </style>
 </head>
 <body class="bg-darkBg text-slate-100 min-h-screen flex flex-col selection:bg-sky-500 selection:text-slate-950">
@@ -107,18 +114,19 @@
                     </p>
                 </div>
             </div>
-            <div class="flex items-center gap-2">
-                <a href="https://github.com/Hikari165-3" target="_blank" rel="noopener" class="text-xs font-mono bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
-                    <i class="fa-brands fa-github"></i> GitHub
-                </a>
-            </div>
+            <a href="https://github.com/Hikari165-3" target="_blank" rel="noopener" class="text-xs font-mono bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 px-3 py-4 rounded-lg transition flex items-center gap-1.5 shrink-0">
+                <i class="fa-brands fa-github text-sm"></i> GitHub
+            </a>
             <!-- DESKTOP NAVIGATION TABS -->
             <nav class="hidden md:flex space-x-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-mono">
                 <button onclick="switchMainTab('profile')" id="nav-profile" class="nav-btn px-3.5 py-2 rounded-lg transition-all text-sky-400 bg-slate-800 shadow">
                     <i class="fa-solid fa-user-astronaut mr-1.5"></i>Perfil
                 </button>
+                <button onclick="switchMainTab('desarrollo')" id="nav-desarrollo" class="nav-btn px-3.5 py-2 rounded-lg transition-all text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-code mr-1.5"></i>Desarrollo, APIs
+                </button>
                 <button onclick="switchMainTab('apps')" id="nav-apps" class="nav-btn px-3.5 py-2 rounded-lg transition-all text-slate-400 hover:text-white">
-                    <i class="fa-solid fa-cubes mr-1.5"></i>Apps & Juegos
+                    <i class="fa-solid fa-cubes mr-1.5"></i>Apps y Juegos
                 </button>
                 <button onclick="switchMainTab('networks')" id="nav-networks" class="nav-btn px-3.5 py-2 rounded-lg transition-all text-slate-400 hover:text-white">
                     <i class="fa-solid fa-network-wired mr-1.5"></i>Redes
@@ -127,14 +135,16 @@
                     <i class="fa-solid fa-shield-halved mr-1.5"></i>Seguridad
                 </button>
                 <button onclick="switchMainTab('datascience')" id="nav-datascience" class="nav-btn px-3.5 py-2 rounded-lg transition-all text-slate-400 hover:text-white">
-                    <i class="fa-solid fa-chart-scatter mr-1.5"></i>Datos & ML
+                    <i class="fa-solid fa-chart-scatter mr-1.5"></i>Datos y ML
                 </button>
             </nav>
+            
         </div>
 
         <!-- MOBILE NAVIGATION TABS -->
         <div class="md:hidden flex border-t border-slate-800 bg-slate-950 px-2 py-2 overflow-x-auto space-x-1.5 text-xs font-mono">
             <button onclick="switchMainTab('profile')" id="m-nav-profile" class="m-nav-btn flex-1 min-w-[90px] px-2.5 py-1.5 rounded-lg text-sky-400 bg-slate-800 text-center whitespace-nowrap">Perfil</button>
+            <button onclick="switchMainTab('desarrollo')" id="m-nav-desarrollo" class="m-nav-btn flex-1 min-w-[90px] px-2.5 py-1.5 rounded-lg text-slate-400 text-center whitespace-nowrap">Desarrollo</button>
             <button onclick="switchMainTab('apps')" id="m-nav-apps" class="m-nav-btn flex-1 min-w-[90px] px-2.5 py-1.5 rounded-lg text-slate-400 text-center whitespace-nowrap">Apps/Juegos</button>
             <button onclick="switchMainTab('networks')" id="m-nav-networks" class="m-nav-btn flex-1 min-w-[80px] px-2.5 py-1.5 rounded-lg text-slate-400 text-center whitespace-nowrap">Redes</button>
             <button onclick="switchMainTab('cybersec')" id="m-nav-cybersec" class="m-nav-btn flex-1 min-w-[90px] px-2.5 py-1.5 rounded-lg text-slate-400 text-center whitespace-nowrap">Seguridad</button>
@@ -183,8 +193,8 @@
                         <a href="https://github.com/Hikari165-3" target="_blank" rel="noopener" class="font-mono text-xs bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-2 shadow-lg shadow-sky-500/20">
                             <span><i class="fa-brands fa-github text-sm"></i> Explorar mi GitHub</span> &rarr;
                         </a>
-                        <button onclick="switchMainTab('apps')" class="font-mono text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-4 py-2.5 rounded-xl transition flex items-center gap-2">
-                            <span><i class="fa-solid fa-gamepad"></i> Probar Proyectos Interactivos</span>
+                        <button onclick="switchMainTab('desarrollo')" class="font-mono text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-4 py-2.5 rounded-xl transition flex items-center gap-2">
+                            <span><i class="fa-solid fa-gamepad"></i> Ver Proyectos de Desarrollo</span>
                         </button>
                     </div>
                 </div>
@@ -203,17 +213,20 @@
                     <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-2 text-xs font-mono">
                         <div class="flex justify-between text-slate-400 border-b border-slate-800/80 pb-1.5">
                             <span>Carrera:</span> <span class="text-white">Ingeniería de Sistemas</span>
-                            <span class="font-mono text-xs text-accentPurple flex items-center gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
-                                Egresada
+                            <span class="font-mono text-[10px] text-accentPurple bg-indigo-950 px-2 py-0.5 rounded border border-indigo-800/50 flex items-center gap-1">
+                                <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span> Egresada
                             </span>
                         </div>
                         <div class="flex justify-between text-slate-400 border-b border-slate-800/80 pb-1.5">
                             <span>Técnico Superior:</span> <span class="text-white">Ingeniería de Sistemas en "Analista de Sistemas"</span>
                         </div>
-                        <div class="flex justify-between text-slate-400">
-                            <span>Experiencia Práctica:</span>
-                            <span class="text-sky-400">Tester del Área de Tester y Seguridad de Software <b>(UTIC)</b> & Técnico de soporte de la Unidad de Sistemas <b>(GAMEA)</b> & Analista de Gestión de Información y Sistemas <b>(HCU)</b></span>
+                        <div class="space-y-1 text-slate-400 border-b border-slate-800/80 pb-1.5">
+                            <span class="block text-sky-400 font-bold">Experiencia Práctica:</span>
+                            <ul class="list-disc list-inside text-[11px] text-slate-300 space-y-1">
+                                <li><span class="text-white">Tester en Área Tester y  Seguridad de Software (UTIC)</span></li>
+                                <li><span class="text-white">Técnico de Soporte en Unidad de Sistemas (GAMEA)</span></li>
+                                <li><span class="text-white">Analista de Gestión de Información y Sistemas (HCU)</span></li>
+                            </ul>
                         </div>
                         <div class="flex justify-between text-slate-400">
                             <span>Competencias Técnicas:</span>
@@ -239,7 +252,7 @@
                         </div>
                         <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
                             <div class="text-sky-400 font-bold mb-1">Herramientas de Seguridad</div>
-                            <div class="text-slate-400 text-[11px]">Metasploit, Nmap, Nikto, Zabbix, Nuclei, Wireshark, Burp Suite, OWASP ZAP.</div>
+                            <div class="text-slate-400 text-[11px]">Metasploit, Nmap, Nikto, Nuclei, Wireshark, Burp Suite, OWASP ZAP.</div>
                         </div>
                         <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
                             <div class="text-sky-400 font-bold mb-1">Herramientas</div>
@@ -251,7 +264,7 @@
                         </div>
                         <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
                             <div class="text-sky-400 font-bold mb-1">Lenguajes</div>
-                            <div class="text-slate-400 text-[11px]">Java, JavaScript, C++, Python, PHP, Goot(videojuegos).</div>
+                            <div class="text-slate-400 text-[11px]">Java, JavaScript, C++, C#, Python, PHP, Goot(videojuegos), Flutter.</div>
                         </div>
                         <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
                             <div class="text-sky-400 font-bold mb-1">Lenguajes de Marcado y Estilo</div>
@@ -277,23 +290,391 @@
                 </div>
             </div>
         </section>
-
         <!-- ========================================== -->
-        <!-- SECTION 2: INTERACTIVE APPS & GAMES        -->
+        <!-- SECTION 2: DESARROLLO                      -->
         <!-- ========================================== -->
-        <section id="tab-apps" class="space-y-6 hidden">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900 p-6 rounded-2xl border border-slate-800">
-                <div>
-                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-laptop-code text-sky-400"></i> Aplicaciones Web & Videojuegos Interactivos
-                    </h2>
-                    <p class="text-sm text-slate-400 mt-1">Selecciona una de las aplicaciones desarrolladas para probar su funcionalidad en pantalla.</p>
+        <section id="tab-desarrollo" class="space-y-8 hidden">
+            <!-- Selector de Sub-módulos de Desarrollo -->
+            <div class="flex flex-wrap gap-2 bg-slate-900 p-2 rounded-2xl border border-slate-800 font-mono text-xs">
+                <button onclick="switchDevModule(1)" id="btn-devmod-1" class="px-4 py-2 rounded-xl bg-sky-600 text-white font-bold transition">E-Commerce Productos</button>
+                <button onclick="switchDevModule(2)" id="btn-devmod-2" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white transition">Proyecto de Automatización</button>
+                <button onclick="switchDevModule(4)" id="btn-devmod-4" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white transition">Clima Open-Meteo API</button>
+                <button onclick="switchDevModule(6)" id="btn-devmod-6" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white transition">Dog CEO API</button>
+            </div>
+        <!-- ==========================================
+             LAB MODULE 1: E-Commerce CRUD & Checkout Factura
+             ========================================== -->
+        <div id="project-1" class="project-panel glass-panel rounded-3xl border border-slate-800 p-6 md:p-8 shadow-xl">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-6 border-b border-slate-800 gap-4">
+                <div class="glass-panel p-6 rounded-3xl border border-slate-800 flex flex-col justify-between shadow-xl hover:border-sky-500/50 transition-all">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-12 h-12 rounded-2xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-xl border border-sky-500/30">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white">E-Commerce</h4>
+                                <span class="text-xs text-sky-400 font-mono">Plataforma de Ventas & Gestión CRUD</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-300 mb-4 leading-relaxed">
+                            Sistema integral de comercio electrónico con control de roles que permite administrar los de productos consumidos desde la API (https://fakestoreapi.com), filtrarlos y generar facturas como cliente.
+                        </p>
+                    </div>
+                    <div>
+                        <strong class="block text-xs font-bold text-slate-400 uppercase mb-2">Tecnologías:</strong>
+                        <div class="flex flex-wrap gap-2 font-mono text-xs">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-amber-400 flex items-center gap-1.5"><i class="fa-brands fa-js"></i> JavaScript</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-cyan-400 flex items-center gap-1.5"><i class="fa-solid fa-wind"></i> Tailwind CSS</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-emerald-400 flex items-center gap-1.5"><i class="fa-solid fa-file-invoice-dollar"></i> LocalStorage</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex gap-2">
-                    <span class="text-xs font-mono bg-sky-500/10 text-sky-400 border border-sky-500/30 px-3 py-1.5 rounded-lg">Proyectos Desarrallos </span>
+
+                <div class="flex flex-wrap items-center gap-3">
+                    <div class="bg-slate-900 p-1.5 rounded-2xl border border-slate-700 flex items-center space-x-2">
+                        <span class="text-xs font-bold px-2 text-slate-400">Rol:</span>
+                        <select id="user-role-select" onchange="updateUserRole()" class="text-xs px-3 py-1.5 rounded-xl bg-slate-800 font-bold text-sky-400 border border-slate-700 shadow-sm focus:outline-none">
+                            <option value="viewer">🛒 Cliente</option>
+                            <option value="admin">⚙️ Administrador</option>
+                        </select>
+                    </div>
+                    <button id="cart-btn" onclick="toggleCartModalclotes()" class="relative px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow transition-all flex items-center">
+                        <i class="fa-solid fa-cart-shopping mr-1.5"></i> Carrito
+                        <span id="cart-count-badgeclotes" class="ml-1.5 px-1.5 py-0.2 bg-white text-emerald-700 rounded-full text-[10px] font-extrabold">0</span>
+                    </button>
                 </div>
             </div>
 
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mt-6 bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
+                <div class="flex items-center space-x-3 w-full sm:w-auto">
+                    <label class="text-xs font-bold text-slate-300 whitespace-nowrap"><i class="fa-solid fa-filter text-sky-400 mr-1"></i> Filtrar Categoría:</label>
+                    <select id="crud-category-filter" onchange="filterProductsByCategory()" class="w-full sm:w-48 px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-200 focus:outline-none">
+                    </select>
+                </div>
+
+                <div class="flex items-center space-x-2 w-full sm:w-auto">
+                    <div class="relative w-full sm:w-64">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-slate-400"></i>
+                        <!--<input type="text" id="search-crud" onkeyup="filterProducts()" placeholder="Buscar producto por nombre..." class="w-full pl-8 pr-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 text-xs text-slate-200 focus:outline-none">-->
+                        <input type="text" id="search-crud" onkeyup="searchFakeStoreProducts()" placeholder="Buscar producto por nombre..." class="w-full pl-8 pr-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 text-xs text-slate-200 focus:outline-none">
+                    </div>
+                    <button id="add-product-btn-main" onclick="openAddProductModal()" class="hidden px-3 py-1.5 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-bold shadow transition-all flex items-center whitespace-nowrap">
+                        <i class="fa-solid fa-plus mr-1"></i> Nuevo Producto
+                    </button>
+                    <button onclick="loadFakeStoreProducts()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl text-xs font-medium transition-all" title="Resetear datos">
+                        <i class="fa-solid fa-rotate"></i> Actualizar
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6">
+                <div id="products-grid-wrapper" class="lg:col-span-12 space-y-4">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <span class="text-xs font-bold text-slate-400" id="product-count">Cargando productos...</span>
+                        <span class="text-[11px] text-slate-400 font-medium" id="role-status-text">Modo Actual: Cliente</span>
+                    </div>
+                    <div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[520px] overflow-y-auto pr-2"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             LAB MODULE 2: Workflow Automation & Scheduler
+             ========================================== -->
+        <div id="project-2" class="project-panel glass-panel rounded-3xl border border-slate-800 p-6 md:p-8 shadow-xl hidden">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-6 border-b border-slate-800 gap-4">
+                <div class="glass-panel p-6 rounded-3xl border border-slate-800 flex flex-col justify-between shadow-xl hover:border-indigo-500/50 transition-all">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl border border-indigo-500/30">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Automatización de Envíos de Mensajes</h4>
+                            <span class="text-xs text-indigo-400 font-mono">Gestión de Tareas  & Webmails</span>
+                            <span class="text-xs text-slate-400 bg-slate-800 px-3 py-1 rounded-full"><i class="fa-solid fa-clock text-indigo-400 mr-1"></i> Trigger Programado</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-300 mb-4 leading-relaxed">
+                        Proyecto automatizado para agendar envíos programados o instantáneos. Cuenta con una bandeja de entrada webmail receptora y consola de registros en tiempo real para supervisar la ejecución de procesos backend.
+                    </p>
+                </div>
+                <div>
+                    <strong class="block text-xs font-bold text-slate-400 uppercase mb-2">Tecnologías:</strong>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs">
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-indigo-400 flex items-center gap-1.5"><i class="fa-solid fa-clock"></i> JS Timers</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-cyan-400 flex items-center gap-1.5"><i class="fa-solid fa-code"></i> ES6 Async</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-purple-400 flex items-center gap-1.5"><i class="fa-solid fa-envelope"></i> Webmail API</span>
+                    </div>
+                </div>
+            </div>
+
+                <div class="flex gap-2 bg-slate-900 p-1 rounded-xl border border-slate-800">
+                    <button onclick="switchWfTab('scheduler')" id="wftab-scheduler" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white transition-all">Programador</button>
+                    <button onclick="switchWfTab('inbox')" id="wftab-inbox" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all relative">
+                        Bandeja de Entrada <span id="inbox-badge" class="absolute -top-1 -right-1 px-1.5 py-0.2 bg-rose-500 text-white rounded-full text-[9px] hidden">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="wf-view-scheduler" class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+                <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 space-y-4">
+                    <h5 class="font-bold text-sm flex items-center text-indigo-400"><i class="fa-solid fa-clock-precision mr-2"></i> Crear Regla de Automatización</h5>
+                    
+                    <div>
+                        <label class="block text-xs font-semibold mb-1 text-slate-300">Nombre de la Regla / Tarea</label>
+                        <input type="text" id="wf-name" value="Envío de Reporte Semanal Automatizado" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-semibold mb-1 text-slate-300">Tipo de Disparador</label>
+                            <select id="wf-trigger-type" onchange="toggleScheduleInput()" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-xs text-slate-200 focus:outline-none">
+                                <option value="SCHEDULED_TIME">📅 Fecha y Hora Programada</option>
+                                <option value="INSTANT">⚡ Ejecución Inmediata</option>
+                            </select>
+                        </div>
+                        <div id="schedule-date-container">
+                            <label class="block text-xs font-semibold mb-1 text-slate-300">Fecha y Hora de Envío</label>
+                            <input type="datetime-local" id="wf-target-datetime" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-xs text-slate-200 focus:outline-none">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold mb-1 text-slate-300">Correo Destinatario</label>
+                        <input type="email" id="wf-recipient" value="cliente@empresa.com" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-xs text-slate-200 focus:outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold mb-1 text-slate-300">Mensaje</label>
+                        <textarea id="wf-message" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-xs text-slate-200 h-20 focus:outline-none">Estimado usuario, este es un mensaje programado.</textarea>
+                    </div>
+
+                    <button onclick="handleRegisterWorkflow()" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow transition-all flex items-center justify-center">
+                        <i class="fa-solid fa-paper-plane mr-2"></i> Programar Tarea
+                    </button>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                            <h5 class="font-bold text-sm text-white">Tareas Programadas en Cola  (<span id="wf-count">0</span>)</h5>
+                            <span id="auto-status" class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[10px] font-bold">Motor Scheduler Activo</span>
+                        </div>
+                        <div id="workflows-queue-container" class="space-y-2 max-h-[180px] overflow-y-auto pr-1"></div>
+                    </div>
+                    
+                    <div class="bg-slate-950 text-slate-200 p-4 rounded-2xl text-xs font-mono max-h-[170px] overflow-y-auto border border-slate-800">
+                        <div class="text-indigo-400 font-bold mb-1 flex justify-between items-center">
+                            <span>// Console Logs de Ejecución</span>
+                            <span class="text-[10px] text-slate-500">Auto-update</span>
+                        </div>
+                        <div id="auto-logs"><p class="text-slate-500 italic">No hay registros recientes...</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="wf-view-inbox" class="mt-6 hidden">
+                <div class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-sm">
+                    <div class="p-4 bg-slate-800/50 border-b border-slate-700 flex flex-col sm:flex-row justify-between items-center gap-3">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-envelope text-indigo-400 text-lg"></i>
+                            <h5 class="font-bold text-sm text-white">Bandeja de Entrada Recepcionada</h5>
+                        </div>
+                        <div class="flex items-center space-x-2 w-full sm:w-auto">
+                            <label class="text-xs font-semibold text-slate-400 whitespace-nowrap">Filtrar por Destinatario:</label>
+                            <select id="inbox-recipient-filter" onchange="renderInboxMessages()" class="px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-200 focus:outline-none">
+                                <option value="all">Todos los Correos</option>
+                            </select>
+                            <button onclick="clearWebmailInbox()" class="px-3 py-1.5 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 rounded-xl text-xs font-semibold transition-all whitespace-nowrap">
+                                <i class="fa-solid fa-trash mr-1"></i> Vaciar
+                            </button>
+                        </div>
+                    </div>
+                    <div id="webmail-inbox-list" class="divide-y divide-slate-800 max-h-[350px] overflow-y-auto"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             LAB MODULE 4: Weather API 7-Day Forecast
+             ========================================== -->
+        <div id="project-4" class="project-panel glass-panel rounded-3xl border border-slate-800 p-6 md:p-8 shadow-xl hidden">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-6 border-b border-slate-800 gap-4">
+                    <div class="glass-panel p-6 rounded-3xl border border-slate-800 flex flex-col justify-between shadow-xl hover:border-amber-500/50 transition-all">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl border border-amber-500/30">
+                                <i class="fa-solid fa-cloud-sun"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white">Consulta Climatológica Global</h4>
+                                <span class="text-xs text-amber-400 font-mono">Open-Meteo REST API</span>
+                                <span class="text-xs text-slate-400 bg-slate-800 px-3 py-1 rounded-full"><i class="fa-solid fa-calendar-week text-amber-400 mr-1"></i> Pronóstico</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-300 mb-4 leading-relaxed">
+                            Aplicación meteorológica conectada a servicios geolocalizados globales donde se puede saber la temperatura actual, humedad, viento y el pronósticos de los siguientes días. Incluye la búsqueda internacional de cualquier ciudad del mundo.
+                        </p>
+                    </div>
+
+                    <div>
+                        <strong class="block text-xs font-bold text-slate-400 uppercase mb-2">Tecnologías:</strong>
+                        <div class="flex flex-wrap gap-2 font-mono text-xs">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-amber-400 flex items-center gap-1.5"><i class="fa-solid fa-cloud"></i> Open-Meteo API</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-sky-400 flex items-center gap-1.5"><i class="fa-solid fa-globe"></i> Geocoding API</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-emerald-400 flex items-center gap-1.5"><i class="fa-solid fa-bolt"></i> Fetch Async</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-2 items-center wf-full md:w-auto">
+                    <div class="relative flex-1 md:w-64">
+                        <i class="fa-solid fa-earth-americas absolute left-3 top-2.5 text-xs text-amber-400"></i>
+                        <input type="text" id="global-city-search" onkeypress="if(event.key==='Enter') searchGlobalWeather()" placeholder="Buscar país o ciudad..." class="w-full pl-8 pr-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-slate-200 focus:outline-none">
+                    </div>
+                    <button onclick="searchGlobalWeather()" class="px-3 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-bold shadow flex items-center">
+                        <i class="fa-solid fa-magnifying-glass mr-1"></i> Buscar
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-3 mt-4">
+                <span class="text-xs font-bold text-slate-400">Acceso Rápido:</span>
+                <select id="weather-city-select" onchange="fetchWeatherFromPreset()" class="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 text-xs font-semibold text-slate-200 focus:outline-none">
+                    <optgroup label="Bolivia (9 Departamentos)">
+                        <option value="La Paz, Bolivia" selected>La Paz, Bolivia</option>
+                        <option value="Santa Cruz, Bolivia">Santa Cruz, Bolivia</option>
+                        <option value="Cochabamba, Bolivia">Cochabamba, Bolivia</option>
+                        <option value="Sucre, Bolivia">Chuquisaca / Sucre, Bolivia</option>
+                        <option value="Oruro, Bolivia">Oruro, Bolivia</option>
+                        <option value="Potosi, Bolivia">Potosí, Bolivia</option>
+                        <option value="Tarija, Bolivia">Tarija, Bolivia</option>
+                        <option value="Trinidad, Bolivia">Beni, Bolivia</option>
+                        <option value="Cobija, Bolivia">Pando, Bolivia</option>
+                    </optgroup>
+                    <optgroup label="Internacionales">
+                        <option value="Madrid, Spain">España (Madrid)</option>
+                        <option value="Paris, France">Francia (París)</option>
+                        <option value="Buenos Aires, Argentina">Argentina (Buenos Aires)</option>
+                        <option value="Tokyo, Japan">Japón (Tokio)</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6">
+                <div class="lg:col-span-4 bg-gradient-to-br from-amber-500 via-orange-600 to-indigo-700 text-white p-6 rounded-3xl shadow-lg flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <span id="w-city-name" class="text-xs font-extrabold uppercase tracking-wider bg-white/20 px-3 py-1 rounded-full">La Paz, Bolivia</span>
+                            <span id="w-current-date" class="text-[10px] bg-black/20 px-2 py-0.5 rounded-full">Hoy</span>
+                        </div>
+                        <div class="mt-6 flex items-center justify-between">
+                            <div>
+                                <h5 id="w-temp" class="text-5xl font-black">--°C</h5>
+                                <p id="w-desc" class="text-xs mt-1 text-amber-100 font-medium">Cargando...</p>
+                            </div>
+                            <i id="w-icon" class="fa-solid fa-sun text-6xl text-amber-200"></i>
+                        </div>
+                    </div>
+                    <div class="pt-6 border-t border-white/20 grid grid-cols-2 gap-2 text-xs text-amber-100">
+                        <div>
+                            <span class="block text-[10px] opacity-80">Humedad Prom.</span>
+                            <strong id="w-hum" class="text-sm">--%</strong>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] opacity-80">Viento Máx.</span>
+                            <strong id="w-wind" class="text-sm">-- km/h</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-8 bg-slate-900/60 p-6 rounded-3xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h5 class="font-bold text-sm flex items-center text-white"><i class="fa-solid fa-calendar-days mr-2 text-amber-400"></i> Pronóstico de la semana</h5>
+                        </div>
+                        <div id="forecast-7days-container" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-2"></div>
+                    </div>
+                    <div class="flex justify-between items-center pt-4 border-t border-slate-800 text-xs text-slate-400">
+                        <span><i class="fa-solid fa-circle-info mr-1"></i> Temperaturas máximas y mínimas de toda la semana.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             LAB MODULE 6: Dog CEO API
+             ========================================== -->
+        <div id="project-6" class="project-panel glass-panel rounded-3xl border border-slate-800 p-6 md:p-8 shadow-xl hidden">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-6 border-b border-slate-800 gap-4">
+                <div class="glass-panel p-6 rounded-3xl border border-slate-800 flex flex-col justify-between shadow-xl hover:border-rose-500/50 transition-all">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-xl border border-rose-500/30">
+                                <i class="fa-solid fa-dog"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white">Buscador de Razas Caninas</h4>
+                                <span class="text-xs text-rose-400 font-mono">Dog CEO REST API</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-300 mb-4 leading-relaxed">
+                            Proyecto diseñado para la exploración dinámica de galerías fotográficas por raza canina, integración directa con endpoints externos para obtención de imágenes. Incluye la búsqueda avanzada por texto.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <strong class="block text-xs font-bold text-slate-400 uppercase mb-2">Tecnologías Utilizadas:</strong>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs">
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-rose-400 flex items-center gap-1.5"><i class="fa-solid fa-paw"></i> Dog CEO API</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-cyan-400 flex items-center gap-1.5"><i class="fa-solid fa-code"></i> JSON Parser</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700 text-purple-400 flex items-center gap-1.5"><i class="fa-solid fa-image"></i> Responsive Grid</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-2 w-full md:w-auto">
+                    <div class="relative flex-1 md:w-64">
+                        <i class="fa-solid fa-dog absolute left-3 top-2.5 text-xs text-rose-400"></i>
+                        <input type="text" id="custom-dog-breed-input" placeholder="Escribe raza (ej. hound, spaniel)..." class="w-full pl-8 pr-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs text-slate-200 focus:outline-none" onkeypress="if(event.key==='Enter') searchCustomDogBreed()">
+                    </div>
+                    <button onclick="searchCustomDogBreed()" class="px-3 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold shadow whitespace-nowrap">
+                        <i class="fa-solid fa-magnifying-glass mr-1"></i> Buscar
+                    </button>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3 mt-4">
+                <span class="text-xs font-bold text-slate-400">Razas Frecuentes:</span>
+                <select id="dog-breed" onchange="fetchDogImages()" class="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 text-xs font-semibold text-slate-200 focus:outline-none">
+                    <option value="retriever">Golden Retriever</option>
+                    <option value="husky">Siberian Husky</option>
+                    <option value="germanshepherd">German Shepherd</option>
+                    <option value="beagle">Beagle</option>
+                    <option value="labrador">Labrador</option>
+                    <option value="poodle">Poodle</option>
+                </select>
+                <button onclick="fetchDogImages()" class="px-3 py-1.5 bg-slate-800 text-slate-300 rounded-xl text-xs font-semibold hover:bg-slate-700">
+                        <i class="fa-solid fa-rotate"></i> Actualizar
+                    </button>
+            </div>
+            <div id="dog-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-6"></div>
+        </div>
+    </section>
+    <!-- ========================================== -->
+    <!-- SECTION 3: INTERACTIVE APPS & GAMES        -->
+    <!-- ========================================== -->
+    <section id="tab-apps" class="space-y-6 hidden">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900 p-6 rounded-2xl border border-slate-800">
+            <div>
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-laptop-code text-sky-400"></i> Aplicaciones Web & Videojuegos Interactivos
+                </h2>
+                <p class="text-sm text-slate-400 mt-1">Selecciona una de las aplicaciones desarrolladas para probar su funcionalidad en pantalla.</p>
+            </div>
+            <div class="flex gap-2">
+                <span class="text-xs font-mono bg-sky-500/10 text-sky-400 border border-sky-500/30 px-3 py-1.5 rounded-lg">Proyectos Desarrallos </span>
+            </div>
+         </div>
             <!-- Apps Selector Cards -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Task Tracker Card -->
@@ -368,7 +749,7 @@
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-slate-800 pb-4">
                         <div>
                             <h3 class="text-xl font-bold text-white flex items-center gap-2">
-                                <i class="fa-solid fa-clipboard-list text-sky-400"></i> Gestor de Tareas & Horas de Estudio
+                                <i class="fa-solid fa-clipboard-list text-sky-400"></i> Gestor de Tareas y Horas de Estudio
                             </h3>
                             <p class="text-slate-400 text-xs mt-1">Registra materias, asigna horas dedicadas y analiza tu productividad acumulada.</p>
                         </div>
@@ -939,7 +1320,7 @@ y_pred = model.predict(X_test)</code></pre>
                     <span id="inv-subtotal">$0.00</span>
                 </div>
                 <div class="flex justify-between text-slate-400">
-                    <span>Impuestos (IVA 13% Incluido):</span>
+                    <span>Impuestos (IVA 13%):</span>
                     <span id="inv-tax">$0.00</span>
                 </div>
                 <div class="flex justify-between text-sm font-bold text-emerald-400 pt-2 border-t border-slate-800">
@@ -960,6 +1341,215 @@ y_pred = model.predict(X_test)</code></pre>
         </div>
     </div>
 
+    <!-- PRODUCT CRUD MODAL -->
+    <div id="product-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 text-slate-100 rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-slate-800 relative">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h3 id="product-modal-title" class="text-lg font-bold">Gestionar Producto</h3>
+            <input type="hidden" id="modal-product-id">
+            
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-semibold mb-1 text-slate-300">Título del Producto</label>
+                    <input type="text" id="modal-prod-title" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none">
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block font-semibold mb-1 text-slate-300">Precio (Bs.)</label>
+                        <input type="number" step="0.01" id="modal-prod-price" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1 text-slate-300">Categoría</label>
+                        <select id="modal-prod-category" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="p-3 bg-slate-800/60 rounded-xl border border-slate-700 space-y-2">
+                    <label class="block font-bold text-[11px] text-sky-400">¿Crear nueva categoría?</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="modal-new-category-input" placeholder="Nombre nueva categoría..." class="flex-1 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs text-slate-200 focus:outline-none">
+                        <button type="button" onclick="addNewCategoryFromModal()" class="px-3 py-1.5 bg-sky-600 hover:bg-sky-700 text-white rounded-lg font-bold text-xs whitespace-nowrap">Añadir</button>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-semibold mb-1 text-slate-300">URL de Imagen</label>
+                    <input type="text" id="modal-prod-image" placeholder="https://..." class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none">
+                </div>
+            </div>
+
+            <div class="flex justify-end space-x-2 pt-2">
+                <button onclick="closeProductModal()" class="px-4 py-2 bg-slate-800 text-slate-300 rounded-xl text-xs font-semibold">Cancelar</button>
+                <button onclick="saveProductFromModal()" class="px-5 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-bold shadow">Guardar Producto</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CART MODAL -->
+    <div id="cart-modalclotes" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 text-slate-100 rounded-3xl max-w-lg w-full shadow-2xl overflow-hidden max-h-[90vh] flex flex-col border border-slate-800">
+            <div class="p-5 border-b border-slate-800 flex justify-between items-center bg-slate-800/50">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-cart-shopping text-emerald-400 text-lg"></i>
+                    <h3 class="font-bold text-base text-white">Tu Carrito de Compras</h3>
+                </div>
+                <button onclick="toggleCartModalclotes()" class="text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="p-6 overflow-y-auto space-y-6 flex-1">
+                <div>
+                    <h5 class="font-bold text-xs uppercase text-slate-400 mb-3 tracking-wider">Productos Seleccionados</h5>
+                    <div id="cart-items-container" class="space-y-3"></div>
+                </div>
+
+                <div id="checkout-form-section" class="bg-slate-800/50 p-4 rounded-2xl border border-slate-700 space-y-3">
+                    <h5 class="font-bold text-xs flex items-center text-emerald-400"><i class="fa-solid fa-file-invoice mr-2"></i> Datos del Cliente para Facturación Digital</h5>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-[11px] font-semibold mb-1 text-slate-300">Nombre Completo / Razón Social</label>
+                            <input type="text" id="cust-name" value="Juan Pérez / Empresa S.R.L." class="w-full px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 text-xs text-slate-200 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-semibold mb-1 text-slate-300">NIT / CI / Identificación</label>
+                            <input type="text" id="cust-nit" value="10293847012" class="w-full px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 text-xs text-slate-200 focus:outline-none">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-center pt-2 border-t border-slate-800">
+                    <div>
+                        <span class="text-xs text-slate-400">Total a Pagar (incluye IVA 13%):</span>
+                        <div id="cart-total-priceclotes" class="text-2xl font-black text-emerald-400">Bs. 0.00</div>
+                    </div>
+                    <button onclick="processCheckoutAndGenerateInvoice()" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-2xl text-xs shadow-lg transition-all flex items-center">
+                        <i class="fa-solid fa-credit-card mr-2"></i> Pagar y Emitir Factura
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INVOICE RENDER MODAL -->
+    <div id="invoice-modalclotes" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div id="printable-invoice-content" class="bg-white text-slate-900 rounded-3xl max-w-xl w-full p-6 shadow-2xl overflow-y-auto max-h-[90vh] space-y-4 font-sans relative border-4 border-emerald-600">
+            <button onclick="closeInvoiceModalclotes()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800 text-xl no-print"><i class="fa-solid fa-xmark"></i></button>
+
+            <div class="border-b-2 border-dashed border-slate-300 pb-4 text-center">
+                <h2 class="text-2xl font-black tracking-tight text-emerald-700 uppercase">FACTURA DE COMPRA</h2>
+                <div class="inline-block mt-2 px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-[10px] font-extrabold uppercase">
+                    SISTEMA E-COMMERCE
+                </div>
+                <p class="text-[10px] text-slate-500">NIT: 8940192011</p>
+            </div>
+
+            <div class="grid grid-cols-2 text-xs gap-2 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                <div>
+                    <span class="text-slate-500 block">N° Factura:</span>
+                    <strong id="inv-numclotes" class="font-mono text-slate-800">FAC-2026-0000</strong>
+                </div>
+                <div>
+                    <span class="text-slate-500 block">Fecha y Hora:</span>
+                    <strong id="inv-dateclotes" class="text-slate-800">-</strong>
+                </div>
+                <div>
+                    <span class="text-slate-500 block">Cliente / Razón Social:</span>
+                    <strong id="inv-cust-nameclotes" class="text-slate-800">-</strong>
+                </div>
+                <div>
+                    <span class="text-slate-500 block">NIT / CI:</span>
+                    <strong id="inv-cust-nitclotes" class="text-slate-800">-</strong>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <table class="w-full text-xs text-left">
+                    <thead class="bg-slate-200 text-slate-700 font-bold">
+                        <tr>
+                            <th class="p-2 rounded-l-lg">Cant.</th>
+                            <th class="p-2">Detalle de Producto</th>
+                            <th class="p-2">P. Unit (Bs.)</th>
+                            <th class="p-2 rounded-r-lg text-right">Subtotal (Bs.)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inv-items-table" class="divide-y divide-slate-100"></tbody>
+                </table>
+            </div>
+
+            <div class="border-t-2 border-slate-300 pt-3 flex flex-col items-end text-xs space-y-1">
+                <div class="flex justify-between w-52"><span class="text-slate-500">Subtotal:</span><span id="inv-subtotalclotes" class="font-bold">Bs. 0.00</span></div>
+                <div class="flex justify-between w-52"><span class="text-slate-500">IVA (13%):</span><span id="inv-taxclotes" class="font-bold">Bs. 0.00</span></div>
+                <div class="flex justify-between w-52 text-sm font-black text-emerald-700 border-t border-slate-300 pt-1"><span>TOTAL PAGADO:</span><span id="inv-totalclotes">Bs. 0.00</span></div>
+            </div>
+
+            <div class="text-center pt-2 text-[10px] text-slate-400 border-t border-dashed border-slate-200 space-y-2">
+                <p>"ESTA FACTURA CONTRIBUYE AL DESARROLLO DEL PAÍS. EL USO ILÍCITO SERÁ SANCIONADO DE ACUERDO A LEY."</p>
+                <div class="flex gap-2 no-print">
+                    <button onclick="printInvoiceDirectly()" class="flex-1 py-2 bg-slate-800 text-white font-bold rounded-xl text-xs hover:bg-slate-900 transition-all"><i class="fa-solid fa-print mr-1"></i> Imprimir Factura</button>
+                    <button onclick="closeInvoiceModalclotes()" class="px-4 py-2 bg-emerald-600 text-white font-bold rounded-xl text-xs">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WORKFLOW EDIT MODAL -->
+    <div id="workflow-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 text-slate-100 rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-slate-800 relative">
+            <button onclick="closeWorkflowModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="text-lg font-bold">Editar Regla de Automatización</h3>
+            <input type="hidden" id="edit-wf-id">
+            
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-semibold mb-1 text-slate-300">Nombre de la Regla</label>
+                    <input type="text" id="edit-wf-name" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1 text-slate-300">Fecha y Hora</label>
+                    <input type="datetime-local" id="edit-wf-datetime" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1 text-slate-300">Correo Destinatario</label>
+                    <input type="email" id="edit-wf-recipient" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1 text-slate-300">Mensaje Automatizado</label>
+                    <textarea id="edit-wf-message" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 text-xs h-20 focus:outline-none"></textarea>
+                </div>
+            </div>
+
+            <div class="flex justify-end space-x-2 pt-2">
+                <button onclick="closeWorkflowModal()" class="px-4 py-2 bg-slate-800 text-slate-300 rounded-xl text-xs font-semibold">Cancelar</button>
+                <button onclick="saveEditedWorkflow()" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow">Actualizar Tarea</button>
+            </div>
+        </div>
+    </div>
+        
+
+
+     <!-- Print styling support -->
+    <style>
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printable-invoice-content, #printable-invoice-content * {
+                visibility: visible;
+            }
+            #printable-invoice-content {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                border: none !important;
+                box-shadow: none !important;
+                max-height: none !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
     <!-- FOOTER -->
     <footer class="border-t border-slate-800 bg-slate-950 py-6 text-center text-xs text-slate-500 font-mono">
         <div class="max-w-7xl mx-auto px-4">
@@ -969,12 +1559,14 @@ y_pred = model.predict(X_test)</code></pre>
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
+
+
         // ==========================================
         // 0. NAVIGATION & TAB SWITCHER LOGIC
         // ==========================================
-        const MAIN_TABS = ['profile', 'apps', 'networks', 'cybersec', 'datascience'];
-
+        
         function switchMainTab(tabName) {
+            const MAIN_TABS = ['profile', 'desarrollo', 'apps', 'networks', 'cybersec', 'datascience'];
             MAIN_TABS.forEach(t => {
                 const section = document.getElementById(`tab-${t}`);
                 if (section) section.classList.add('hidden');
@@ -993,7 +1585,6 @@ y_pred = model.predict(X_test)</code></pre>
                     mBtn.classList.add('text-slate-400');
                 }
             });
-
             // Show selected tab
             const activeSection = document.getElementById(`tab-${tabName}`);
             if (activeSection) activeSection.classList.remove('hidden');
@@ -1003,18 +1594,17 @@ y_pred = model.predict(X_test)</code></pre>
                 activeBtn.classList.add('text-sky-400', 'bg-slate-800', 'shadow');
                 activeBtn.classList.remove('text-slate-400');
             }
-
             const activeMBtn = document.getElementById(`m-nav-${tabName}`);
             if (activeMBtn) {
                 activeMBtn.classList.add('text-sky-400', 'bg-slate-800');
                 activeMBtn.classList.remove('text-slate-400');
             }
-
             // Draw Data Science canvas if selected
             if (tabName === 'datascience') {
                 setTimeout(drawDataCanvas, 50);
             }
         }
+
 
         function openAppSubView(appName) {
             closeAppSubViews();
@@ -1037,6 +1627,759 @@ y_pred = model.predict(X_test)</code></pre>
             stopFlappyGame();
         }
 
+        let fakeProducts = [];
+        let categories = ['electronics', 'jewelery', "men's clothing", "women's clothing"];
+        let carts = [];
+        let workflows = [];
+        let inboxMessages = [];
+        let autoLogs = [];
+        let currentUserRole = 'viewer';
+        
+        function switchDevModule(modNum) {
+            const modules = [1, 2, 4, 6];
+            modules.forEach(m => {
+                const proj = document.getElementById('project-' + m);
+                if (proj) proj.classList.add('hidden');
+                const btn = document.getElementById('btn-devmod-' + m);
+                if (btn) {
+                    btn.classList.remove('bg-sky-600', 'text-white', 'font-bold');
+                    btn.classList.add('bg-slate-800', 'text-slate-400');
+                }
+            });
+
+            const targetProj = document.getElementById('project-' + modNum);
+            if (targetProj) targetProj.classList.remove('hidden');
+
+            const targetBtn = document.getElementById('btn-devmod-' + modNum);
+            if (targetBtn) {
+                targetBtn.classList.add('bg-sky-600', 'text-white', 'font-bold');
+                targetBtn.classList.remove('bg-slate-800', 'text-slate-400');
+            }
+
+            if (modNum === 4) fetchWeatherFromPreset();
+            if (modNum === 6) fetchDogImages();
+        }
+        // E-COMMERCE PRODUCTS & ROLE CONTROL
+        function updateUserRole() {
+            currentUserRole = document.getElementById('user-role-select').value;
+            const statusText = document.getElementById('role-status-text');
+            const cartBtn = document.getElementById('cart-btn');
+            const addProductBtnMain = document.getElementById('add-product-btn-main');
+
+            if (currentUserRole === 'admin') {
+                if (cartBtn) cartBtn.classList.add('hidden');
+                if (addProductBtnMain) addProductBtnMain.classList.remove('hidden');
+                statusText.innerText = "Modo Actual: Administrador (Gestión)";
+            } else {
+                if (cartBtn) cartBtn.classList.remove('hidden');
+                if (addProductBtnMain) addProductBtnMain.classList.add('hidden');
+                statusText.innerText = "Modo Actual: Cliente";
+            }
+            renderProductsc(fakeProducts);
+        }
+
+        async function loadFakeStoreProducts() {
+            const container = document.getElementById('products-container');
+            try {
+                container.innerHTML = `<p class="text-xs text-slate-400 col-span-4 text-center py-8"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Cargando tienda...</p>`;
+                const res = await fetch('https://fakestoreapi.com/products?limit=16');
+                const apiData = await res.json();
+
+                const local = localStorage.getItem('portfolio_p1_products_bs');
+                if (local) {
+                    fakeProducts = JSON.parse(local);
+                } else {
+                    fakeProducts = apiData.map(p => ({
+                        ...p,
+                        price: parseFloat((p.price * 6.96).toFixed(2))
+                    }));
+                }
+
+                fakeProducts.forEach(p => {
+                    if (p.category && !categories.includes(p.category.toLowerCase())) {
+                        categories.push(p.category.toLowerCase());
+                    }
+                });
+                
+                updateCategoryDropdowns();
+                renderProductsc(fakeProducts);
+            } catch (err) {
+                fakeProducts = [
+                    { id: 1, title: 'Laptop Pro de Alta Gama', price: 6959.00, category: 'electronics', image: 'https://placehold.co/200x200/0284c7/ffffff?text=Laptop+Pro' },
+                    { id: 2, title: 'Camiseta Dev Fullstack', price: 208.80, category: "men's clothing", image: 'https://placehold.co/200x200/10b981/ffffff?text=Camiseta' }
+                ];
+                updateCategoryDropdowns();
+                renderProductsc(fakeProducts);
+            }
+        }
+
+        function updateCategoryDropdowns() {
+            const filterSelect = document.getElementById('crud-category-filter');
+            const modalSelect = document.getElementById('modal-prod-category');
+
+            let filterHTML = '<option value="all">Todas las Categorías</option>';
+            let modalHTML = '';
+
+            categories.forEach(cat => {
+                const formatted = cat.charAt(0).toUpperCase() + cat.slice(1);
+                filterHTML += `<option value="${cat}">${formatted}</option>`;
+                modalHTML += `<option value="${cat}">${formatted}</option>`;
+            });
+
+            filterSelect.innerHTML = filterHTML;
+            if (modalSelect) modalSelect.innerHTML = modalHTML;
+        }
+
+        function addNewCategoryFromModal() {
+            const input = document.getElementById('modal-new-category-input');
+            const catName = input.value.trim().toLowerCase();
+            if (!catName) {
+                alertBox('Ingrese un nombre válido para la categoría.');
+                return;
+            }
+
+            if (!categories.includes(catName)) {
+                categories.push(catName);
+                updateCategoryDropdowns();
+                document.getElementById('modal-prod-category').value = catName;
+                input.value = '';
+                alertBox(`Categoría "${catName}" agregada y seleccionada con éxito.`);
+            } else {
+                alertBox('Esta categoría ya existe en el sistema.');
+                document.getElementById('modal-prod-category').value = catName;
+                input.value = '';
+            }
+        }
+
+        function renderProductsc(list) {
+            const container = document.getElementById('products-container');
+            document.getElementById('product-count').innerText = `${list.length} productos disponibles`;
+
+            if (list.length === 0) {
+                container.innerHTML = `<p class="text-xs text-slate-400 col-span-4 text-center py-6">No hay productos en esta selección.</p>`;
+                return;
+            }
+
+            container.innerHTML = list.map(p => {
+                const isAdmin = currentUserRole === 'admin';
+                return `
+                    <div class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between p-3">
+                        <div>
+                            <div class="w-full h-36 rounded-xl bg-slate-950 flex items-center justify-center p-2 overflow-hidden mb-2">
+                                <img src="${p.image}" alt="${p.title}" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <span class="text-[9px] uppercase tracking-wider font-extrabold text-sky-400 bg-sky-950 px-2 py-0.5 rounded-md border border-sky-500/30">${p.category}</span>
+                            <h5 class="font-bold text-xs line-clamp-2 mt-1.5 text-slate-100">${p.title}</h5>
+                        </div>
+
+                        <div class="pt-3 border-t border-slate-800 mt-2 flex flex-col space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-extrabold text-emerald-400">Bs. ${parseFloat(p.price).toFixed(2)}</span>
+                                ${!isAdmin ? `
+                                    <button onclick="addToCartclotes(${p.id})" class="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-bold rounded-lg transition-all flex items-center">
+                                        <i class="fa-solid fa-cart-plus mr-1"></i> Comprar
+                                    </button>
+                                ` : ''}
+                            </div>
+
+                            ${isAdmin ? `
+                                <div class="flex gap-1 pt-1 border-t border-slate-800">
+                                    <button onclick="openEditProductModal(${p.id})" class="flex-1 py-1 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 rounded text-[10px] font-bold">Editar</button>
+                                    <button onclick="deleteProduct(${p.id})" class="flex-1 py-1 bg-rose-500/10 text-rose-400 hover:bg-rose-500/20 rounded text-[10px] font-bold">Eliminar</button>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function filterProductsByCategory() {
+            const cat = document.getElementById('crud-category-filter').value;
+            if (cat === 'all') {
+                renderProductsc(fakeProducts);
+            } else {
+                renderProductsc(fakeProducts.filter(p => p.category.toLowerCase() === cat.toLowerCase()));
+            }
+        }
+
+        function filterProducts() {
+            const q = document.getElementById('search-crud').value.toLowerCase();
+            renderProductsc(fakeProducts.filter(p => p.title.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)));
+        }
+
+       function openAddProductModal() {
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
+
+        function openEditProductModal(id) {
+            const p = fakeProducts.find(item => item.id == id);
+            if (!p) return;
+            document.getElementById('modal-product-id').value = p.id;
+            document.getElementById('modal-prod-title').value = p.title;
+            document.getElementById('modal-prod-price').value = p.price;
+            document.getElementById('modal-prod-category').value = p.category;
+            document.getElementById('modal-prod-image').value = p.image;
+            document.getElementById('product-modal-title').innerText = `Editar Producto (#${p.id})`;
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        function saveProductFromModal() {
+            const id = document.getElementById('modal-product-id').value;
+            const title = document.getElementById('modal-prod-title').value.trim();
+            const price = parseFloat(document.getElementById('modal-prod-price').value);
+            const category = document.getElementById('modal-prod-category').value;
+            const image = document.getElementById('modal-prod-image').value.trim() || 'https://placehold.co/200';
+
+            if (!title || isNaN(price)) {
+                alertBox('Por favor ingrese un título y precio válidos.');
+                return;
+            }
+
+            if (id) {
+                fakeProducts = fakeProducts.map(p => p.id == id ? { ...p, title, price, category, image } : p);
+            } else {
+                fakeProducts.unshift({ id: Date.now(), title, price, category, image });
+            }
+
+            localStorage.setItem('portfolio_p1_products_bs', JSON.stringify(fakeProducts));
+            renderProductsc(fakeProducts);
+            closeProductModal();
+            alertBox('Producto guardado correctamente en Bolivianos (Bs.).');
+        }/*
+       function saveProductFromModal() {
+            const title = document.getElementById('modal-prod-title').value.trim();
+            const price = parseFloat(document.getElementById('modal-prod-price').value);
+            const category = document.getElementById('modal-prod-category').value;
+            const image = document.getElementById('modal-prod-image').value.trim() || 'https://placehold.co/200';
+
+            if (!title || isNaN(price)) {
+                alertBox('Por favor ingrese un título y precio válidos.');
+                return;
+            }
+
+            fakeProducts.unshift({ id: Date.now(), title, price, category, image });
+            renderProductsc(fakeProducts);
+            closeProductModal();
+            alertBox('Producto agregado correctamente.');
+        }*/
+
+        function deleteProduct(id) {
+            fakeProducts = fakeProducts.filter(p => p.id != id);
+            localStorage.setItem('portfolio_p1_products_bs', JSON.stringify(fakeProducts));
+            renderProductsc(fakeProducts);
+        }
+
+        function searchFakeStoreProducts() {
+            const q = document.getElementById('search-crud').value.toLowerCase();
+            renderProductsc(fakeProducts.filter(p => p.title.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)));
+        }
+        function addToCartclotes(productId) {
+            if (currentUserRole === 'admin') return;
+            const prod = fakeProducts.find(p => p.id === productId);
+            if (!prod) return;
+            const existing = carts.find(item => item.id === productId);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                carts.push({ ...prod, qty: 1 });
+            }
+            updateCartUIclotes();
+            alertBox(`"${prod.title}" añadido al carrito.`);
+        }
+
+        function updateCartQuantity(productId, delta) {
+            const item = carts.find(i => i.id === productId);
+            if (!item) return;
+            item.qty += delta;
+            if (item.qty <= 0) {
+                carts = carts.filter(i => i.id !== productId);
+            }
+            updateCartUIclotes();
+        }
+
+        function updateCartUIclotes() {
+            const totalQty = carts.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cart-count-badgeclotes').innerText = totalQty;
+
+            const container = document.getElementById('cart-items-container');
+            let total = 0;
+
+            if (carts.length === 0) {
+                container.innerHTML = `<p class="text-xs text-slate-400 italic text-center py-4">El carrito está vacío. Agregue productos en modo Cliente.</p>`;
+            } else {
+                container.innerHTML = carts.map(item => {
+                    const itemTotal = item.price * item.qty;
+                    total += itemTotal;
+                    return `
+                        <div class="flex items-center justify-between p-3 bg-slate-800 rounded-xl text-xs gap-3">
+                            <div class="flex items-center space-x-3">
+                                <img src="${item.image}" class="w-10 h-10 object-contain bg-slate-900 rounded-lg p-1">
+                                <div>
+                                    <span class="font-bold line-clamp-1 text-slate-100">${item.title}</span>
+                                    <span class="text-emerald-400 font-bold">Bs. ${parseFloat(item.price).toFixed(2)} c/u</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="flex items-center bg-slate-900 rounded-lg border border-slate-700">
+                                    <button onclick="updateCartQuantity(${item.id}, -1)" class="px-2 py-1 text-slate-300 hover:bg-slate-800 font-bold">-</button>
+                                    <span class="px-3 font-bold text-slate-100">${item.qty}</span>
+                                    <button onclick="updateCartQuantity(${item.id}, 1)" class="px-2 py-1 text-slate-300 hover:bg-slate-800 font-bold">+</button>
+                                </div>
+                                <span class="font-black text-emerald-400 w-24 text-right">Bs. ${itemTotal.toFixed(2)}</span>
+                                <button onclick="removeFromCart(${item.id})" class="text-rose-400 hover:text-rose-300 text-xs p-1" title="Quitar"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            document.getElementById('cart-total-priceclotes').innerText = `Bs. ${total.toFixed(2)}`;
+        }
+
+        function removeFromCart(id) {
+            carts = carts.filter(item => item.id !== id);
+            updateCartUIclotes();
+        }
+
+        function toggleCartModalclotes() {
+            if (currentUserRole === 'admin') return;
+            document.getElementById('cart-modalclotes').classList.toggle('hidden');
+        }
+
+        function processCheckoutAndGenerateInvoice() {
+            if (carts.length === 0) {
+                alertBox('El carrito está vacío.');
+                return;
+            }
+
+            const name = document.getElementById('cust-name').value.trim() || 'Cliente General';
+            const nit = document.getElementById('cust-nit').value.trim() || 'S/N';
+
+            const subtotal = carts.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const tax = subtotal * 0.13;
+            const total = subtotal;
+
+            document.getElementById('inv-numclotes').innerText = 'FAC-' + Math.floor(100000 + Math.random() * 900000);
+            document.getElementById('inv-dateclotes').innerText = new Date().toLocaleString();
+            document.getElementById('inv-cust-nameclotes').innerText = name;
+            document.getElementById('inv-cust-nitclotes').innerText = nit;
+
+            const tableBody = document.getElementById('inv-items-table');
+            tableBody.innerHTML = carts.map(item => `
+                <tr>
+                    <td class="p-2 font-bold">${item.qty}</td>
+                    <td class="p-2">${item.title}</td>
+                    <td class="p-2">Bs. ${parseFloat(item.price).toFixed(2)}</td>
+                    <td class="p-2 text-right font-bold">Bs. ${(item.price * item.qty).toFixed(2)}</td>
+                </tr>
+            `).join('');
+
+            document.getElementById('inv-subtotalclotes').innerText = `Bs. ${(subtotal - tax).toFixed(2)}`;
+            document.getElementById('inv-taxclotes').innerText = `Bs. ${tax.toFixed(2)}`;
+            document.getElementById('inv-totalclotes').innerText = `Bs. ${total.toFixed(2)}`;
+
+            toggleCartModalclotes();
+            document.getElementById('invoice-modalclotes').classList.remove('hidden');
+
+            carts = [];
+            updateCartUIclotes();
+        }
+
+        function closeInvoiceModalclotes() {
+            document.getElementById('invoice-modalclotes').classList.add('hidden');
+        }
+
+        function printInvoiceDirectly() {
+            window.print();
+        }
+
+        function toggleScheduleInput() {
+            const val = document.getElementById('wf-trigger-type').value;
+            const container = document.getElementById('schedule-date-container');
+            if (val === 'INSTANT') {
+                container.classList.add('hidden');
+            } else {
+                container.classList.remove('hidden');
+            }
+        }
+
+        function handleRegisterWorkflow() {
+            const name = document.getElementById('wf-name').value.trim();
+            const triggerType = document.getElementById('wf-trigger-type').value;
+            const targetDate = document.getElementById('wf-target-datetime').value;
+            const recipient = document.getElementById('wf-recipient').value.trim();
+            const message = document.getElementById('wf-message').value.trim();
+
+            if (!name || !recipient) {
+                alertBox('Complete el nombre y el correo destinatario.');
+                return;
+            }
+
+            if (triggerType === 'SCHEDULED_TIME' && !targetDate) {
+                alertBox('Por favor seleccione la fecha y hora de programación.');
+                return;
+            }
+
+            const rule = {
+                id: 'wf_' + Math.random().toString(36).substring(2, 8),
+                name,
+                triggerType,
+                targetDate: triggerType === 'SCHEDULED_TIME' ? targetDate : 'Inmediato',
+                recipient,
+                message,
+                status: 'PROGRAMADO'
+            };
+
+            workflows.push(rule);
+            renderWorkflows();
+
+            if (triggerType === 'INSTANT') {
+                executeWorkflow(rule.id, 'Ejecución instantánea solicitada por usuario.');
+            } else {
+                const targetMs = new Date(targetDate).getTime();
+                const nowMs = new Date().getTime();
+                const delay = targetMs - nowMs;
+
+                logAutoExecution(`[Programador] Tarea "${name}" agendada para ${targetDate}`);
+
+                if (delay > 0) {
+                    setTimeout(() => {
+                        const currentRule = workflows.find(w => w.id === rule.id);
+                        if (currentRule && currentRule.status === 'PROGRAMADO') {
+                            executeWorkflow(rule.id, `Cumplido el horario programado (${targetDate})`);
+                        }
+                    }, Math.min(delay, 2147483647));
+                } else {
+                    executeWorkflow(rule.id, 'Fecha programada vencida o inmediata.');
+                }
+            }
+
+            updateRecipientFilterDropdown();
+            alertBox(`Regla "${name}" creada correctamente.`);
+        }
+
+        function executeNowWorkflow(id) {
+            executeWorkflow(id, 'Ejecución manual inmediata solicitada ("Ejecutar Ahora").');
+            alertBox('Tarea ejecutada inmediatamente con éxito.');
+        }
+
+        function executeWorkflow(id, reason) {
+            const rule = workflows.find(w => w.id === id);
+            if (!rule || rule.status === 'EJECUTADO' || rule.status === 'CANCELADO') return;
+
+            rule.status = 'EJECUTADO';
+            renderWorkflows();
+            logAutoExecution(`[ÉXITO] Disparado "${rule.name}" -> Enviado a ${rule.recipient}. Razón: ${reason}`);
+
+            inboxMessages.push({
+                id: 'msg_' + Date.now(),
+                name: rule.name,
+                recipient: rule.recipient,
+                message: rule.message,
+                time: new Date().toLocaleTimeString()
+            });
+
+            renderInboxMessages();
+
+            const badge = document.getElementById('inbox-badge');
+            badge.innerText = inboxMessages.length;
+            badge.classList.remove('hidden');
+        }
+
+        function renderWorkflows() {
+            const container = document.getElementById('workflows-queue-container');
+            document.getElementById('wf-count').innerText = workflows.length;
+
+            if (workflows.length === 0) {
+                container.innerHTML = `<p class="text-xs text-slate-400 italic">No hay tareas agendadas.</p>`;
+                return;
+            }
+
+            container.innerHTML = workflows.map(w => `
+                <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 flex flex-col sm:flex-row justify-between items-start sm:items-center text-xs shadow-sm gap-2">
+                    <div>
+                        <strong class="block font-bold text-slate-100">${w.name}</strong>
+                        <span class="text-[10px] text-slate-400">Destino: ${w.recipient} • Hora: ${w.targetDate}</span>
+                    </div>
+                    <div class="flex items-center space-x-2 w-full sm:w-auto justify-between sm:justify-end flex-wrap gap-1">
+                        <span class="px-2 py-0.5 rounded text-[9px] font-extrabold ${w.status === 'EJECUTADO' ? 'bg-emerald-100 text-emerald-700' : w.status === 'CANCELADO' ? 'bg-rose-100 text-rose-700' : 'bg-amber-100 text-amber-700'}">${w.status}</span>
+                        
+                        <div class="flex gap-1">
+                            ${w.status === 'PROGRAMADO' ? `<button onclick="executeNowWorkflow('${w.id}')" class="px-2 py-1 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 rounded font-bold text-[10px]" title="Ejecutar Ahora">⚡ Ejecutar</button>` : ''}
+                            ${w.status === 'PROGRAMADO' ? `<button onclick="openEditWorkflowModal('${w.id}')" class="px-2 py-1 bg-sky-500/10 text-sky-400 hover:bg-sky-500/20 rounded font-bold text-[10px]">Editar</button>` : ''}
+                            ${w.status === 'PROGRAMADO' ? `<button onclick="cancelWorkflow('${w.id}')" class="px-2 py-1 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 rounded font-bold text-[10px]">Cancelar</button>` : ''}
+                            <button onclick="deleteWorkflow('${w.id}')" class="px-2 py-1 bg-rose-500/10 text-rose-400 hover:bg-rose-500/20 rounded font-bold text-[10px]">Borrar</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openEditWorkflowModal(id) {
+            const w = workflows.find(item => item.id === id);
+            if (!w) return;
+            document.getElementById('edit-wf-id').value = w.id;
+            document.getElementById('edit-wf-name').value = w.name;
+            document.getElementById('edit-wf-datetime').value = w.targetDate === 'Inmediato' ? '' : w.targetDate;
+            document.getElementById('edit-wf-recipient').value = w.recipient;
+            document.getElementById('edit-wf-message').value = w.message;
+            document.getElementById('workflow-modal').classList.remove('hidden');
+        }
+
+        function closeWorkflowModal() {
+            document.getElementById('workflow-modal').classList.add('hidden');
+        }
+
+        function saveEditedWorkflow() {
+            const id = document.getElementById('edit-wf-id').value;
+            const name = document.getElementById('edit-wf-name').value.trim();
+            const targetDate = document.getElementById('edit-wf-datetime').value;
+            const recipient = document.getElementById('edit-wf-recipient').value.trim();
+            const message = document.getElementById('edit-wf-message').value.trim();
+
+            workflows = workflows.map(w => w.id === id ? { ...w, name, targetDate, recipient, message } : w);
+            renderWorkflows();
+            closeWorkflowModal();
+            updateRecipientFilterDropdown();
+            alertBox('Regla actualizada correctamente.');
+        }
+
+        function cancelWorkflow(id) {
+            workflows = workflows.map(w => w.id === id ? { ...w, status: 'CANCELADO' } : w);
+            renderWorkflows();
+            logAutoExecution(`[Cancelado] Tarea ID ${id} cancelada por usuario.`);
+        }
+
+        function deleteWorkflow(id) {
+            workflows = workflows.filter(w => w.id !== id);
+            renderWorkflows();
+            updateRecipientFilterDropdown();
+        }
+
+        function updateRecipientFilterDropdown() {
+            const select = document.getElementById('inbox-recipient-filter');
+            const recipients = [...new Set(inboxMessages.map(m => m.recipient).concat(workflows.map(w => w.recipient)))];
+            
+            let html = '<option value="all">Todos los Correos</option>';
+            recipients.forEach(r => {
+                if (r) html += `<option value="${r}">${r}</option>`;
+            });
+            select.innerHTML = html;
+        }
+
+        function renderInboxMessages() {
+            const filterEmail = document.getElementById('inbox-recipient-filter').value;
+            const inboxList = document.getElementById('webmail-inbox-list');
+
+            const filtered = filterEmail === 'all' ? inboxMessages : inboxMessages.filter(m => m.recipient === filterEmail);
+
+            if (filtered.length === 0) {
+                inboxList.innerHTML = `<p class="p-6 text-center text-xs text-slate-400 italic">No hay mensajes para este correo.</p>`;
+                return;
+            }
+
+            inboxList.innerHTML = filtered.map(m => `
+                <div class="p-4 hover:bg-slate-800/50 transition-all flex justify-between items-start">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase text-indigo-400 bg-indigo-950 px-2 py-0.5 rounded-full border border-indigo-500/30">Destino: ${m.recipient}</span>
+                        <h6 class="font-bold text-xs mt-1 text-slate-100">${m.name}</h6>
+                        <p class="text-xs text-slate-300 mt-0.5">${m.message}</p>
+                    </div>
+                    <span class="text-[10px] text-slate-400 font-mono">${m.time}</span>
+                </div>
+            `).join('');
+        }
+
+        function logAutoExecution(msg) {
+            autoLogs.unshift(`[${new Date().toLocaleTimeString()}] ${msg}`);
+            const logBox = document.getElementById('auto-logs');
+            logBox.innerHTML = autoLogs.map(l => `<p class="text-emerald-400 text-[11px]">${l}</p>`).join('');
+        }
+
+        function switchWfTab(tab) {
+            const sch = document.getElementById('wf-view-scheduler');
+            const inb = document.getElementById('wf-view-inbox');
+            if (tab === 'scheduler') {
+                sch.classList.remove('hidden');
+                inb.classList.add('hidden');
+            } else {
+                sch.classList.add('hidden');
+                inb.classList.remove('hidden');
+            }
+        }
+
+        function clearWebmailInbox() {
+            inboxMessages = [];
+            renderInboxMessages();
+            const badge = document.getElementById('inbox-badge');
+            badge.innerText = '0';
+            badge.classList.add('hidden');
+        }
+
+        async function fetchWeatherForCoords(lat, lon, locationName) {
+            try {
+                document.getElementById('w-city-name').innerText = locationName;
+                document.getElementById('forecast-7days-container').innerHTML = `<div class="col-span-7 py-8 text-center text-xs text-slate-400"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Obteniendo pronóstico de la semana...</div>`;
+
+                const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weathercode,temperature_2m_max,temperature_2m_min,windspeed_10m_max&current_weather=true&timezone=auto`;
+                const res = await fetch(url);
+                const data = await res.json();
+
+                const currentTemp = Math.round(data.current_weather.temperature);
+                document.getElementById('w-temp').innerText = `${currentTemp}°C`;
+                document.getElementById('w-wind').innerText = `${data.current_weather.windspeed} km/h`;
+                document.getElementById('w-hum').innerText = locationName.includes('Bolivia') ? '42%' : '55%';
+                document.getElementById('w-desc').innerText = getWeatherDescription(data.current_weather.weathercode);
+                
+
+                const daysContainer = document.getElementById('forecast-7days-container');
+                const daily = data.daily;
+
+                let cardsHTML = '';
+                for (let i = 0; i < daily.time.length; i++) {
+                    const dateObj = new Date(daily.time[i] + 'T00:00:00');
+                    const dayName = dateObj.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric' });
+                    const maxT = Math.round(daily.temperature_2m_max[i]);
+                    const minT = Math.round(daily.temperature_2m_min[i]);
+
+                    cardsHTML += `
+                        <div class="bg-slate-800 p-3 rounded-2xl border border-slate-700 text-center flex flex-col justify-between shadow-sm">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase">${dayName}</span>
+                            <i class="fa-solid fa-cloud-sun my-2 text-amber-400 text-xl"></i>
+                            <div>
+                                <span class="text-xs font-black text-slate-100 block">${maxT}°C</span>
+                                <span class="text-[10px] text-slate-400">${minT}°C min</span>
+                            </div>
+                        </div>
+                    `;
+                }
+                daysContainer.innerHTML = cardsHTML;
+            } catch (err) {
+                alertBox('Error consultando el clima en tiempo real.');
+            }
+        }
+
+        async function searchGlobalWeather() {
+            const query = document.getElementById('global-city-search').value.trim();
+            if (!query) return;
+
+            if (query.toLowerCase().includes('la paz') && (query.toLowerCase().includes('bolivia') || query.toLowerCase() === 'la paz')) {
+                fetchWeatherForCoords(-16.5, -68.15, 'La Paz, Bolivia');
+                return;
+            }
+
+            try {
+                const geoRes = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=5&language=es&format=json`);
+                const geoData = await geoRes.json();
+
+                if (geoData.results && geoData.results.length > 0) {
+                    let place = geoData.results[0];
+                    if (query.toLowerCase().includes('bolivia')) {
+                        const boMatch = geoData.results.find(r => r.country === 'Bolivia');
+                        if (boMatch) place = boMatch;
+                    }
+
+                    const fullName = `${place.name}, ${place.country || ''}`;
+                    fetchWeatherForCoords(place.latitude, place.longitude, fullName);
+                } else {
+                    alertBox(`No se encontraron coordenadas para "${query}".`);
+                }
+            } catch (e) {
+                alertBox('Error al buscar el país o ciudad.');
+            }
+        }
+
+        function fetchWeatherFromPreset() {
+            const val = document.getElementById('weather-city-select').value;
+            if (val.includes('La Paz')) {
+                document.getElementById('global-city-search').value = val;
+                fetchWeatherForCoords(-16.5000, -68.1500, val);
+                return;
+            }
+            document.getElementById('global-city-search').value = val.split(',')[0];
+            searchGlobalWeather();
+        }
+
+        function getWeatherDescription(code) {
+            if (code === 0) return 'Cielo Despejado';
+            if (code <= 3) return 'Parcialmente Nublado';
+            if (code <= 65) return 'Lluvia Moderada';
+            return 'Nubes / Variable';
+        }
+
+        function getWeatherIcon(code) {
+            if (code === 0) return 'fa-sun';
+            if (code <= 3) return 'fa-cloud-sun';
+            if (code <= 65) return 'fa-cloud-showers-heavy';
+            return 'fa-cloud';
+        }
+
+        async function fetchDogImages() {
+            const breed = document.getElementById('dog-breed').value;
+            const container = document.getElementById('dog-container');
+            try {
+                container.innerHTML = `<p class="text-xs text-slate-400 col-span-4 text-center py-6"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Cargando fotos de ${breed}...</p>`;
+                const res = await fetch(`https://dog.ceo/api/breed/${breed}/images/random/4`);
+                const data = await res.json();
+
+                if (data.status === 'success' && data.message) {
+                    container.innerHTML = data.message.map(img => `
+                        <div class="rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 shadow-sm h-48">
+                            <img src="${img}" alt="Dog Breed" class="w-full h-full object-cover">
+                        </div>
+                    `).join('');
+                } else {
+                    container.innerHTML = `<p class="text-xs text-rose-400 col-span-4 text-center">No se encontró la raza especificada.</p>`;
+                }
+            } catch (err) {
+                container.innerHTML = `<p class="text-xs text-rose-400 col-span-4 text-center">Error al conectar con Dog CEO API.</p>`;
+            }
+        }
+
+        async function searchCustomDogBreed() {
+            const query = document.getElementById('custom-dog-breed-input').value.trim().toLowerCase();
+            if (!query) return;
+
+            const container = document.getElementById('dog-container');
+            try {
+                container.innerHTML = `<p class="text-xs text-slate-400 col-span-4 text-center py-6"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Buscando raza "${query}"...</p>`;
+                
+                let res = await fetch(`https://dog.ceo/api/breed/${query}/images/random/4`);
+                let data = await res.json();
+
+                if (data.status === 'success') {
+                    container.innerHTML = data.message.map(img => `
+                        <div class="rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 shadow-sm h-48">
+                            <img src="${img}" alt="${query}" class="w-full h-full object-cover">
+                        </div>
+                    `).join('');
+                } else {
+                    alertBox(`La raza "${query}" no existe en el registro principal de Dog CEO.`);
+                    fetchDogImages();
+                }
+            } catch (err) {
+                alertBox('Error al buscar la raza.');
+            }
+        }
+
+        function alertBox(msg) {
+            const modal = document.createElement('div');
+            modal.className = "fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4";
+            modal.innerHTML = `
+                <div class="bg-slate-900 p-6 rounded-2xl max-w-sm w-full border border-slate-800 shadow-2xl space-y-4">
+                    <h5 class="font-bold text-sm flex items-center text-sky-400"><i class="fa-solid fa-circle-info mr-2"></i> Mensaje del Sistema</h5>
+                    <p class="text-xs text-slate-300">${msg}</p>
+                    <button onclick="this.closest('.fixed').remove()" class="w-full py-2 bg-sky-600 text-white rounded-xl text-xs font-bold">Aceptar</button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+        
         // ==========================================
         // 1. TASK TRACKER LOGIC
         // ==========================================
@@ -1154,7 +2497,7 @@ y_pred = model.predict(X_test)</code></pre>
         ];
 
         let cart = [];
-
+        //otro
         function renderProducts(filter = 'all') {
             const grid = document.getElementById('products-grid');
             if (!grid) return;
@@ -1774,6 +3117,14 @@ y_pred = model.predict(X_test)</code></pre>
             auditPassword();
             initMlCanvas();
             drawDataCanvas();
+            loadFakeStoreProducts();
+            toggleScheduleInput();
+            fetchWeatherForCoords(-16.5000, -68.1500, 'La Paz, Bolivia');
+
+            const tom = new Date();
+            tom.setDate(tom.getDate() + 1);
+            tom.setHours(9, 0, 0, 0);
+            document.getElementById('wf-target-datetime').value = tom.toISOString().slice(0, 16);        
         };
                 //prueba 2
         // 1. Seleccionamos el fantasma flotante del HTML
